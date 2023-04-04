@@ -1,0 +1,34 @@
+PODS:
+  - Alamofire (5.6.4)
+  - EasyDebug (0.1.0):
+    - SwiftLint
+  - LookinServer (1.1.5):
+    - LookinServer/Core (= 1.1.5)
+  - LookinServer/Core (1.1.5)
+  - SwiftLint (0.50.3)
+
+DEPENDENCIES:
+  - Alamofire
+  - EasyDebug (from `../`)
+  - LookinServer
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - LookinServer
+    - SwiftLint
+
+EXTERNAL SOURCES:
+  EasyDebug:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  EasyDebug: 5c34f9b89e3f2faebbd930aaa4dfecc03a2f3d8e
+  LookinServer: 2893f2bae53cbf3fd49bbe1a8ea1745582ef1317
+  SwiftLint: 77f7cb2b9bb81ab4a12fcc86448ba3f11afa50c6
+
+PODFILE CHECKSUM: 547df1815b5e4022abe5ee63a735cefc8c83a954
+
+COCOAPODS: 1.11.2

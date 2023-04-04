@@ -1,0 +1,32 @@
+{
+  "name": "EasyDebug",
+  "version": "0.1.0",
+  "summary": "A short description of EasyDebug.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/zlfyuan/EasyDebug",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zlfyuan": "1553427003@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/zlfyuan/EasyDebug.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source_files": "EasyDebug/Classes/**/*",
+  "resource_bundles": {
+    "EasyDebug": [
+      "EasyDebug/Classes/Resources/*"
+    ]
+  },
+  "dependencies": {
+    "SwiftLint": [
+
+    ]
+  }
+}

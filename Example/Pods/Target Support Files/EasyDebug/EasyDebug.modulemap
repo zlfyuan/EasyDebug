@@ -1,0 +1,6 @@
+framework module EasyDebug {
+  umbrella header "EasyDebug-umbrella.h"
+
+  export *
+  module * { export * }
+}
