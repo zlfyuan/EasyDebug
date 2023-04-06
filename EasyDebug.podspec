@@ -33,12 +33,13 @@ TODO: Add long description of the pod here.
   s.source_files = 'EasyDebug/Classes/**/*'
   
    s.resource_bundles = {
-     'EasyDebug' => ['EasyDebug/Classes/Resources/*.png'],
+#     'EasyDebug' => ['EasyDebug/Classes/Resources/*.png'],
      'EasyDebug' => ['EasyDebug/Classes/Resources/*'],
    }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'SwiftLint'
+  s.dependency 'CocoaLumberjack/Swift'
 
 end

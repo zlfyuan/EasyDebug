@@ -24,7 +24,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE
 //
-
+import CocoaLumberjack
 public class EasyDebug {
     
     static public let shared = EasyDebug()
@@ -46,6 +46,20 @@ public class EasyDebug {
         EasyDebug.shared.currentController = window?.rootViewController
         guard let optionsfunc = options else { return }
         print(optionsfunc().debug)
+        
+        DDLog.add(DDOSLogger.sharedInstance) // Uses os_log
+
+        let fileLogger: DDFileLogger = DDFileLogger() // File Logger
+        fileLogger.rollingFrequency = 60 * 60 * 24 // 24 hours
+        fileLogger.logFileManager.maximumNumberOfLogFiles = 7
+        DDLog.add(fileLogger)
+
+
+        DDLogVerbose("Verbose")
+        DDLogDebug("Debug")
+        DDLogInfo("Info")
+        DDLogWarn("Warn")
+        DDLogError("Error")
     }
     
     @objc func debugAction() {

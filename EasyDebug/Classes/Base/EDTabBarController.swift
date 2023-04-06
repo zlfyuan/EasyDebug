@@ -45,7 +45,7 @@ class EDTabBarController: UITabBarController {
                                                   selectedImage: UIImage.getBundleImage(withName: "s_gear@2x"))
         viewController2.title = viewController2.tabBarItem.title
 
-        let viewController3 = EDAppInfoController()
+        let viewController3 = EDAppInfoController(style: .grouped)
         viewController3.tabBarItem = UITabBarItem(title: String.edLocalizedString(withKey: "title.info"),
                                                   image: UIImage.getBundleImage(withName: "info.circle@2x"),
                                                   selectedImage: UIImage.getBundleImage(withName: "s_info.circle@2x"))
