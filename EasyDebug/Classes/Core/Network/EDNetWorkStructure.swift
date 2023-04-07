@@ -53,7 +53,7 @@ extension EDNetWorkStructure: CustomStringConvertible {
         }
         
         json["Response headers"] = self.edReponseHeader.value["values"]
-        if let _body = self.edRequestBodyInfo.value["values"] as? String {
+        if let _body = self.edResponseBodyInfo.value["values"] as? String {
             json["Response body"] = EDCommon.getJsonString(rawValue: _body)
         }else{
             json["Response body"] = nil

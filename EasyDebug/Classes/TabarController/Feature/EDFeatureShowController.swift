@@ -80,12 +80,17 @@ class EDFeatureShowController: EDBaseController {
             topView.addSubview(button)
             if e.offset == 0 { self.currentButton = button }
             
-            
-            
-            let vc = EDNetworkingController(style: .grouped)
-            controllers.append(vc)
-            
         })
+        
+        let logVc = EDLogController()
+        controllers.append(logVc)
+        
+        let netWorkVc = EDNetworkingController(style: .grouped)
+        controllers.append(netWorkVc)
+        
+        let sandBoxVc = EDSandBoxController(style: .grouped)
+        controllers.append(sandBoxVc)
+        
         pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageController.dataSource = self
         addChildViewController(pageController)

@@ -252,6 +252,9 @@
 		C742981529DEDA8700D305A4 /* EDPropertiesable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C742981429DEDA8700D305A4 /* EDPropertiesable.swift */; };
 		C7AC1F6702EFE27010AFE3FB770796DD /* LookinStaticAsyncUpdateTask.h in Headers */ = {isa = PBXBuildFile; fileRef = BAFC3AE4654529E41121D7A935F49D6E /* LookinStaticAsyncUpdateTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7E29A896CFB0EF9BA210DFB874044DC /* UIBlurEffect+LookinServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E33BE820A1C3C1005041BBC127EB22 /* UIBlurEffect+LookinServer.m */; };
+		C7FED6F129E027410033D8E2 /* EDSandBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FED6F029E027410033D8E2 /* EDSandBoxController.swift */; };
+		C7FED6F429E027D90033D8E2 /* EDLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FED6F329E027D90033D8E2 /* EDLogController.swift */; };
+		C7FED6F829E028310033D8E2 /* SandBoxManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FED6F729E028310033D8E2 /* SandBoxManger.swift */; };
 		CAD964E22B4E2E879F73E029F82062FE /* Lookin_PTProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D80CB6C3DD9F098F24F0685B5969F /* Lookin_PTProtocol.m */; };
 		CC5CEF28B720411B6A345003785598CE /* EDNetworkingDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4AC01DE3FCFBAAF3674707CBE29B95 /* EDNetworkingDetailController.swift */; };
 		CC97187E6D4D89D6B7D1C0D20218E394 /* CocoaLumberjack-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6822D79C06422D00F7C1DC19BCFFF9C /* CocoaLumberjack-dummy.m */; };
@@ -636,6 +639,9 @@
 		C742981029DE6A4B00D305A4 /* EDDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDDevice.swift; sourceTree = "<group>"; };
 		C742981229DE6AF600D305A4 /* EDApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDApplication.swift; sourceTree = "<group>"; };
 		C742981429DEDA8700D305A4 /* EDPropertiesable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDPropertiesable.swift; sourceTree = "<group>"; };
+		C7FED6F029E027410033D8E2 /* EDSandBoxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDSandBoxController.swift; sourceTree = "<group>"; };
+		C7FED6F329E027D90033D8E2 /* EDLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDLogController.swift; sourceTree = "<group>"; };
+		C7FED6F729E028310033D8E2 /* SandBoxManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandBoxManger.swift; sourceTree = "<group>"; };
 		C81D80CB6C3DD9F098F24F0685B5969F /* Lookin_PTProtocol.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Lookin_PTProtocol.m; path = Src/Main/Shared/Peertalk/Lookin_PTProtocol.m; sourceTree = "<group>"; };
 		C831634CFC08BCD87C5E21C27BF5F3A5 /* LKS_PerspectiveLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKS_PerspectiveLayer.h; path = Src/Main/Server/Perspective/LKS_PerspectiveLayer.h; sourceTree = "<group>"; };
 		C880A0969E9B5EE0A8FB430417777A46 /* LookinAppInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinAppInfo.h; path = Src/Main/Shared/LookinAppInfo.h; sourceTree = "<group>"; };
@@ -979,6 +985,8 @@
 			children = (
 				506FF05057B14D322E7295B0FD45DD11 /* EasyDebug.swift */,
 				07A5C1604A214E8F417F509664616107 /* EDOptions.swift */,
+				C7FED6F629E0281C0033D8E2 /* Log */,
+				C7FED6F529E028130033D8E2 /* SandBox */,
 				C742980F29DE6A4300D305A4 /* Info */,
 				03EDC8F464C5230E7681277629D4D3A5 /* Network */,
 			);
@@ -1038,9 +1046,9 @@
 			isa = PBXGroup;
 			children = (
 				E021D94A50D003A39A541D738D61D853 /* EDFeatureShowController.swift */,
-				D987421254C39FC12BCB54E22D6D13B6 /* EDNetworkingController.swift */,
-				DA4AC01DE3FCFBAAF3674707CBE29B95 /* EDNetworkingDetailController.swift */,
-				30A7E7B503E1F8E1E1EF12A92D2D1E44 /* View */,
+				C7FED6F229E027CD0033D8E2 /* Log */,
+				C7FED6EF29E0272B0033D8E2 /* SandBox */,
+				C7FED6E129E026F00033D8E2 /* Network */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -1263,6 +1271,47 @@
 				C742981229DE6AF600D305A4 /* EDApplication.swift */,
 			);
 			path = Info;
+			sourceTree = "<group>";
+		};
+		C7FED6E129E026F00033D8E2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				30A7E7B503E1F8E1E1EF12A92D2D1E44 /* View */,
+				D987421254C39FC12BCB54E22D6D13B6 /* EDNetworkingController.swift */,
+				DA4AC01DE3FCFBAAF3674707CBE29B95 /* EDNetworkingDetailController.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C7FED6EF29E0272B0033D8E2 /* SandBox */ = {
+			isa = PBXGroup;
+			children = (
+				C7FED6F029E027410033D8E2 /* EDSandBoxController.swift */,
+			);
+			path = SandBox;
+			sourceTree = "<group>";
+		};
+		C7FED6F229E027CD0033D8E2 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				C7FED6F329E027D90033D8E2 /* EDLogController.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		C7FED6F529E028130033D8E2 /* SandBox */ = {
+			isa = PBXGroup;
+			children = (
+				C7FED6F729E028310033D8E2 /* SandBoxManger.swift */,
+			);
+			path = SandBox;
+			sourceTree = "<group>";
+		};
+		C7FED6F629E0281C0033D8E2 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Log;
 			sourceTree = "<group>";
 		};
 		CB4C15BEDDEA4CDD775F790C477AC247 /* TabarController */ = {
@@ -1927,6 +1976,7 @@
 				DB03A2D647F134FB2C2220DEEA1D7708 /* EDNetWorkData.swift in Sources */,
 				4A68AED6D899811151E2BAAFC672596C /* EDNetWorkDataManger.swift in Sources */,
 				C742980E29DE68A100D305A4 /* EDBaseTableViewCell.swift in Sources */,
+				C7FED6F129E027410033D8E2 /* EDSandBoxController.swift in Sources */,
 				EAADC91277B1122B1C35B76BC74A2FFD /* EDNetworkDetailCell.swift in Sources */,
 				55E873467BBB21F417FBF3CADE65ABD4 /* EDNetworkingController.swift in Sources */,
 				CC5CEF28B720411B6A345003785598CE /* EDNetworkingDetailController.swift in Sources */,
@@ -1941,8 +1991,10 @@
 				C742981529DEDA8700D305A4 /* EDPropertiesable.swift in Sources */,
 				1BD3FEFB152949D27071370F53FC903B /* EDViewController.swift in Sources */,
 				0DC3E5F9689BEABAF00AEED1A3E87A95 /* gear@2x.png in Sources */,
+				C7FED6F829E028310033D8E2 /* SandBoxManger.swift in Sources */,
 				50660ED3F73ED1A899643195AE8C6940 /* info.circle@2x.png in Sources */,
 				740AF12C920D4E53288FA507D90B94CD /* lasso.and.sparkles@2x.png in Sources */,
+				C7FED6F429E027D90033D8E2 /* EDLogController.swift in Sources */,
 				2F1302C88619DE4C4090326B259FDCAF /* Localizable.strings in Sources */,
 				0483774B1455BDC702BE70D0C9F682B2 /* Localizable.strings in Sources */,
 				EB1F4B8949BAF693E8CD38D534682A23 /* s_gear@2x.png in Sources */,
