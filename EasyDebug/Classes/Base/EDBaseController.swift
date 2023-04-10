@@ -34,9 +34,23 @@ class EDBaseController: UIViewController {
         self.view.backgroundColor = .white
         self.navigationController?.navigationBar.prefersLargeTitles = true
         // Do any additional setup after loading the view.
+        if self.navigationItem.leftBarButtonItem == nil {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: String.edLocalizedString(withKey: "title.done"), style: .plain, target: self, action: #selector(doneBarButtonItemAction))
+        }
     }
     
-
+    @objc func doneBarButtonItemAction() {
+        self.dismiss(animated: true)
+    }
+    
+    
+//    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+//        guard let edWindow = UIApplication.shared.keyWindow as? EDWindow else {
+//            return
+//        }
+//        edWindow.isHidden = false
+//        super.dismiss(animated: flag, completion: completion)
+//    }
     /*
     // MARK: - Navigation
 

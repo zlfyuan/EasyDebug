@@ -37,6 +37,13 @@ class EDTableController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        if self.navigationController?.navigationItem.leftBarButtonItem == nil {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: String.edLocalizedString(withKey: "title.done"), style: .plain, target: self, action: #selector(doneBarButtonItemAction))
+        }
+    }
+    
+    @objc func doneBarButtonItemAction() {
+        self.dismiss(animated: true)
     }
 
     // MARK: - Table view data source

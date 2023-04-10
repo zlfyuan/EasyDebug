@@ -26,7 +26,7 @@
 
 import UIKit
 
-class EDAppInfoController: UITableViewController {
+class EDAppInfoController: EDTableController {
     typealias SectionData = (title: String,info: [[String: Any]])
 
     var dataSources = [SectionData]()

@@ -17,12 +17,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = .red
         
-        EasyDebug.shared.start({
-                 let option = EDOptions()
-                 option.debug = false
-     
-                 return option
-             })
+//        EasyDebug.shared.start({
+//                 let option = EDOptions()
+//                 option.debug = false
+//     
+//                 return option
+//             })
     }
 
     override func didReceiveMemoryWarning() {

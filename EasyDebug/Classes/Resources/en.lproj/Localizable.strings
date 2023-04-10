@@ -16,7 +16,7 @@
 "title.copy" = "Copy";
 "title.yes" = "Yes";
 "title.share" = "Share";
-
+"title.done" = "Done";
 
 "title.General" = "General";
 "title.Request Headers" = "Request Headers";

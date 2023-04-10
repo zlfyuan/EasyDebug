@@ -59,7 +59,6 @@ class EDTabBarController: UITabBarController {
 
     }
     
-
     /*
     // MARK: - Navigation
 

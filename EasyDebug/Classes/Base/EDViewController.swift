@@ -32,22 +32,29 @@ class EDViewController: EDBaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .green
-        
-        
         let btn = UIButton(type: .system)
         btn.backgroundColor = .orange
         btn.setTitle("debug", for: .normal)
-        btn.frame = CGRect.init(x: 100, y: 100, width: 60, height: 30)
+        btn.frame = self.view.bounds
         btn.addTarget(self, action: #selector(debugAction), for: .touchUpInside)
         self.view.addSubview(btn)
-        
-      
     }
     
     @objc func debugAction() {
         
+        guard let _window = UIApplication.shared.delegate?.window,
+              let window = _window,
+            let rootController = window.rootViewController else {
+            return
+        }
+//        guard let edWindow = UIApplication.shared.keyWindow as? EDWindow else {
+//            return
+//        }
+//        edWindow.isHidden = true
+        let root = EDTabBarController()
+        root.modalPresentationStyle = .overCurrentContext
+        rootController.present(root, animated: true)
     }
-    
 
     /*
     // MARK: - Navigation

@@ -25,6 +25,7 @@
 //  THE SOFTWARE
 //
 import CocoaLumberjack
+
 public class EasyDebug {
     
     static public let shared = EasyDebug()
@@ -32,40 +33,23 @@ public class EasyDebug {
     var currentController: UIViewController? = nil
     
     public func start(_ options: (()->(EDOptions))? = nil) {
+        
         EDURLProtocol.startMonitor()
-        guard let window = UIApplication.shared.delegate?.window else {
-            print("windwo can't empty")
+        
+        
+        guard let appDelegate = UIApplication.shared.delegate else {
+            print("appDelegate can't empty")
             return
         }
-        let btn = UIButton(type: .system)
-        btn.backgroundColor = .orange
-        btn.setTitle("debug", for: .normal)
-        btn.frame = CGRect.init(x: 100, y: 100, width: 60, height: 30)
-        btn.addTarget(self, action: #selector(debugAction), for: .touchUpInside)
-        window?.rootViewController?.view.addSubview(btn)
-        EasyDebug.shared.currentController = window?.rootViewController
+        let edWindow = EDWindow(frame: CGRect.init(x: 0, y: 100, width: 45, height: 45))
+        edWindow.isHidden = false
+        edWindow.windowLevel = UIWindowLevelAlert + 1
+        edWindow.rootViewController = EDViewController()
+        edWindow.makeKeyAndVisible()
+        appDelegate.edWindow = edWindow
+        
         guard let optionsfunc = options else { return }
         print(optionsfunc().debug)
         
-        DDLog.add(DDOSLogger.sharedInstance) // Uses os_log
-
-        let fileLogger: DDFileLogger = DDFileLogger() // File Logger
-        fileLogger.rollingFrequency = 60 * 60 * 24 // 24 hours
-        fileLogger.logFileManager.maximumNumberOfLogFiles = 7
-        DDLog.add(fileLogger)
-
-
-        DDLogVerbose("Verbose")
-        DDLogDebug("Debug")
-        DDLogInfo("Info")
-        DDLogWarn("Warn")
-        DDLogError("Error")
     }
-    
-    @objc func debugAction() {
-        let rootViewController = EDTabBarController()
-//        rootViewController.modalPresentationStyle = .overCurrentContext
-        EasyDebug.shared.currentController?.present(rootViewController, animated: true)
-    }
-    
 }

@@ -245,6 +245,7 @@
 		C098DC8D29C5035855FA28F859066277 /* LookinObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B89E2F7347BD9D1A86D7B6182C7C67 /* LookinObject.m */; };
 		C615DE7F278A720EC3F40B0B438F7414 /* DDLog+LOGV.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3811844337D102B0C74821DED3C9A0 /* DDLog+LOGV.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C70671D5A3C8C0EEB2FDC8A62DE7820B /* LookinAppInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = C880A0969E9B5EE0A8FB430417777A46 /* LookinAppInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C7376F8329E40DB400C390E0 /* EDWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7376F8229E40DB400C390E0 /* EDWindow.swift */; };
 		C742980C29DE669E00D305A4 /* EDAppInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C742980B29DE669E00D305A4 /* EDAppInfoCell.swift */; };
 		C742980E29DE68A100D305A4 /* EDBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C742980D29DE68A100D305A4 /* EDBaseTableViewCell.swift */; };
 		C742981129DE6A4B00D305A4 /* EDDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C742981029DE6A4B00D305A4 /* EDDevice.swift */; };
@@ -634,6 +635,7 @@
 		C4B14FCB4A4AA09DD53BAEE306327470 /* LKS_ExportManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKS_ExportManager.h; path = Src/Main/Server/Others/LKS_ExportManager.h; sourceTree = "<group>"; };
 		C5EB1473B0458C84C6DA8ED736EFDA89 /* RequestTaskMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestTaskMap.swift; path = Source/RequestTaskMap.swift; sourceTree = "<group>"; };
 		C6784B607985ECC7372F55624BC9AC80 /* EasyDebug-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EasyDebug-dummy.m"; sourceTree = "<group>"; };
+		C7376F8229E40DB400C390E0 /* EDWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDWindow.swift; sourceTree = "<group>"; };
 		C742980B29DE669E00D305A4 /* EDAppInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDAppInfoCell.swift; sourceTree = "<group>"; };
 		C742980D29DE68A100D305A4 /* EDBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDBaseTableViewCell.swift; sourceTree = "<group>"; };
 		C742981029DE6A4B00D305A4 /* EDDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDDevice.swift; sourceTree = "<group>"; };
@@ -817,6 +819,7 @@
 				BE5345670B6C377C40EA99DF69F85ECE /* EDTableController.swift */,
 				EBC8D13C197C1C42D5B4D79213B978DA /* EDViewController.swift */,
 				C742980D29DE68A100D305A4 /* EDBaseTableViewCell.swift */,
+				C7376F8229E40DB400C390E0 /* EDWindow.swift */,
 			);
 			name = Base;
 			path = EasyDebug/Classes/Base;
@@ -1995,6 +1998,7 @@
 				50660ED3F73ED1A899643195AE8C6940 /* info.circle@2x.png in Sources */,
 				740AF12C920D4E53288FA507D90B94CD /* lasso.and.sparkles@2x.png in Sources */,
 				C7FED6F429E027D90033D8E2 /* EDLogController.swift in Sources */,
+				C7376F8329E40DB400C390E0 /* EDWindow.swift in Sources */,
 				2F1302C88619DE4C4090326B259FDCAF /* Localizable.strings in Sources */,
 				0483774B1455BDC702BE70D0C9F682B2 /* Localizable.strings in Sources */,
 				EB1F4B8949BAF693E8CD38D534682A23 /* s_gear@2x.png in Sources */,
