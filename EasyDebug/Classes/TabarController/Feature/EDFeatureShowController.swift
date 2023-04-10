@@ -78,7 +78,7 @@ class EDFeatureShowController: EDBaseController {
             let x = marginLeft + (e.offset * marginLeft) + (e.offset * width)
             button.frame = CGRect.init(x: x, y: y, width: width, height: height)
             topView.addSubview(button)
-            if e.offset == 0 { self.currentButton = button }
+            if e.offset == 2 { self.currentButton = button }
             
         })
         

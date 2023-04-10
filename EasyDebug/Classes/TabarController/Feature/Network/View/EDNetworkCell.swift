@@ -43,7 +43,7 @@ class EDNetworkCell: UITableViewCell {
         stateLabel.translatesAutoresizingMaskIntoConstraints = false
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        pathLabel.font = UIFont.systemFont(ofSize: 15)
+        pathLabel.font = UIFont.systemFont(ofSize: 17)
         contentView.addSubview(pathLabel)
         
         stateLabel.font = UIFont.systemFont(ofSize: 14)

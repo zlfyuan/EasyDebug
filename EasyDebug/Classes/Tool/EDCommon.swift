@@ -28,6 +28,9 @@
 import Foundation
 
 class EDCommon {
+    
+    static var placeholder: String = "-"
+    
     static func heightForString(_ string: String, font: UIFont, width: CGFloat) -> CGFloat {
         let size = CGSize(width: width, height: .greatestFiniteMagnitude)
         let options = NSStringDrawingOptions.usesLineFragmentOrigin

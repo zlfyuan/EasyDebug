@@ -28,7 +28,8 @@ import Foundation
 
 class EDSandBoxController: UITableViewController {
     
-    let dataSources = EDNetWorkManger.shared.netWorkDataSources
+    var dataSources = SandBoxManger.shared.fileDataList
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
@@ -56,9 +57,9 @@ class EDSandBoxController: UITableViewController {
     
     
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         var cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier") as? EDNetworkCell
+         var cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier") as? EDSandBoxCell
          if cell == nil {
-             cell = EDNetworkCell.init(reuseIdentifier: "reuseIdentifier")
+             cell = EDSandBoxCell.init(reuseIdentifier: "reuseIdentifier")
          }
          let model = self.dataSources[indexPath.section]
          cell?.model = model
@@ -67,7 +68,10 @@ class EDSandBoxController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = self.dataSources[indexPath.section]
-        self.navigationController?.pushViewController(EDNetworkingDetailController(with: model), animated: true)
+        let sandboxVc = EDSandBoxController(style: .grouped)
+        sandboxVc.title = model.name
+        sandboxVc.dataSources = model.subFiles
+        self.navigationController?.pushViewController(sandboxVc, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -84,37 +88,6 @@ class EDSandBoxController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 6
-    }
-    
-    
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-         return true
-     }
-     
-    
-    
-     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
-     
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let copyAction = UITableViewRowAction(style: .default, title: "复制") { (action, indexPath) in
-            // 复制单元格内容到剪贴板
-            let model = self.dataSources[indexPath.section]
-            debugPrint(model.description)
-            let pasteboard = UIPasteboard.general
-            pasteboard.string = model.description
-        }
-        copyAction.backgroundColor = UIColor.blue
-        return [copyAction]
     }
 
     /*
