@@ -31,11 +31,14 @@ class EDViewController: EDBaseController {
     var root: EDTabBarController? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .green
-        let btn = UIButton(type: .system)
-        btn.backgroundColor = .orange
-        btn.setTitle("debug", for: .normal)
+        self.view.layer.borderColor = UIColor.gray.withAlphaComponent(0.2).cgColor
+        self.view.layer.borderWidth = 3
+        self.view.layer.cornerRadius = view.frame.size.width / 2
+        self.view.layer.masksToBounds = true
+        let btn = UIButton(type: .custom)
         btn.frame = self.view.bounds
+        btn.backgroundColor = .white
+        btn.setBackgroundImage(UIImage.getBundleImage(withName: "easyDebugIcon"), for: .normal)
         btn.addTarget(self, action: #selector(debugAction), for: .touchUpInside)
         self.view.addSubview(btn)
     }

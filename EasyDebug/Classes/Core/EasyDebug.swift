@@ -52,7 +52,7 @@ public class EasyDebug {
             }
             return
         }
-        let edWindow = EDWindow(frame: CGRect.init(x: 0, y: 100, width: 45, height: 45))
+        let edWindow = EDWindow(frame: CGRect.init(x: 0, y: 100, width: 48, height: 48))
         edWindow.isHidden = false
         edWindow.windowLevel = UIWindow.Level.alert + 1
         edWindow.rootViewController = EDViewController()
