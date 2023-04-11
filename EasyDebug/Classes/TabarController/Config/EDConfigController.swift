@@ -26,7 +26,7 @@
 
 
 import UIKit
-class EDConfigController: EDBaseController{
+class EDConfigController: EDTableController{
     
     
     

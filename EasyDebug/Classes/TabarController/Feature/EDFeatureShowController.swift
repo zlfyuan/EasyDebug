@@ -78,7 +78,7 @@ class EDFeatureShowController: EDBaseController {
             let x = marginLeft + (e.offset * marginLeft) + (e.offset * width)
             button.frame = CGRect.init(x: x, y: y, width: width, height: height)
             topView.addSubview(button)
-            if e.offset == 2 { self.currentButton = button }
+            if e.offset == 0 { self.currentButton = button }
             
         })
         
@@ -111,7 +111,7 @@ class EDFeatureShowController: EDBaseController {
     
     @objc func featureAction(_ button: UIButton) {
         self.currentButton?.setTitleColor(.systemBlue, for: .normal)
-        self.currentButton?.backgroundColor = .white
+        self.currentButton?.backgroundColor = EDCommon.dynamicColor(.white)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
         self.title = button.titleLabel?.text

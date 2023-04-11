@@ -99,4 +99,18 @@ class EDCommon {
         }
         return resource_bundle
     }
+    
+    static func dynamicColor(_ lightColor: UIColor, darkColor: UIColor? = UIColor.white)  -> UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.init { (traitCollection) -> UIColor in
+                if traitCollection.userInterfaceStyle == .light {
+                    return lightColor
+                }else{
+                    return .systemBackground
+                }
+            }
+        } else {
+            return lightColor
+        }
+    }
 }

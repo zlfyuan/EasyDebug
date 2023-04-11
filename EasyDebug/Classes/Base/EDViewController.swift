@@ -37,7 +37,7 @@ class EDViewController: EDBaseController {
         self.view.layer.masksToBounds = true
         let btn = UIButton(type: .custom)
         btn.frame = self.view.bounds
-        btn.backgroundColor = .white
+        btn.backgroundColor = EDCommon.dynamicColor(.white)
         btn.setBackgroundImage(UIImage.getBundleImage(withName: "easyDebugIcon"), for: .normal)
         btn.addTarget(self, action: #selector(debugAction), for: .touchUpInside)
         self.view.addSubview(btn)

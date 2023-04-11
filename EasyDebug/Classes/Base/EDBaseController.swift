@@ -31,7 +31,7 @@ class EDBaseController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = EDCommon.dynamicColor(.white)
         self.navigationController?.navigationBar.prefersLargeTitles = true
         // Do any additional setup after loading the view.
     }

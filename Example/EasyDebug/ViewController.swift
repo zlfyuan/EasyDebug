@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.view.backgroundColor = .red
+//        self.view.backgroundColor = ≥.white
         
 //        EasyDebug.shared.start({
 //                 let option = EDOptions()
