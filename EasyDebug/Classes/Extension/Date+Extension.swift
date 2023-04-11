@@ -63,7 +63,7 @@ public extension Date{
     ///
     ///     Date().weekday -> 5 // fifth day in the current week.
     ///
-    public var weekday: Int {
+    var weekday: Int {
         let calender = Calendar.current
            var comp = calender.dateComponents([.year, .month, .day, .weekday], from: self)
         return comp.weekday ?? 0
@@ -80,7 +80,7 @@ public extension Date{
     }
     
     //任意时间的格式化
-    public func strDate(format:String) ->String{
+    func strDate(format:String) ->String{
         let _format = DateFormatter()
         _format.timeZone = timeZone
         _format.locale = timeLocal
@@ -89,7 +89,7 @@ public extension Date{
     }
     
     //返回某个时间是周几
-    public func strDateForWeek() ->String{
+    func strDateForWeek() ->String{
         let _format = DateFormatter()
         _format.timeZone = timeZone
         _format.locale = Locale(identifier: "zh_CN")

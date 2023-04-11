@@ -27,19 +27,18 @@ TODO: Add long description of the pod here.
   s.author           = { 'zlfyuan' => '1553427003@qq.com' }
   s.source           = { :git => 'https://github.com/zlfyuan/EasyDebug.git', :tag => s.version.to_s }
 
-
+  s.swift_version = '5.0'
   s.ios.deployment_target = '11.0'
 
   s.source_files = 'EasyDebug/Classes/**/*'
   
    s.resource_bundles = {
-#     'EasyDebug' => ['EasyDebug/Classes/Resources/*.png'],
-     'EasyDebug' => ['EasyDebug/Classes/Resources/*'],
+     'EasyDebug' => ['EasyDebug/Assets/*.xcassets'],
    }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'SwiftLint'
-  s.dependency 'CocoaLumberjack/Swift'
+#  s.dependency 'SwiftLint'
+#  s.dependency 'CocoaLumberjack/Swift'
 
 end

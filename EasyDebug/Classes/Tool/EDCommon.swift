@@ -81,4 +81,22 @@ class EDCommon {
             return nil
         }
     }
+    
+    static func formatFileSize(_ fileSize: UInt64) -> String {
+        let byteCountFormatter = ByteCountFormatter()
+        byteCountFormatter.allowedUnits = [.useBytes, .useKB, .useMB, .useGB, .useTB, .usePB]
+        byteCountFormatter.countStyle = .file
+
+        return byteCountFormatter.string(fromByteCount: Int64(fileSize))
+    }
+    
+    static var easyDebugBundle: Bundle {
+        let bundleNamePath = "EasyDebug.bundle"
+        let bundlepath = Bundle(for: type(of: EasyDebug())).resourcePath! + "/" + "\(bundleNamePath)"
+        guard let resource_bundle = Bundle(path: bundlepath) else {
+            debugPrint("easyDebugBundle get empty")
+            return Bundle.main
+        }
+        return resource_bundle
+    }
 }

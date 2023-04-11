@@ -26,21 +26,24 @@
 
 import Foundation
 
-class EDSandBoxController: UITableViewController {
+class EDSandBoxController: EDTableController {
     
     var dataSources = SandBoxManger.shared.fileDataList
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.separatorStyle = .none
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 85
-        tableView.keyboardDismissMode = .onDrag
-        // Uncomment the following line to preserve selection between presentations
-         self.clearsSelectionOnViewWillAppear = true
-        
+        self.tableView.tableFooterView = createFooterView()
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func createFooterView() -> UIView {
+        let footView = UILabel(frame: CGRect.init(x: 0, y: 0, width: self.tableView.frame.size.width, height: 80))
+        footView.text = "共\(dataSources.count)项"
+        footView.font = UIFont.systemFont(ofSize: 14)
+        footView.textColor = .systemGray
+        footView.textAlignment = .center
+        return footView
     }
     
     // MARK: - Table view data source
@@ -68,6 +71,7 @@ class EDSandBoxController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = self.dataSources[indexPath.section]
+        if model.subFiles.count == 0 { return }
         let sandboxVc = EDSandBoxController(style: .grouped)
         sandboxVc.title = model.name
         sandboxVc.dataSources = model.subFiles
@@ -87,7 +91,7 @@ class EDSandBoxController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 6
+        return 1
     }
 
     /*

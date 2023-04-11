@@ -29,12 +29,12 @@ class EDNetworkCell: UITableViewCell {
     fileprivate let pathLabel = UILabel()
     fileprivate let stateLabel = UILabel()
     fileprivate let timeLabel = UILabel()
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
     convenience init(reuseIdentifier: String?) {
-        self.init(style: UITableViewCellStyle.subtitle, reuseIdentifier: reuseIdentifier)
+        self.init(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
         self.contentView.layer.cornerRadius = 15
         self.contentView.layer.masksToBounds = true

@@ -93,11 +93,11 @@ class EDFeatureShowController: EDBaseController {
         
         pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageController.dataSource = self
-        addChildViewController(pageController)
+        addChild(pageController)
         pageController.view.frame = CGRect.init(x: 0, y: topView.frame.maxY, width: self.view.frame.width, height: self.view.frame.height - topView.frame.maxY - self.tabBarController!.tabBar.frame.height)
         view.addSubview(pageController.view)
         pageController.view.translatesAutoresizingMaskIntoConstraints = false
-        pageController.didMove(toParentViewController: self)
+        pageController.didMove(toParent: self)
         featureAction(self.currentButton!)
         pageController.setViewControllers([controllers[currentControllerIndex]], direction: .forward, animated: true, completion: nil)
         

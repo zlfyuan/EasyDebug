@@ -24,11 +24,13 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE
 //
-import CocoaLumberjack
+//import CocoaLumberjack
 
 public class EasyDebug {
     
     static public let shared = EasyDebug()
+    
+    var visibleabled: Bool = false
     
     var currentController: UIViewController? = nil
     
@@ -41,9 +43,15 @@ public class EasyDebug {
             print("appDelegate can't empty")
             return
         }
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.start(options)
+            }
+            return
+        }
         let edWindow = EDWindow(frame: CGRect.init(x: 0, y: 100, width: 45, height: 45))
         edWindow.isHidden = false
-        edWindow.windowLevel = UIWindowLevelAlert + 1
+        edWindow.windowLevel = UIWindow.Level.alert + 1
         edWindow.rootViewController = EDViewController()
         edWindow.makeKeyAndVisible()
         appDelegate.edWindow = edWindow

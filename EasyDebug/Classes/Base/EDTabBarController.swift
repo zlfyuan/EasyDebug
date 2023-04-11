@@ -35,29 +35,37 @@ class EDTabBarController: UITabBarController {
         // 创建3个视图控制器
         let viewController1 = EDFeatureShowController()
         viewController1.tabBarItem = UITabBarItem(title: String.edLocalizedString(withKey: "title.feature"),
-                                                  image: UIImage.getBundleImage(withName: "lasso.and.sparkles@2x"),
-                                                  selectedImage: UIImage.getBundleImage(withName: "s_lasso.and.sparkles@2x"))
-        viewController1.title = viewController1.tabBarItem.title
+                                                  image: UIImage.getBundleImage(withName: "lasso.and.sparkles"),
+                                                  selectedImage: UIImage.getBundleImage(withName: "s_lasso.and.sparkles"))
 
         let viewController2 = EDConfigController()
         viewController2.tabBarItem = UITabBarItem(title: String.edLocalizedString(withKey: "title.config"),
-                                                  image: UIImage.getBundleImage(withName: "gear@2x"),
-                                                  selectedImage: UIImage.getBundleImage(withName: "s_gear@2x"))
-        viewController2.title = viewController2.tabBarItem.title
+                                                  image: UIImage.getBundleImage(withName: "gear"),
+                                                  selectedImage: UIImage.getBundleImage(withName: "s_gear"))
 
         let viewController3 = EDAppInfoController(style: .grouped)
         viewController3.tabBarItem = UITabBarItem(title: String.edLocalizedString(withKey: "title.info"),
-                                                  image: UIImage.getBundleImage(withName: "info.circle@2x"),
-                                                  selectedImage: UIImage.getBundleImage(withName: "s_info.circle@2x"))
-        viewController3.title = viewController3.tabBarItem.title
-
+                                                  image: UIImage.getBundleImage(withName: "info.circle"),
+                                                  selectedImage: UIImage.getBundleImage(withName: "s_info.circle"))
         self.viewControllers = [
-            EDNavigationController(rootViewController: viewController1),
-            EDNavigationController(rootViewController: viewController2),
-            EDNavigationController(rootViewController: viewController3)
+            self.setSubController(viewController1),
+            self.setSubController(viewController2),
+            self.setSubController(viewController3)
         ]
-
     }
+    
+    func setSubController(_ controller: UIViewController) -> EDNavigationController {
+        controller.navigationItem.rightBarButtonItem = UIBarButtonItem(title: String.edLocalizedString(withKey: "title.done"), style: .plain, target: self, action: #selector(doneBarButtonItemAction))
+        controller.title = controller.tabBarItem.title
+        return EDNavigationController(rootViewController:controller)
+    }
+    
+    @objc func doneBarButtonItemAction() {
+        self.dismiss(animated: true) {
+            EasyDebug.shared.visibleabled = false
+        }
+    }
+
     
     /*
     // MARK: - Navigation

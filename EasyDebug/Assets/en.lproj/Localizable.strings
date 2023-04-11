@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by zluof on 2023/4/4.
+  
+*/
+"title.log" = "Log";
+"title.network" = "Network";
+"title.sandbox" = "Sandbox";
+
+"title.feature" = "Feature";
+"title.config" = "Config";
+"title.info" = "Info";
+
+"title.copy" = "Copy";
+"title.yes" = "Yes";
+"title.share" = "Share";
+"title.done" = "Done";
+
+"title.General" = "General";
+"title.Request Headers" = "Request Headers";
+"title.Query String Parameters" = "Query String Parameters";
+"title.Response Headers" = "Response Headers";
+"title.Response Body" = "Response Body";

@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by zluof on 2023/4/4.
+  
+*/
+
+"title.log" = "日志";
+"title.network" = "网络";
+"title.sandbox" = "沙盒";
+
+"title.feature" = "功能";
+"title.config" = "配置";
+"title.info" = "信息";
+
+"title.copy" = "复制";
+"title.yes" = "ok";
+"title.share" = "分享";
+"title.done" = "退出";
+
+
+"title.General" = "常规";
+"title.Request Headers" = "请求头";
+"title.Query String Parameters" = "请求参数";
+"title.Response Headers" = "响应头";
+"title.Response Body" = "响应正文";

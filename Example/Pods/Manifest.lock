@@ -3,13 +3,11 @@ PODS:
   - CocoaLumberjack/Core (3.8.0)
   - CocoaLumberjack/Swift (3.8.0):
     - CocoaLumberjack/Core
-  - EasyDebug (0.1.0):
-    - CocoaLumberjack/Swift
-    - SwiftLint
+  - EasyDebug (0.1.0)
   - LookinServer (1.1.5):
     - LookinServer/Core (= 1.1.5)
   - LookinServer/Core (1.1.5)
-  - SwiftLint (0.51.0)
+  - SwiftLint (0.50.3)
 
 DEPENDENCIES:
   - Alamofire
@@ -32,9 +30,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   CocoaLumberjack: 78abfb691154e2a9df8ded4350d504ee19d90732
-  EasyDebug: b88b3362617b0f81ad2824ec3f10245a80ce82bc
+  EasyDebug: 57625cf2441bad2e03856a87eb9b7af9fdc856af
   LookinServer: 2893f2bae53cbf3fd49bbe1a8ea1745582ef1317
-  SwiftLint: 1b7561918a19e23bfed960e40759086e70f4dba5
+  SwiftLint: 77f7cb2b9bb81ab4a12fcc86448ba3f11afa50c6
 
 PODFILE CHECKSUM: c1a37af810a6ae9c1bc99bb171e8689d07a6e9c6
 

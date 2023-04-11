@@ -67,13 +67,13 @@ class EDDevice: EDPropertiesable {
         let fileManager = FileManager.default
         do {
             let systemAttributes = try fileManager.attributesOfFileSystem(forPath: NSHomeDirectory() as String)
-            let diskTotalSize = systemAttributes[.systemSize] as? NSNumber
-            let diskFreeSize = systemAttributes[.systemFreeSize] as? NSNumber
-            if let total = diskTotalSize?.doubleValue,
-               let free = diskFreeSize?.doubleValue {
-                let diskSize = ceil( total / (1024 * 1024 * 1024))
-                let freeSpace = ceil( free / (1024 * 1024 * 1024))
-                return "\(freeSpace) GB / \(diskSize) GB"
+            if let diskTotalSize = systemAttributes[.systemSize] as? NSNumber,
+               let diskFreeSize = systemAttributes[.systemFreeSize] as? NSNumber {
+                let total = diskTotalSize.uint64Value
+                let free = diskFreeSize.uint64Value
+                let diskSize = EDCommon.formatFileSize(total)
+                let freeSpace = EDCommon.formatFileSize(free)
+                return "\(freeSpace) / \(diskSize)"
             }
         } catch {
             print("Error retrieving system attributes")

@@ -13,7 +13,6 @@ class FileDataModel {
     var createDate: Date = Date()
     var modificationDate:Date = Date()
     var pathUrl: URL? = nil
-    var subFilePath: [URL]? = nil
     var size: UInt64 = 0
     var sizeStr: String = "-"
     var subFiles: [FileDataModel] = [FileDataModel]()
@@ -30,23 +29,25 @@ class SandBoxManger {
     var directoryList: [URL] = [URL]()
     
     init(){
+        self.refreshFiles()
+    }
+    
+    func refreshFiles() {
         let fileManger = self.fileManger
         let library = fileManger.urls(for: .libraryDirectory, in: .userDomainMask)[0]
-        
         let cache = fileManger.urls(for: .cachesDirectory, in: .userDomainMask)[0]
         let tempPath = NSTemporaryDirectory()
         
         directoryList.append(library)
         directoryList.append(cache)
         directoryList.append(URL.init(fileURLWithPath: tempPath))
-        print(directoryList)
         
         let rootFiles = directoryList.map({ f in
             let model = createFileDataModel(use: f)
             model.subFiles = listFilesInDirectory(path: f.path)
 
             let size = folderSize(atPath: f.path)
-            model.sizeStr = formatFileSize(size)
+            model.sizeStr = EDCommon.formatFileSize(model.size)
             return model
         })
         
@@ -57,7 +58,6 @@ class SandBoxManger {
     func subdirectory(use path: URL) -> [FileDataModel] {
         let tempList = [FileDataModel]()
         do {
-            
             let subPaths = try fileManger.contentsOfDirectory(atPath: path.path)
              return subPaths.map({createFileDataModel(use: URL.init(fileURLWithPath: $0))})
         }catch let error as NSError {
@@ -115,16 +115,15 @@ class SandBoxManger {
                         // 如果是目录，则递归遍历子目录
                         let model = createFileDataModel(use: URL.init(fileURLWithPath: fullPath))
                         let size = folderSize(atPath: fullPath)
-                        model.sizeStr = formatFileSize(size)
+                        model.sizeStr = EDCommon.formatFileSize(model.size)
                         model.subFiles = listFilesInDirectory(path: fullPath)
                         models.append(model)
                     } else {
                         // 如果是文件，则添加到结果数组中
                         result.append(fullPath)
                         let model = createFileDataModel(use: URL.init(fileURLWithPath: fullPath))
-                        model.sizeStr = formatFileSize(model.size)
+                        model.sizeStr = EDCommon.formatFileSize(model.size)
                         models.append(model)
-
                     }
                 }
             }
@@ -157,14 +156,6 @@ class SandBoxManger {
             }
         }
         return 0
-    }
-    
-    func formatFileSize(_ fileSize: UInt64) -> String {
-        let byteCountFormatter = ByteCountFormatter()
-        byteCountFormatter.allowedUnits = [.useBytes, .useKB, .useMB, .useGB, .useTB, .usePB]
-        byteCountFormatter.countStyle = .file
-
-        return byteCountFormatter.string(fromByteCount: Int64(fileSize))
     }
     
     func getTextFileStr(filename:String!) -> String! {

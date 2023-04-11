@@ -117,7 +117,7 @@ extension EDNetWorkStructure {
         endDate = self.sessionTaskMetrics.taskInterval.end
         timeElapsed = self.sessionTaskMetrics.taskInterval.duration
         /// 记录请求
-        EDNetWorkManger.shared.netWorkDataSources.append(self)
+        EDNetWorkManger.shared.netWorkDataSources.insert(self, at: 0)
     }
 }
 
@@ -130,3 +130,4 @@ public extension URL {
         }
     }
 }
+

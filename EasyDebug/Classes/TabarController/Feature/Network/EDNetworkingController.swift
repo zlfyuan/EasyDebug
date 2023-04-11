@@ -26,17 +26,13 @@
 
 import Foundation
 
-class EDNetworkingController: UITableViewController {
+class EDNetworkingController: EDTableController {
     
     let dataSources = EDNetWorkManger.shared.netWorkDataSources
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.separatorStyle = .none
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 85
-        tableView.keyboardDismissMode = .onDrag
         // Uncomment the following line to preserve selection between presentations
-         self.clearsSelectionOnViewWillAppear = true
+        //self.clearsSelectionOnViewWillAppear = true
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem

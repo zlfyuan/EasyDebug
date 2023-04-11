@@ -15,21 +15,15 @@
     "git": "https://github.com/zlfyuan/EasyDebug.git",
     "tag": "0.1.0"
   },
+  "swift_versions": "5.0",
   "platforms": {
     "ios": "11.0"
   },
   "source_files": "EasyDebug/Classes/**/*",
   "resource_bundles": {
     "EasyDebug": [
-      "EasyDebug/Classes/Resources/*"
+      "EasyDebug/Assets/*"
     ]
   },
-  "dependencies": {
-    "SwiftLint": [
-
-    ],
-    "CocoaLumberjack/Swift": [
-
-    ]
-  }
+  "swift_version": "5.0"
 }

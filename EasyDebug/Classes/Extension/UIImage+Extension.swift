@@ -27,20 +27,8 @@
 extension UIImage {
   
     static func getBundleImage(withName name: String) -> UIImage? {
-        
-        // 获取当前Bundle
-        let currentBundle = Bundle(for: type(of: EasyDebug()))
-        let dict = currentBundle.infoDictionary
-        // 获取Bundle的名称
-        let bundleName = dict?["CFBundleExecutable"] as? String ?? ""
-        // 获取屏幕比例
-        let scale = UIScreen.main.scale
-        // 拼接图片名称
         let imageName = "\(name)"
-        let bundleNamePath = "\(bundleName).bundle"
-        // 获取Bundle路径
-        let bundlepath = Bundle(for: type(of: EasyDebug())).resourcePath! + "/" + "\(bundleNamePath)"
-        let resource_bundle = Bundle(path: bundlepath)
+        let resource_bundle = EDCommon.easyDebugBundle
         let image = UIImage(named: imageName, in: resource_bundle, compatibleWith: nil)
         return image
     }

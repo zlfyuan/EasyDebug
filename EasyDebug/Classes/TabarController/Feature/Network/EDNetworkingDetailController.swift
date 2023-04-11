@@ -27,7 +27,7 @@
 
 import Foundation
 
-class EDNetworkingDetailController: UITableViewController {
+class EDNetworkingDetailController: EDTableController {
     
     var model = EDNetWorkStructure()
     typealias SectionData = (title: String,info: [[String: Any]])
@@ -45,15 +45,12 @@ class EDNetworkingDetailController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.separatorStyle = .none
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 85
-        tableView.keyboardDismissMode = .onDrag
+       
         tableView.register(EDNetworkDetailCell.classForCoder(), forCellReuseIdentifier: reuseIdentifier)
         
         
         // Uncomment the following line to preserve selection between presentations
-        self.clearsSelectionOnViewWillAppear = true
+        // self.clearsSelectionOnViewWillAppear = true
         
         parseData()
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.

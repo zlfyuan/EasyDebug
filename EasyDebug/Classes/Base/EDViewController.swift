@@ -28,7 +28,7 @@
 import UIKit
 
 class EDViewController: EDBaseController {
-
+    var root: EDTabBarController? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .green
@@ -41,7 +41,10 @@ class EDViewController: EDBaseController {
     }
     
     @objc func debugAction() {
-        
+        if EasyDebug.shared.visibleabled == true {
+            root?.doneBarButtonItemAction()
+            return
+        }
         guard let _window = UIApplication.shared.delegate?.window,
               let window = _window,
             let rootController = window.rootViewController else {
@@ -51,9 +54,12 @@ class EDViewController: EDBaseController {
 //            return
 //        }
 //        edWindow.isHidden = true
-        let root = EDTabBarController()
-        root.modalPresentationStyle = .overCurrentContext
-        rootController.present(root, animated: true)
+        let _root = EDTabBarController()
+        _root.modalPresentationStyle = .overCurrentContext
+        rootController.present(_root, animated: true) {
+            self.root = _root
+            EasyDebug.shared.visibleabled = true
+        }
     }
 
     /*

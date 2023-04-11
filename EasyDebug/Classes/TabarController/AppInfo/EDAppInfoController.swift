@@ -35,7 +35,7 @@ class EDAppInfoController: EDTableController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.separatorStyle = .none
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 85
         tableView.keyboardDismissMode = .onDrag
         tableView.register(EDAppInfoCell.classForCoder(), forCellReuseIdentifier: reuseIdentifier)

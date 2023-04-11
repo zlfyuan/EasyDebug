@@ -87,9 +87,8 @@ extension EDLocalizationSetting.Language {
         if let bundle = bundleByLanguageCode[code] {
             return bundle
         } else {
-            let mainBundle = Bundle.init(for: EDLocalizationSetting.classForCoder())
-            if let path = mainBundle.path(forResource: code, ofType: "lproj"),
-                let bundle = Bundle(path: path) {
+            if let path = EDCommon.easyDebugBundle.path(forResource: code, ofType: "lproj"),
+               let bundle = Bundle(path: path) {
                 bundleByLanguageCode[code] = bundle
                 return bundle
             } else {
