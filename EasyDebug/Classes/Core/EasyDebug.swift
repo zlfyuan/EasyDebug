@@ -24,7 +24,6 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE
 //
-//import CocoaLumberjack
 
 public class EasyDebug {
     
@@ -36,11 +35,15 @@ public class EasyDebug {
     
     public func start(_ options: (()->(EDOptions))? = nil) {
         
+        EDLog.shared.config()
+        
         EDURLProtocol.startMonitor()
+        
+        EDLocalizationSetting.setCurrentLanguage(.Chinese)
         
         
         guard let appDelegate = UIApplication.shared.delegate else {
-            print("appDelegate can't empty")
+            EDLogVerbose("appDelegate can't empty")
             return
         }
         if !Thread.isMainThread {
@@ -57,7 +60,8 @@ public class EasyDebug {
         appDelegate.edWindow = edWindow
         
         guard let optionsfunc = options else { return }
-        print(optionsfunc().debug)
+        EDLogInfo(optionsfunc().debug)
         
     }
+    
 }

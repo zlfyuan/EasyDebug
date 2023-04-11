@@ -59,43 +59,16 @@ public let timeZone = TimeZone.init(identifier: "GM+8")
 public let timeLocal = Locale(identifier: "zh_CN")
 //MARK: - 日期格式
 public extension Date{
-    /// SwifterSwift: Weekday.
-    ///
-    ///     Date().weekday -> 5 // fifth day in the current week.
-    ///
-    var weekday: Int {
-        let calender = Calendar.current
-           var comp = calender.dateComponents([.year, .month, .day, .weekday], from: self)
-        return comp.weekday ?? 0
-    }
+   
     
     //当前时间的格式化
-    static func currentDateString(format:String)->String{
+    func toString(format:String)->String{
         let date = Date()
         let _format = DateFormatter()
         _format.timeZone = timeZone
         _format.locale = timeLocal
         _format.dateFormat = format
         return _format.string(from: date)
-    }
-    
-    //任意时间的格式化
-    func strDate(format:String) ->String{
-        let _format = DateFormatter()
-        _format.timeZone = timeZone
-        _format.locale = timeLocal
-        _format.dateFormat = format
-        return _format.string(from: self)
-    }
-    
-    //返回某个时间是周几
-    func strDateForWeek() ->String{
-        let _format = DateFormatter()
-        _format.timeZone = timeZone
-        _format.locale = Locale(identifier: "zh_CN")
-        _format.dateFormat = "EEEE"
-        _format.weekdaySymbols = ["日", "一", "二", "三", "四", "五", "六"]
-        return _format.string(from: self)
     }
     
     static func dateStr(date:String,origmat:String,format:String) ->String{

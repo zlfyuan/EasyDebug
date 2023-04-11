@@ -47,7 +47,7 @@ class SandBoxManger {
             model.subFiles = listFilesInDirectory(path: f.path)
 
             let size = folderSize(atPath: f.path)
-            model.sizeStr = EDCommon.formatFileSize(model.size)
+            model.sizeStr = EDCommon.formatFileSize(size)
             return model
         })
         

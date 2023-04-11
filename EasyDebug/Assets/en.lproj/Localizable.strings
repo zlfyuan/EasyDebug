@@ -6,20 +6,31 @@
   
 */
 "title.log" = "Log";
+
 "title.network" = "Network";
+
 "title.sandbox" = "Sandbox";
 
 "title.feature" = "Feature";
-"title.config" = "Config";
-"title.info" = "Info";
+
+"title.config" = "Configuration";
+
+"title.info" = "Information";
 
 "title.copy" = "Copy";
-"title.yes" = "Yes";
+
+"title.yes" = "OK";
+
 "title.share" = "Share";
-"title.done" = "Done";
+
+"title.done" = "Finish";
 
 "title.General" = "General";
+
 "title.Request Headers" = "Request Headers";
+
 "title.Query String Parameters" = "Query String Parameters";
+
 "title.Response Headers" = "Response Headers";
+
 "title.Response Body" = "Response Body";

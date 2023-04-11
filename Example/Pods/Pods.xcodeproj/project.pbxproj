@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = SwiftLint;
+			productName = SwiftLint;
 		};
 /* End PBXAggregateTarget section */
 
@@ -245,6 +246,8 @@
 		C2B56086373D0543D3105DC799F06F74 /* EDBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92403A33E2156ED57D836533F46B92C /* EDBaseController.swift */; };
 		C615DE7F278A720EC3F40B0B438F7414 /* DDLog+LOGV.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3811844337D102B0C74821DED3C9A0 /* DDLog+LOGV.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C70671D5A3C8C0EEB2FDC8A62DE7820B /* LookinAppInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = C880A0969E9B5EE0A8FB430417777A46 /* LookinAppInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C7876E6C29E54D9900A06375 /* EDLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7876E6B29E54D9900A06375 /* EDLog.swift */; };
+		C7876E7029E56D0D00A06375 /* EDLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7876E6F29E56D0D00A06375 /* EDLogCell.swift */; };
 		C7AC1F6702EFE27010AFE3FB770796DD /* LookinStaticAsyncUpdateTask.h in Headers */ = {isa = PBXBuildFile; fileRef = BAFC3AE4654529E41121D7A935F49D6E /* LookinStaticAsyncUpdateTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7E29A896CFB0EF9BA210DFB874044DC /* UIBlurEffect+LookinServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E33BE820A1C3C1005041BBC127EB22 /* UIBlurEffect+LookinServer.m */; };
 		CAD964E22B4E2E879F73E029F82062FE /* Lookin_PTProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D80CB6C3DD9F098F24F0685B5969F /* Lookin_PTProtocol.m */; };
@@ -405,7 +408,7 @@
 		17735EF8B54D1B2C364928C417BC69EF /* Result+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Result+Alamofire.swift"; path = "Source/Result+Alamofire.swift"; sourceTree = "<group>"; };
 		19AEC45BCE554ECC42246C5D6BB93D58 /* DDMultiFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDMultiFormatter.m; path = Sources/CocoaLumberjack/Extensions/DDMultiFormatter.m; sourceTree = "<group>"; };
 		1B29E4175B7607EE65FE2B13DA3E3F24 /* NSObject+LookinServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+LookinServer.m"; path = "Src/Main/Server/Category/NSObject+LookinServer.m"; sourceTree = "<group>"; };
-		1BA98A047B0A9D1DB76BBEA214F0CDA0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		1BA98A047B0A9D1DB76BBEA214F0CDA0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		1BAACED5F44F042890A22753EC7D3ED7 /* LookinIvarTrace.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LookinIvarTrace.m; path = Src/Base/LookinIvarTrace.m; sourceTree = "<group>"; };
 		1BDCCB7B8F92E0C69C9C9B88FD660D97 /* SandBoxManger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SandBoxManger.swift; sourceTree = "<group>"; };
 		1EA22775B8F339B19698ED7BC62E84AF /* LKS_TraceManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKS_TraceManager.m; path = Src/Main/Server/Others/LKS_TraceManager.m; sourceTree = "<group>"; };
@@ -434,7 +437,7 @@
 		2D36A200DE5B8F934F1CD38EBA59A83D /* LKS_PerspectiveLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKS_PerspectiveLayer.m; path = Src/Main/Server/Perspective/LKS_PerspectiveLayer.m; sourceTree = "<group>"; };
 		2ED240D6A4FC0A89AEB1D3F293944E78 /* LookinAttributesSection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinAttributesSection.h; path = Src/Main/Shared/LookinAttributesSection.h; sourceTree = "<group>"; };
 		2ED9343DA0B71994C1257DEA3FBE1033 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
-		2FE26F359C981A99A95255EC193902A6 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = EasyDebug/Assets/en.lproj; sourceTree = "<group>"; };
+		2FE26F359C981A99A95255EC193902A6 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = EasyDebug/Assets/en.lproj; sourceTree = "<group>"; };
 		2FE9DE39EA0C065D427A460508B4A368 /* DDFileLogger+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "DDFileLogger+Internal.h"; path = "Sources/CocoaLumberjack/DDFileLogger+Internal.h"; sourceTree = "<group>"; };
 		302C0056278F7D495F9C44C088251111 /* ParameterEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoder.swift; path = Source/ParameterEncoder.swift; sourceTree = "<group>"; };
 		303E6CFAC113AA9B5E1CF26340EA2EE5 /* LKS_HierarchyDetailsHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKS_HierarchyDetailsHandler.h; path = Src/Main/Server/Connection/RequestHandler/LKS_HierarchyDetailsHandler.h; sourceTree = "<group>"; };
@@ -564,7 +567,7 @@
 		9190DEA689FBB1CB3EE279C4EFE20BF2 /* DDFileLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDFileLogger.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDFileLogger.h; sourceTree = "<group>"; };
 		91A30632CF5E5485C08475908F97074E /* CocoaLumberjack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CocoaLumberjack.h; path = "Sources/CocoaLumberjack/Supporting Files/CocoaLumberjack.h"; sourceTree = "<group>"; };
 		91DD3CCA31B681CA4D4ED23983B97E7C /* Lookin_PTPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Lookin_PTPrivate.h; path = Src/Main/Shared/Peertalk/Lookin_PTPrivate.h; sourceTree = "<group>"; };
-		930E728AC8846F1925AAE85562E50755 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hans.lproj"; path = "EasyDebug/Assets/zh-Hans.lproj"; sourceTree = "<group>"; };
+		930E728AC8846F1925AAE85562E50755 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hans.lproj"; path = "EasyDebug/Assets/zh-Hans.lproj"; sourceTree = "<group>"; };
 		93DA50324C79975A86DD3E48AEB522D3 /* UIVisualEffectView+LookinServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIVisualEffectView+LookinServer.m"; path = "Src/Main/Server/Category/UIVisualEffectView+LookinServer.m"; sourceTree = "<group>"; };
 		95C816CB00CC0D9A3FD0224464B7ADBE /* Lookin_PTChannel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Lookin_PTChannel.h; path = Src/Main/Shared/Peertalk/Lookin_PTChannel.h; sourceTree = "<group>"; };
 		970C684044D1BAABA7561A63F6362F52 /* LKS_LocalInspectViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKS_LocalInspectViewController.m; path = Src/Main/Server/Inspect/LKS_LocalInspectViewController.m; sourceTree = "<group>"; };
@@ -577,7 +580,7 @@
 		9C271C926A603653C4BC472838922AC8 /* DDASLLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDASLLogger.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDASLLogger.h; sourceTree = "<group>"; };
 		9CE362B33627FBCEE6C21E5E0F1903C5 /* LookinConnectionAttachment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LookinConnectionAttachment.m; path = Src/Main/Shared/LookinConnectionAttachment.m; sourceTree = "<group>"; };
 		9D63F81E4A411D309C1BA3BA5C5AFF45 /* LookinServer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LookinServer.release.xcconfig; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E6345DE42AFF503F4ECEE61FE78FBC0 /* SwiftLogLevel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SwiftLogLevel.h; path = Sources/CocoaLumberjackSwiftSupport/include/CocoaLumberjackSwiftSupport/SwiftLogLevel.h; sourceTree = "<group>"; };
 		9E7490AEE35998D26F0198387365E83C /* EDLocalizationManger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDLocalizationManger.swift; sourceTree = "<group>"; };
 		9EB76E16BA168339F3F188FD531418C3 /* LookinIvarTrace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinIvarTrace.h; path = Src/Base/LookinIvarTrace.h; sourceTree = "<group>"; };
@@ -616,7 +619,7 @@
 		B8D2C861BC18AF0BE8C4D00927FABC01 /* EasyDebug-EasyDebug */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "EasyDebug-EasyDebug"; path = EasyDebug.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		B907082CA9A5F00340E76B50BAA9B2C6 /* LookinMethodTraceRecord.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinMethodTraceRecord.h; path = Src/Main/Shared/LookinMethodTraceRecord.h; sourceTree = "<group>"; };
 		B92403A33E2156ED57D836533F46B92C /* EDBaseController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDBaseController.swift; sourceTree = "<group>"; };
-		B9B7A96FF50F8E9C309254A4181E38E0 /* EasyDebug.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = EasyDebug.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B9B7A96FF50F8E9C309254A4181E38E0 /* EasyDebug.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = EasyDebug.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BAFC3AE4654529E41121D7A935F49D6E /* LookinStaticAsyncUpdateTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinStaticAsyncUpdateTask.h; path = Src/Main/Shared/LookinStaticAsyncUpdateTask.h; sourceTree = "<group>"; };
 		BB532C3EF827A7B7F2ECCFDD4189BCC7 /* EDViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDViewController.swift; sourceTree = "<group>"; };
 		BBEFD0CCF2424347559D290757A2CAD2 /* LKSConfigManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKSConfigManager.h; path = Src/Main/Server/Others/LKSConfigManager.h; sourceTree = "<group>"; };
@@ -624,7 +627,7 @@
 		BD611F88ECCDA4F8B51537A0BFC202BB /* Codable+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Codable+Extension.swift"; sourceTree = "<group>"; };
 		BE2A05ECD64946F18A904907058BDD31 /* Pods-EasyDebug_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EasyDebug_Example.modulemap"; sourceTree = "<group>"; };
 		BE3FE91D4BA0B7BDF04D429059ADACE2 /* UITextView+LookinServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextView+LookinServer.h"; path = "Src/Main/Server/Category/UITextView+LookinServer.h"; sourceTree = "<group>"; };
-		BF1D93F818FDBC4CF8F8636EE8938FBC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		BF1D93F818FDBC4CF8F8636EE8938FBC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C1B64ADBCB9A2A22F4C1B98B70ADB99D /* EDNetWorkDataManger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDNetWorkDataManger.swift; sourceTree = "<group>"; };
 		C1FFDBE7F8080D58A46903FC814845D4 /* LKS_RequestHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKS_RequestHandler.h; path = Src/Main/Server/Connection/LKS_RequestHandler.h; sourceTree = "<group>"; };
 		C261436D14052AE3C35F240BCD155CAC /* CocoaLumberjack */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CocoaLumberjack; path = CocoaLumberjack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -635,6 +638,8 @@
 		C3F5C66E342B3A7F19CD53224C08E623 /* DDMultiFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDMultiFormatter.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDMultiFormatter.h; sourceTree = "<group>"; };
 		C4B14FCB4A4AA09DD53BAEE306327470 /* LKS_ExportManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKS_ExportManager.h; path = Src/Main/Server/Others/LKS_ExportManager.h; sourceTree = "<group>"; };
 		C5EB1473B0458C84C6DA8ED736EFDA89 /* RequestTaskMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestTaskMap.swift; path = Source/RequestTaskMap.swift; sourceTree = "<group>"; };
+		C7876E6B29E54D9900A06375 /* EDLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDLog.swift; sourceTree = "<group>"; };
+		C7876E6F29E56D0D00A06375 /* EDLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDLogCell.swift; sourceTree = "<group>"; };
 		C81D80CB6C3DD9F098F24F0685B5969F /* Lookin_PTProtocol.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Lookin_PTProtocol.m; path = Src/Main/Shared/Peertalk/Lookin_PTProtocol.m; sourceTree = "<group>"; };
 		C831634CFC08BCD87C5E21C27BF5F3A5 /* LKS_PerspectiveLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKS_PerspectiveLayer.h; path = Src/Main/Server/Perspective/LKS_PerspectiveLayer.h; sourceTree = "<group>"; };
 		C880A0969E9B5EE0A8FB430417777A46 /* LookinAppInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinAppInfo.h; path = Src/Main/Shared/LookinAppInfo.h; sourceTree = "<group>"; };
@@ -775,7 +780,6 @@
 			children = (
 				53F2D8E2B25199519BFDC5355A94B782 /* EDSandBoxCell.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -783,8 +787,8 @@
 			isa = PBXGroup;
 			children = (
 				7670E03D34A4FAC11E00CFBA9AA5671A /* EDLogController.swift */,
+				C7876E6E29E56CFD00A06375 /* View */,
 			);
-			name = Log;
 			path = Log;
 			sourceTree = "<group>";
 		};
@@ -795,7 +799,6 @@
 				AF7B861E2B377CA69CD06C5AC18748AA /* EDNetworkingDetailController.swift */,
 				F7371ACA24231DF68FAA30AF40B29716 /* View */,
 			);
-			name = Network;
 			path = Network;
 			sourceTree = "<group>";
 		};
@@ -834,7 +837,6 @@
 			children = (
 				122C7D46E8771F7D0A04ACCB8A1EFB9C /* EDConfigController.swift */,
 			);
-			name = Config;
 			path = Config;
 			sourceTree = "<group>";
 		};
@@ -846,7 +848,6 @@
 				9716D27D99A1CFBEBCF1CA5B9E6DE35B /* EDNetWorkStructure.swift */,
 				57EF478064F0911EE7BBD2FA07A40E9E /* EDURLProtocol.swift */,
 			);
-			name = Network;
 			path = Network;
 			sourceTree = "<group>";
 		};
@@ -876,7 +877,6 @@
 				B5E81CE290C743954A2C6328A451CE3E /* Core */,
 				5F4F0DCC35EE08E9A8CBDA49E81885E3 /* Support Files */,
 			);
-			name = LookinServer;
 			path = LookinServer;
 			sourceTree = "<group>";
 		};
@@ -886,7 +886,6 @@
 				0F5298488BAD9C128BDF2A6B1ACC8DC2 /* EDApplication.swift */,
 				EF21426026FD3305B43B5EDAABB9183E /* EDDevice.swift */,
 			);
-			name = Info;
 			path = Info;
 			sourceTree = "<group>";
 		};
@@ -920,7 +919,6 @@
 				22068439A56EEEB914366FE7CFA7A4AB /* EDAppInfoController.swift */,
 				CDD8C800AB03C09D6B513DFB003167CF /* View */,
 			);
-			name = AppInfo;
 			path = AppInfo;
 			sourceTree = "<group>";
 		};
@@ -989,7 +987,6 @@
 				F680ECA53BF11762079EF08F20076EB7 /* Support Files */,
 				ED5EE92FE5D391169C8085D55E6A1E35 /* Swift */,
 			);
-			name = CocoaLumberjack;
 			path = CocoaLumberjack;
 			sourceTree = "<group>";
 		};
@@ -1028,7 +1025,6 @@
 				AB3B833C116A01256FD640F3BF6A0EE8 /* EDSandBoxController.swift */,
 				0548D7B09BD6E8B2BCBD2B4A60F07239 /* View */,
 			);
-			name = SandBox;
 			path = SandBox;
 			sourceTree = "<group>";
 		};
@@ -1094,7 +1090,6 @@
 				A94E30C86BFD0EFACA8C6CEB8456B198 /* Validation.swift */,
 				1B91F3849E9870AAC17230E0E219542B /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1103,7 +1098,6 @@
 			children = (
 				1BDCCB7B8F92E0C69C9C9B88FD660D97 /* SandBoxManger.swift */,
 			);
-			name = SandBox;
 			path = SandBox;
 			sourceTree = "<group>";
 		};
@@ -1274,8 +1268,23 @@
 				0DB5ED63B716148D91BE6032EE941361 /* Network */,
 				82015A66254A59C29C32FD95CEC13920 /* SandBox */,
 			);
-			name = Feature;
 			path = Feature;
+			sourceTree = "<group>";
+		};
+		C7876E6A29E54D8B00A06375 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				C7876E6B29E54D9900A06375 /* EDLog.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		C7876E6E29E56CFD00A06375 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C7876E6F29E56D0D00A06375 /* EDLogCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CC3FB987FB6F4AD87C4C26DCA8B74E6B /* Core */ = {
@@ -1283,6 +1292,7 @@
 			children = (
 				13347BD2A54150F42BC33067F91E705B /* EasyDebug.swift */,
 				FC8A437522C56123F62BC44CB410AADD /* EDOptions.swift */,
+				C7876E6A29E54D8B00A06375 /* Log */,
 				540FF085E8E96732C14C79F635937469 /* Info */,
 				3C4FF83D1B17B0632B3EF0710EAA5ABB /* Network */,
 				ACA51365DD354ACCDF2990FF813BDA57 /* SandBox */,
@@ -1296,7 +1306,6 @@
 			children = (
 				C278D94786F99098EA49B81AB10D50CE /* EDAppInfoCell.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -1305,7 +1314,6 @@
 			children = (
 				8BA1DE2623D5B10A4586EFF7F17C0D54 /* Support Files */,
 			);
-			name = SwiftLint;
 			path = SwiftLint;
 			sourceTree = "<group>";
 		};
@@ -1404,7 +1412,6 @@
 				D2EB020A86CD93CAADA36B965C2FA95C /* EDNetworkCell.swift */,
 				EC430C1EBDFC41A4CCC1C9221A50E513 /* EDNetworkDetailCell.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -1732,6 +1739,32 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					38DDD5168AE052C28240F9DF7C9D3C68 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					52B60EC2A583F24ACBB69C113F5488B9 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					638FEAAFC575BB76BC6AC055CDDA3506 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					65E8703FD639FAC7BDA49E6D3192AF25 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					93E233E5551705D2BC9CE3778F61CD76 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					B64F376F543950AD70C1D27DF2C90668 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					E95654B155D25890BE8E26081FCA8265 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					EAAA1AD3A8A1B59AB91319EE40752C6D = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1995,6 +2028,7 @@
 				3F3D4151F2EE8C170589450F131E6844 /* Codable+Extension.swift in Sources */,
 				3EF20E3A1149885460C491DB3E4394E5 /* Data+Extension.swift in Sources */,
 				1982B0B896BBAA530848BB6870184659 /* Date+Extension.swift in Sources */,
+				C7876E7029E56D0D00A06375 /* EDLogCell.swift in Sources */,
 				44C1193D6C47FAE3A76DB797D815D240 /* EasyDebug.swift in Sources */,
 				E50D0F1252EB0FB2676FD1052DAFC30B /* EasyDebug-dummy.m in Sources */,
 				82AF18B3BC61E0BFF2A9EC98193CA8AA /* EDAppInfoCell.swift in Sources */,
@@ -2022,6 +2056,7 @@
 				152C3E207E5F827323503D8613841CFA /* EDSandBoxController.swift in Sources */,
 				834E6D4330130DDD4CBDAAC66F1E0A1F /* EDTabBarController.swift in Sources */,
 				48B712E40817E6C61457A5EC234C7A21 /* EDTableController.swift in Sources */,
+				C7876E6C29E54D9900A06375 /* EDLog.swift in Sources */,
 				C1E68C5D75D4AB762B8156363FB5D19B /* EDURLProtocol.swift in Sources */,
 				5D3B3F6255DF509962388C8AD95BE62A /* EDViewController.swift in Sources */,
 				78E2DA7F8455F79475E193C0152A98BD /* EDWindow.swift in Sources */,
@@ -2450,8 +2485,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
