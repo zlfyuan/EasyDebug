@@ -29,6 +29,8 @@
 
 "title.cancel" = "Cancel";
 
+"title.delete" = "Delete";
+
 "title.General" = "General";
 
 "title.Request Headers" = "Request Headers";

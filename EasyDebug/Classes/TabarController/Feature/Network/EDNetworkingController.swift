@@ -89,28 +89,22 @@ class EDNetworkingController: EDTableController {
         return true
     }
     
-    
-    
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
-    
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let copyAction = UITableViewRowAction(style: .default, title: String.edLocalizedString(withKey: "title.copy")) { (action, indexPath) in
-            // 复制单元格内容到剪贴板
+        let copyAction = UITableViewRowAction(style: .normal, title: String.edLocalizedString(withKey: "title.copy")) { (action, indexPath) in
             let model = self.dataSources[indexPath.section]
             EDLogInfo(model.description)
             let pasteboard = UIPasteboard.general
             pasteboard.string = model.description
         }
-        copyAction.backgroundColor = UIColor.blue
-        return [copyAction]
+        copyAction.backgroundColor = .systemBlue
+        let deleteAction = UITableViewRowAction(style: .destructive, title: String.edLocalizedString(withKey: "title.delete")) { (action, indexPath) in
+            tableView.beginUpdates()
+            self.tableView.deleteSections(IndexSet.init(integer: indexPath.section), with: .fade)
+            self.dataSources.remove(at: indexPath.section)
+            EDNetWorkManger.shared.netWorkDataSources = self.dataSources
+            tableView.endUpdates()
+        }
+        return [deleteAction,copyAction]
     }
     
     override func updateSearchResults(for searchText: String?) {

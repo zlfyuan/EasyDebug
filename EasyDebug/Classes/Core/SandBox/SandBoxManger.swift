@@ -8,6 +8,14 @@
 import Foundation
 import MobileCoreServices
 
+enum EDFileType: String {
+    case plist = "plist"
+    case text = "text"
+    case txt = "txt"
+    case json = "json"
+    case none = "none"
+}
+
 class FileDataModel {
     var name: String = EDCommon.placeholder
     var createDate: Date = Date()
@@ -16,6 +24,7 @@ class FileDataModel {
     var size: UInt64 = 0
     var sizeStr: String = "-"
     var subFiles: [FileDataModel] = [FileDataModel]()
+    var fileType = EDFileType.none
 }
 
 class SandBoxManger {
@@ -35,11 +44,11 @@ class SandBoxManger {
     func refreshFiles() {
         let fileManger = self.fileManger
         let library = fileManger.urls(for: .libraryDirectory, in: .userDomainMask)[0]
-        let cache = fileManger.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+        let doc = fileManger.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let tempPath = NSTemporaryDirectory()
         
         directoryList.append(library)
-        directoryList.append(cache)
+        directoryList.append(doc)
         directoryList.append(URL.init(fileURLWithPath: tempPath))
         
         let rootFiles = directoryList.map({ f in
@@ -53,17 +62,6 @@ class SandBoxManger {
         
         fileDataList = rootFiles
         
-    }
-    
-    func subdirectory(use path: URL) -> [FileDataModel] {
-        let tempList = [FileDataModel]()
-        do {
-            let subPaths = try fileManger.contentsOfDirectory(atPath: path.path)
-             return subPaths.map({createFileDataModel(use: URL.init(fileURLWithPath: $0))})
-        }catch let error as NSError {
-            EDLogError("Get dirctory errer: \(error)")
-        }
-        return tempList
     }
     
     func createFileDataModel(use path: URL) -> FileDataModel {
@@ -110,14 +108,16 @@ class SandBoxManger {
                         // 如果是目录，则递归遍历子目录
                         let model = createFileDataModel(use: URL.init(fileURLWithPath: fullPath))
                         let size = folderSize(atPath: fullPath)
-                        model.sizeStr = EDCommon.formatFileSize(model.size)
+                        model.sizeStr = EDCommon.formatFileSize(size)
                         model.subFiles = listFilesInDirectory(path: fullPath)
                         models.append(model)
                     } else {
                         // 如果是文件，则添加到结果数组中
                         result.append(fullPath)
-                        let model = createFileDataModel(use: URL.init(fileURLWithPath: fullPath))
+                        let fileUrl = URL.init(fileURLWithPath: fullPath)
+                        let model = createFileDataModel(use: fileUrl)
                         model.sizeStr = EDCommon.formatFileSize(model.size)
+                        model.fileType = EDFileType.init(rawValue: fileUrl.pathExtension) ?? .none
                         models.append(model)
                     }
                 }
@@ -153,30 +153,50 @@ class SandBoxManger {
         return 0
     }
     
-    func getTextFileStr(filename:String!) -> String! {
-            if let path = Bundle.main.path(forResource: filename, ofType: "txt") {
-                do {
-                    let data = try String(contentsOfFile: path, encoding: .utf8)
-                    return data
-                } catch {
-                    EDLogError(error)
-                }
-            }
-            return ""
+    fileprivate static func readTextFile(named filename: URL) -> Any? {
+        do {
+            let contents = try String(contentsOf: filename)
+            return contents
+        } catch {
+            EDLogError("Error: \(error)")
+            return nil
         }
-
-    func readFile(at path: URL) -> Any {
+    }
+    
+   fileprivate static func readJSONFile(named filename: URL) -> Any? {
+        do {
+            let contents = try Data(contentsOf: filename)
+            let json = try JSONSerialization.jsonObject(with: contents, options: [])
+            return EDCommon.getJsonString(rawValue: json)
+        } catch {
+            EDLogError("Error: \(error)")
+            return nil
+        }
         
-        let fileExt = path.pathExtension //url为所选文件路径
-        let uttype = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension,fileExt as CFString,nil)
-        switch uttype?.takeRetainedValue(){
-        case kUTTypeMovie:
-            EDLogInfo("这是一个视频文件")
-        case kUTTypeText:
-            EDLogInfo("这是一个文本文件")
-        default:
-            break
+    }
+    
+    fileprivate static func readPlistFile(named filename: URL) -> Any? {
+        do {
+            let contents = try Data(contentsOf: filename)
+            let plist = try PropertyListSerialization.propertyList(from: contents, options: [], format: nil)
+            return EDCommon.getJsonString(rawValue: plist)
+        } catch {
+            EDLogError("Error: \(error)")
+            return nil
         }
-        return ""
+    }
+    
+    static func readFile(model fileModel: FileDataModel) -> Any? {
+        switch fileModel.fileType {
+        case .plist:
+            return readPlistFile(named: fileModel.pathUrl!)
+        case .text,
+            .txt:
+            return readTextFile(named: fileModel.pathUrl!)
+        case .json:
+            return readJSONFile(named: fileModel.pathUrl!)
+        case .none:
+            return nil
+        }
     }
 }

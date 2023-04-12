@@ -20,6 +20,7 @@
 "title.done" = "退出";
 "title.search" = "搜索";
 "title.cancel" = "取消";
+"title.delete" = "删除";
 
 
 "title.General" = "常规";

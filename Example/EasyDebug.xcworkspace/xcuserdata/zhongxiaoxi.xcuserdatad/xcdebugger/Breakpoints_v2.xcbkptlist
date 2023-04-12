@@ -60,7 +60,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
             endingLineNumber = "41"
-            landmarkName = "refreshFiles()"
+            landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -76,8 +76,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
             endingLineNumber = "32"
-            landmarkName = "init()"
-            landmarkType = "7">
+            landmarkName = "SandBoxManger"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "28DF06EF-0418-4784-8EF7-716B4C9F91B2 - 41bc198637220c56"

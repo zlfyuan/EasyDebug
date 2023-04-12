@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = SwiftLint;
+			productName = SwiftLint;
 		};
 /* End PBXAggregateTarget section */
 
@@ -217,6 +218,7 @@
 		C6AA72311329D42327B8519DDA2D6F0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E73EEF4EEAED11ABDCB1B17B55A75355 /* Foundation.framework */; };
 		C70671D5A3C8C0EEB2FDC8A62DE7820B /* LookinAppInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = C3885F98BDC17869E520C7B8F88EF5FC /* LookinAppInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7605211ED087DBD91D7CD34427AB637 /* EDFeatureShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D6727CCC49ED9D0413B1D516E73CE /* EDFeatureShowController.swift */; };
+		C79020BD29E6E792006A8904 /* EDFileContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79020BC29E6E791006A8904 /* EDFileContentController.swift */; };
 		C7AC1F6702EFE27010AFE3FB770796DD /* LookinStaticAsyncUpdateTask.h in Headers */ = {isa = PBXBuildFile; fileRef = A9101D3917A70878E13A82593343600A /* LookinStaticAsyncUpdateTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7E29A896CFB0EF9BA210DFB874044DC /* UIBlurEffect+LookinServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F6C0F14F1ACF215E94DDFA614302CC /* UIBlurEffect+LookinServer.m */; };
 		CAD964E22B4E2E879F73E029F82062FE /* Lookin_PTProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = B212087AD26ED8D6DEB193EA36F2F742 /* Lookin_PTProtocol.m */; };
@@ -410,7 +412,7 @@
 		5AFDA0679290B69B38A9C3F15FF4EC64 /* EDAppInfoCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDAppInfoCell.swift; sourceTree = "<group>"; };
 		5D524D98367537CCDD72EC85E1091708 /* LKS_PerspectiveManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKS_PerspectiveManager.m; path = Src/Main/Server/Perspective/LKS_PerspectiveManager.m; sourceTree = "<group>"; };
 		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E77C93480F2F68ACB1D218BB4FA3556 /* EasyDebug.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = EasyDebug.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5E77C93480F2F68ACB1D218BB4FA3556 /* EasyDebug.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = EasyDebug.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5F393488EBF3930CDA1AB5E7D3A89D34 /* LookinHierarchyFile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LookinHierarchyFile.m; path = Src/Main/Shared/LookinHierarchyFile.m; sourceTree = "<group>"; };
 		60B0D195F24FEE63197543E3F65B6BAD /* LookinConnectionAttachment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LookinConnectionAttachment.m; path = Src/Main/Shared/LookinConnectionAttachment.m; sourceTree = "<group>"; };
 		620E66302D253FFAF47A2F3329A3D014 /* LookinAttributesGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinAttributesGroup.h; path = Src/Main/Shared/LookinAttributesGroup.h; sourceTree = "<group>"; };
@@ -457,7 +459,7 @@
 		84A5D917AB1A9FAC0C374A4254B81EF5 /* LookinAttributesSection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinAttributesSection.h; path = Src/Main/Shared/LookinAttributesSection.h; sourceTree = "<group>"; };
 		84F50B33D02820FE3FBFCB49836443B2 /* LookinAutoLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LookinAutoLayoutConstraint.m; path = Src/Main/Shared/LookinAutoLayoutConstraint.m; sourceTree = "<group>"; };
 		85022DE8A8B6C3CA187971E1E4DBBA87 /* Pods-EasyDebug_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDebug_Example-umbrella.h"; sourceTree = "<group>"; };
-		8652E8B3204BC7A52AD88CA1AF8DECFA /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = EasyDebug/Assets/en.lproj; sourceTree = "<group>"; };
+		8652E8B3204BC7A52AD88CA1AF8DECFA /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = EasyDebug/Assets/en.lproj; sourceTree = "<group>"; };
 		8710A586AE240B3BFE281CCF428AF8C0 /* LookinServer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LookinServer-prefix.pch"; sourceTree = "<group>"; };
 		8799EF986C35801CDDD2D44CA23EF590 /* UIBlurEffect+LookinServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBlurEffect+LookinServer.h"; path = "Src/Main/Server/Category/UIBlurEffect+LookinServer.h"; sourceTree = "<group>"; };
 		88244600E7BEF11D61F2D69F7F938DE6 /* UIViewController+LookinServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+LookinServer.h"; path = "Src/Main/Server/Category/UIViewController+LookinServer.h"; sourceTree = "<group>"; };
@@ -492,7 +494,7 @@
 		9B78A664E2E127CFF65FCC6422C835EE /* LookinDisplayItemDetail.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LookinDisplayItemDetail.m; path = Src/Main/Shared/LookinDisplayItemDetail.m; sourceTree = "<group>"; };
 		9C5361A1A483FF6771C3554A6F22C876 /* SandBoxManger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SandBoxManger.swift; sourceTree = "<group>"; };
 		9D305946726C983A0F20622CC1C36A2E /* LKS_HierarchyDetailsHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKS_HierarchyDetailsHandler.h; path = Src/Main/Server/Connection/RequestHandler/LKS_HierarchyDetailsHandler.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9D989799455D760418EA705698B31ECA /* LookinServer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LookinServer.modulemap; sourceTree = "<group>"; };
 		9DB052AA6874572A25D0EBDAED1557D4 /* EDBaseTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDBaseTableViewCell.swift; sourceTree = "<group>"; };
 		9ED41B2908F9687A13E0154FB9F18C36 /* EDConfigController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDConfigController.swift; sourceTree = "<group>"; };
@@ -532,7 +534,7 @@
 		B8E47D438A4A79431DA2D0C44545141E /* LookinIvarTrace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinIvarTrace.h; path = Src/Base/LookinIvarTrace.h; sourceTree = "<group>"; };
 		B991EEDC3C2A1E869F12EABBCAEAD431 /* LKS_MethodTraceManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKS_MethodTraceManager.m; path = Src/Main/Server/Others/LKS_MethodTraceManager.m; sourceTree = "<group>"; };
 		BBED8ADB2DF10C22713C18B7AA65BD42 /* HTTPHeaders.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTPHeaders.swift; path = Source/HTTPHeaders.swift; sourceTree = "<group>"; };
-		BC50AA19B40087FEC6535183E3334ED8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		BC50AA19B40087FEC6535183E3334ED8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BCAAAB794142B75010FEADF63E924FA3 /* EDTableController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDTableController.swift; sourceTree = "<group>"; };
 		BD2D6727CCC49ED9D0413B1D516E73CE /* EDFeatureShowController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDFeatureShowController.swift; sourceTree = "<group>"; };
 		BD61F07CC1E879B9AC3DE434CF529D88 /* LookinMsgAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinMsgAttribute.h; path = Src/Main/Shared/Message/LookinMsgAttribute.h; sourceTree = "<group>"; };
@@ -546,8 +548,9 @@
 		C2C3FC3614019ACCBADD9BFCE5822509 /* Lookin_PTChannel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Lookin_PTChannel.h; path = Src/Main/Shared/Peertalk/Lookin_PTChannel.h; sourceTree = "<group>"; };
 		C3885F98BDC17869E520C7B8F88EF5FC /* LookinAppInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinAppInfo.h; path = Src/Main/Shared/LookinAppInfo.h; sourceTree = "<group>"; };
 		C4F69DC1CADAAEBD33873CB34DB3454A /* EDNetworkingDetailController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDNetworkingDetailController.swift; sourceTree = "<group>"; };
-		C63C95B3A9BB173F4ACAD05330AC1B49 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		C63C95B3A9BB173F4ACAD05330AC1B49 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C70221E4C7318FF7CB5010FDD0A24239 /* UILabel+LookinServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UILabel+LookinServer.m"; path = "Src/Main/Server/Category/UILabel+LookinServer.m"; sourceTree = "<group>"; };
+		C79020BC29E6E791006A8904 /* EDFileContentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDFileContentController.swift; sourceTree = "<group>"; };
 		C92E5360C1EA08FEF05B3771EF24173E /* Codable+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Codable+Extension.swift"; sourceTree = "<group>"; };
 		CCCF4BE8E0E6BDEB9C3C4299CED685CE /* EDLogCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDLogCell.swift; sourceTree = "<group>"; };
 		CF35155A803B469E55A571E98803C1BF /* RetryPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RetryPolicy.swift; path = Source/RetryPolicy.swift; sourceTree = "<group>"; };
@@ -573,7 +576,7 @@
 		E32EFC0E844D40C6BB2F652D76B368D0 /* EasyDebug.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EasyDebug.swift; sourceTree = "<group>"; };
 		E416BDDB2E5ED7DB89A6E5F430C655EC /* EDAppInfoController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDAppInfoController.swift; sourceTree = "<group>"; };
 		E4B0BE780EDA19C329E15216D92B02B8 /* CALayer+LookinServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer+LookinServer.h"; path = "Src/Main/Server/Category/CALayer+LookinServer.h"; sourceTree = "<group>"; };
-		E525258BE4A2053B7CF363C9781C9FD5 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hans.lproj"; path = "EasyDebug/Assets/zh-Hans.lproj"; sourceTree = "<group>"; };
+		E525258BE4A2053B7CF363C9781C9FD5 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hans.lproj"; path = "EasyDebug/Assets/zh-Hans.lproj"; sourceTree = "<group>"; };
 		E5DB421DA46A7DDC102A5E66635A191E /* LookinDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinDefines.h; path = Src/Main/Shared/LookinDefines.h; sourceTree = "<group>"; };
 		E6117FA27955334762D724EA5F4C2FD6 /* UIGestureRecognizer+LookinServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIGestureRecognizer+LookinServer.m"; path = "Src/Main/Server/Category/UIGestureRecognizer+LookinServer.m"; sourceTree = "<group>"; };
 		E6347B0FEEB28A76F77D0B4378E6AFED /* MultipartUpload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartUpload.swift; path = Source/MultipartUpload.swift; sourceTree = "<group>"; };
@@ -671,7 +674,6 @@
 				938FDA081F8DC013C67DFB798EC68BFE /* Core */,
 				4251E967CDBED8D37FCFD749C1676A89 /* Support Files */,
 			);
-			name = LookinServer;
 			path = LookinServer;
 			sourceTree = "<group>";
 		};
@@ -680,7 +682,6 @@
 			children = (
 				CCCF4BE8E0E6BDEB9C3C4299CED685CE /* EDLogCell.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -725,7 +726,6 @@
 				16BF5C487123ADA44010D97A8792508C /* Validation.swift */,
 				8D50B0E233F671E2FB5DBAEDDF90C072 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -762,7 +762,6 @@
 				D3215145C00698C30B506D035A3A3B23 /* Network */,
 				938E9EA56E155064B9CBE6D7BF6B1207 /* SandBox */,
 			);
-			name = Feature;
 			path = Feature;
 			sourceTree = "<group>";
 		};
@@ -771,7 +770,6 @@
 			children = (
 				0C5A97CAD16EE81AC5439C9411BBE8F8 /* EDSandBoxCell.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -811,7 +809,6 @@
 				6A1C867C335BE0AA575F8703841D59AA /* EDApplication.swift */,
 				63966C94EC7B916ED1BEEB6535E9E3F4 /* EDDevice.swift */,
 			);
-			name = Info;
 			path = Info;
 			sourceTree = "<group>";
 		};
@@ -820,7 +817,6 @@
 			children = (
 				9C5361A1A483FF6771C3554A6F22C876 /* SandBoxManger.swift */,
 			);
-			name = SandBox;
 			path = SandBox;
 			sourceTree = "<group>";
 		};
@@ -849,7 +845,6 @@
 				74C3A25C2AD7C93E571B222355DE811F /* EDNetWorkStructure.swift */,
 				3DC7F089773596F3D568D71A89D03ECF /* EDURLProtocol.swift */,
 			);
-			name = Network;
 			path = Network;
 			sourceTree = "<group>";
 		};
@@ -873,7 +868,6 @@
 			children = (
 				53C9D9F17F3FA2D5FCFEB832FE1394FC /* EDLog.swift */,
 			);
-			name = Log;
 			path = Log;
 			sourceTree = "<group>";
 		};
@@ -883,7 +877,6 @@
 				AC8781246DEE9038BE13DFC9B4469A61 /* EDNetworkCell.swift */,
 				97C898C19FDCFF533EFB7089036D8E18 /* EDNetworkDetailCell.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -906,9 +899,9 @@
 			isa = PBXGroup;
 			children = (
 				4AF54325CE8A7AADD1DA4103A2A12DBF /* EDSandBoxController.swift */,
+				C79020BC29E6E791006A8904 /* EDFileContentController.swift */,
 				4D6A4EB2543956C4EDC253D63A6E5369 /* View */,
 			);
-			name = SandBox;
 			path = SandBox;
 			sourceTree = "<group>";
 		};
@@ -1108,7 +1101,6 @@
 			children = (
 				5AFDA0679290B69B38A9C3F15FF4EC64 /* EDAppInfoCell.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -1178,7 +1170,6 @@
 				C4F69DC1CADAAEBD33873CB34DB3454A /* EDNetworkingDetailController.swift */,
 				7E382B6B5477650C39E70AB1D6070C52 /* View */,
 			);
-			name = Network;
 			path = Network;
 			sourceTree = "<group>";
 		};
@@ -1187,7 +1178,6 @@
 			children = (
 				DA14DCC76632EE30D2D8F8D6BAFF5465 /* Support Files */,
 			);
-			name = SwiftLint;
 			path = SwiftLint;
 			sourceTree = "<group>";
 		};
@@ -1197,7 +1187,6 @@
 				E416BDDB2E5ED7DB89A6E5F430C655EC /* EDAppInfoController.swift */,
 				B92634C60CC9EBB88EC363A3A42B616F /* View */,
 			);
-			name = AppInfo;
 			path = AppInfo;
 			sourceTree = "<group>";
 		};
@@ -1216,7 +1205,6 @@
 			children = (
 				9ED41B2908F9687A13E0154FB9F18C36 /* EDConfigController.swift */,
 			);
-			name = Config;
 			path = Config;
 			sourceTree = "<group>";
 		};
@@ -1234,7 +1222,6 @@
 				2FFC25D7A8265CBD68D3A26F5F21C354 /* EDLogController.swift */,
 				25A13C75C9732D485FA6CDEE0460729C /* View */,
 			);
-			name = Log;
 			path = Log;
 			sourceTree = "<group>";
 		};
@@ -1518,6 +1505,29 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					38DDD5168AE052C28240F9DF7C9D3C68 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					52B60EC2A583F24ACBB69C113F5488B9 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					638FEAAFC575BB76BC6AC055CDDA3506 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					65E8703FD639FAC7BDA49E6D3192AF25 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					93E233E5551705D2BC9CE3778F61CD76 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					B64F376F543950AD70C1D27DF2C90668 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					EAAA1AD3A8A1B59AB91319EE40752C6D = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1626,6 +1636,7 @@
 				CCE3E9573B8A69DF447A1D649C3DF7C2 /* EDNavigationController.swift in Sources */,
 				07C005A66D4CA73C82F1F809271C2A56 /* EDNetworkCell.swift in Sources */,
 				57D1477EC8B7F48C586EE5BE671AB618 /* EDNetWorkData.swift in Sources */,
+				C79020BD29E6E792006A8904 /* EDFileContentController.swift in Sources */,
 				31B826DA28D7B35CAABF879D17E57B06 /* EDNetWorkDataManger.swift in Sources */,
 				3354DF537AEE04F06021692FB9E7F338 /* EDNetworkDetailCell.swift in Sources */,
 				C53956BAE75DD1F3D4DEF3A9223D61E3 /* EDNetworkingController.swift in Sources */,
@@ -2146,8 +2157,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

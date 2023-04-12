@@ -71,7 +71,13 @@ class EDSandBoxController: EDTableController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = self.dataSources[indexPath.section]
-        if model.subFiles.count == 0 { return }
+        if model.subFiles.count == 0 {
+            let contentVC = EDFileContentController()
+            contentVC.title = model.name
+            contentVC.fileModel = model
+            self.navigationController?.pushViewController(contentVC, animated: true)
+            return
+        }
         let sandboxVc = EDSandBoxController(style: .grouped)
         sandboxVc.title = model.name
         sandboxVc.dataSources = model.subFiles
