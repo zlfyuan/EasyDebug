@@ -47,14 +47,14 @@ extension EDNetWorkStructure: CustomStringConvertible {
         var json = self.responseStateLine.value
         json["Request headers"] = self.edRequestHeader.value["values"]
         if let _body = self.edRequestBodyInfo.value["values"] as? String {
-            json["Request body"] = EDCommon.getJsonString(rawValue: _body)
+            json["Request body"] = EDCommon.getObject(jsonString: _body)
         }else{
             json["Request body"] = nil
         }
         
         json["Response headers"] = self.edReponseHeader.value["values"]
         if let _body = self.edResponseBodyInfo.value["values"] as? String {
-            json["Response body"] = EDCommon.getJsonString(rawValue: _body)
+            json["Response body"] = EDCommon.getObject(jsonString: _body)
         }else{
             json["Response body"] = nil
         }

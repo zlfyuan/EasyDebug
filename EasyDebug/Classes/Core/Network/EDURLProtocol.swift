@@ -164,16 +164,3 @@ class EDSwizzleNetwork: NSObject, EDSwizzleable {
         return [EDURLProtocol.self]
     }
 }
-public class ZLFSerializaLogFormat {
-public var rawValue : AnyObject? = nil
-
-public init?(rawValue:Any) {
-    do{
-        let s = try JSONSerialization.data(withJSONObject: rawValue, options: JSONSerialization.WritingOptions.prettyPrinted)
-        let e = NSString.init(data: s, encoding: String.Encoding.utf8.rawValue)
-        self.rawValue = e
-    }catch let error{
-        print(error)
-    }
-}
-}

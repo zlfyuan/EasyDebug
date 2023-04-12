@@ -35,8 +35,6 @@ public class EasyDebug {
     
     public func start(_ options: (()->(EDOptions))? = nil) {
         
-        EDLog.shared.config()
-        
         EDURLProtocol.startMonitor()
         
         EDLocalizationSetting.setCurrentLanguage(.Chinese)

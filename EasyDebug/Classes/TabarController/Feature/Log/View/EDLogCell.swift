@@ -27,9 +27,10 @@
 import Foundation
 class EDLogCell: UITableViewCell {
     
-    fileprivate let pathLabel = UILabel()
+    fileprivate let dateLabel = UILabel()
     fileprivate let stateLabel = UILabel()
-    fileprivate let timeLabel = UILabel()
+    fileprivate let messageLabel = UILabel()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -37,54 +38,42 @@ class EDLogCell: UITableViewCell {
     convenience init(reuseIdentifier: String?) {
         self.init(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
-        self.contentView.layer.cornerRadius = 15
-        self.contentView.layer.masksToBounds = true
         
-        pathLabel.translatesAutoresizingMaskIntoConstraints = false
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
         stateLabel.translatesAutoresizingMaskIntoConstraints = false
-        timeLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        pathLabel.font = UIFont.systemFont(ofSize: 17)
-        contentView.addSubview(pathLabel)
+        dateLabel.font = UIFont.systemFont(ofSize: 17)
+        contentView.addSubview(dateLabel)
         
         stateLabel.font = UIFont.systemFont(ofSize: 14)
         stateLabel.textColor = .systemGray
         contentView.addSubview(stateLabel)
         
-        timeLabel.font = UIFont.systemFont(ofSize: 13)
-        timeLabel.textColor = .systemGray
-        contentView.addSubview(timeLabel)
+        messageLabel.font = UIFont.systemFont(ofSize: 13)
+        messageLabel.numberOfLines = 10
+        messageLabel.textColor = .systemGray
+        contentView.addSubview(messageLabel)
         
         NSLayoutConstraint.activate([
-            pathLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            pathLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            pathLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            //            pathLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
         ])
-        
         
         NSLayoutConstraint.activate([
-            stateLabel.topAnchor.constraint(equalTo: pathLabel.bottomAnchor, constant: 6),
-            stateLabel.leadingAnchor.constraint(equalTo: pathLabel.leadingAnchor, constant: 0),
-            stateLabel.trailingAnchor.constraint(equalTo: pathLabel.trailingAnchor, constant: 0),
+            stateLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 6),
+            stateLabel.leadingAnchor.constraint(equalTo: dateLabel.leadingAnchor, constant: 0),
+            stateLabel.trailingAnchor.constraint(equalTo: dateLabel.trailingAnchor, constant: 0),
         ])
-        
         
         NSLayoutConstraint.activate([
-            timeLabel.topAnchor.constraint(equalTo: stateLabel.bottomAnchor, constant: 6),
-            timeLabel.leadingAnchor.constraint(equalTo: stateLabel.leadingAnchor, constant: 0),
-            timeLabel.trailingAnchor.constraint(equalTo: stateLabel.trailingAnchor, constant: 0),
-            timeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            messageLabel.topAnchor.constraint(equalTo: stateLabel.bottomAnchor, constant: 6),
+            messageLabel.leadingAnchor.constraint(equalTo: stateLabel.leadingAnchor, constant: 0),
+            messageLabel.trailingAnchor.constraint(equalTo: stateLabel.trailingAnchor, constant: 0),
+            messageLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
         
-        self.subviews.forEach { view in
-            if let cl = NSClassFromString("_UISystemBackgroundView") {
-                if view.isKind(of: cl.class()){
-                    view.layer.cornerRadius = 10
-                    view.layer.masksToBounds = true
-                }
-            }
-        }
     }
     
     override func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize {
@@ -96,11 +85,11 @@ class EDLogCell: UITableViewCell {
             guard let _model = model else {
                 return
             }
-            pathLabel.text = _model.date
+            dateLabel.text = "\(_model.date.toString(format: "yyyy-MM-dd-HH:mm.ss.SSSS"))"
             var state = "\(_model.fileName)"
-            state += "  \(_model.line)"
+            state += "  line: \(_model.line)    \(_model.level.rawValue)"
             stateLabel.text = state
-            timeLabel.text = "\(_model.info)"
+            messageLabel.text = "\(_model.message)"
         }
     }
     

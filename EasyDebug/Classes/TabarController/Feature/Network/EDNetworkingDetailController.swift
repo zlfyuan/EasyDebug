@@ -67,12 +67,14 @@ class EDNetworkingDetailController: EDTableController {
         guard self.navigationItem.rightBarButtonItem?.title == String.edLocalizedString(withKey: "title.copy") else{ return }
         let pasteboard = UIPasteboard.general
         pasteboard.string = self.model.description
-        
-        self.navigationItem.rightBarButtonItem?.title = String.edLocalizedString(withKey: "title.yes")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            // 这里是需要延时执行的代码
-            self.navigationItem.rightBarButtonItem?.title = String.edLocalizedString(withKey: "title.copy")
+        if let rightBarButtonItem = self.navigationItem.rightBarButtonItems?.first {
+            rightBarButtonItem.title = String.edLocalizedString(withKey: "title.yes")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                // 这里是需要延时执行的代码
+                rightBarButtonItem.title = String.edLocalizedString(withKey: "title.copy")
+            }
         }
+        
     }
     
     @objc func sectionCopyAction(_ button: UIButton) {
@@ -88,7 +90,6 @@ class EDNetworkingDetailController: EDTableController {
         }
         let pasteboard = UIPasteboard.general
         pasteboard.string = pasteboardString
-        debugPrint(pasteboardString)
         button.setTitle(String.edLocalizedString(withKey: "title.yes"), for: .normal)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             // 这里是需要延时执行的代码

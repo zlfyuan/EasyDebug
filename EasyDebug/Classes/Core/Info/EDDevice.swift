@@ -75,8 +75,8 @@ class EDDevice: EDPropertiesable {
                 let freeSpace = EDCommon.formatFileSize(free)
                 return "\(freeSpace) / \(diskSize)"
             }
-        } catch {
-            print("Error retrieving system attributes")
+        } catch let error{
+            EDLogError("Error retrieving system attributes \(error)")
         }
         return "-/-"
     }

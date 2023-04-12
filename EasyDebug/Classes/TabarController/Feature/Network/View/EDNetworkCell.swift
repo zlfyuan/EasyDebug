@@ -36,8 +36,6 @@ class EDNetworkCell: UITableViewCell {
     convenience init(reuseIdentifier: String?) {
         self.init(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
-        self.contentView.layer.cornerRadius = 15
-        self.contentView.layer.masksToBounds = true
         
         pathLabel.translatesAutoresizingMaskIntoConstraints = false
         stateLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -76,14 +74,14 @@ class EDNetworkCell: UITableViewCell {
             timeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
         
-        self.subviews.forEach { view in
-            if let cl = NSClassFromString("_UISystemBackgroundView") {
-                if view.isKind(of: cl.class()){
-                    view.layer.cornerRadius = 10
-                    view.layer.masksToBounds = true
-                }
-            }
-        }
+//        self.subviews.forEach { view in
+//            if let cl = NSClassFromString("_UISystemBackgroundView") {
+//                if view.isKind(of: cl.class()){
+//                    view.layer.cornerRadius = 10
+//                    view.layer.masksToBounds = true
+//                }
+//            }
+//        }
     }
     
     override func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize {
@@ -104,14 +102,14 @@ class EDNetworkCell: UITableViewCell {
         }
     }
     
-    override var frame: CGRect {
-        didSet{
-            var newFrame = frame
-            newFrame.origin.x += 16
-            newFrame.size.width -= 32
-            super.frame = newFrame
-        }
-    }
+//    override var frame: CGRect {
+//        didSet{
+//            var newFrame = frame
+//            newFrame.origin.x += 16
+//            newFrame.size.width -= 32
+//            super.frame = newFrame
+//        }
+//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

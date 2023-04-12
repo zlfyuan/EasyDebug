@@ -66,7 +66,7 @@ class EDCommon {
             let s = String.init(data: d, encoding: .utf8)
             return s
         }catch let error{
-            debugPrint(error)
+            EDLogError(error)
             return nil
         }
     }
@@ -77,7 +77,7 @@ class EDCommon {
             let objcet = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.fragmentsAllowed)
             return objcet as AnyObject
         } catch let error{
-            debugPrint(error)
+            EDLogError(error)
             return nil
         }
     }
@@ -94,7 +94,7 @@ class EDCommon {
         let bundleNamePath = "EasyDebug.bundle"
         let bundlepath = Bundle(for: type(of: EasyDebug())).resourcePath! + "/" + "\(bundleNamePath)"
         guard let resource_bundle = Bundle(path: bundlepath) else {
-            debugPrint("easyDebugBundle get empty")
+            EDLogInfo("easyDebugBundle get empty")
             return Bundle.main
         }
         return resource_bundle

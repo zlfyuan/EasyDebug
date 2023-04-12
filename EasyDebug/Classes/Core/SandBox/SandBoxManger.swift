@@ -61,7 +61,7 @@ class SandBoxManger {
             let subPaths = try fileManger.contentsOfDirectory(atPath: path.path)
              return subPaths.map({createFileDataModel(use: URL.init(fileURLWithPath: $0))})
         }catch let error as NSError {
-            print("Get dirctory errer: \(error)")
+            EDLogError("Get dirctory errer: \(error)")
         }
         return tempList
     }
@@ -75,26 +75,21 @@ class SandBoxManger {
             let fileAttributes = try fileManger.attributesOfItem(atPath: path.path)
             
             if let fileSize = fileAttributes[.size] as? UInt64 {
-                print("File Size: \(fileSize)")
                 model.size = fileSize
             }
             
-            if let ownerName = fileAttributes[FileAttributeKey.ownerAccountName] {
-                print("File Owner: \(ownerName)")
-            }
-         
             if let creationDate = fileAttributes[FileAttributeKey.creationDate] as? Date {
-                print("File Creation Date: \(creationDate)")
+                
                 model.createDate = creationDate
             }
             
             if let modificationDate = fileAttributes[FileAttributeKey.modificationDate] as? Date {
-                print("File Modification Date: \(modificationDate)")
+                
                 model.modificationDate = modificationDate
             }
             
         } catch let error as NSError {
-            print("Get attributes errer: \(error)")
+            EDLogError("Get attributes errer: \(error)")
         }
         return model
     }
@@ -128,7 +123,7 @@ class SandBoxManger {
                 }
             }
         } catch {
-            print("Error while enumerating files \(path): \(error.localizedDescription)")
+            EDLogError("Error while enumerating files \(path): \(error.localizedDescription)")
         }
         
         return models
@@ -164,7 +159,7 @@ class SandBoxManger {
                     let data = try String(contentsOfFile: path, encoding: .utf8)
                     return data
                 } catch {
-                    print(error)
+                    EDLogError(error)
                 }
             }
             return ""
@@ -176,9 +171,9 @@ class SandBoxManger {
         let uttype = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension,fileExt as CFString,nil)
         switch uttype?.takeRetainedValue(){
         case kUTTypeMovie:
-            print("这是一个视频文件")
+            EDLogInfo("这是一个视频文件")
         case kUTTypeText:
-            print("这是一个文本文件")
+            EDLogInfo("这是一个文本文件")
         default:
             break
         }

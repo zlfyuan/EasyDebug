@@ -82,7 +82,7 @@ class EDFeatureShowController: EDBaseController {
             
         })
         
-        let logVc = EDLogController()
+        let logVc = EDLogController(style: .grouped)
         controllers.append(logVc)
         
         let netWorkVc = EDNetworkingController(style: .grouped)

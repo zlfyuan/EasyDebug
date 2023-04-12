@@ -29,12 +29,15 @@ import Foundation
 class EDLogController: EDTableController {
     
     var dataSources = EDLog.shared.logInfo
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-         dataSources = EDLog.shared.getLogData()
-        
+    
         self.tableView.tableFooterView = createFooterView()
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem

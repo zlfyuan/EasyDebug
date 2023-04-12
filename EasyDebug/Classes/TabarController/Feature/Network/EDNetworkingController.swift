@@ -79,7 +79,7 @@ class EDNetworkingController: EDTableController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 6
+        return 1
     }
     
     
@@ -102,10 +102,10 @@ class EDNetworkingController: EDTableController {
     }
      
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let copyAction = UITableViewRowAction(style: .default, title: "复制") { (action, indexPath) in
+        let copyAction = UITableViewRowAction(style: .default, title: String.edLocalizedString(withKey: "title.copy")) { (action, indexPath) in
             // 复制单元格内容到剪贴板
             let model = self.dataSources[indexPath.section]
-            debugPrint(model.description)
+            EDLogInfo(model.description)
             let pasteboard = UIPasteboard.general
             pasteboard.string = model.description
         }

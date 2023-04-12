@@ -38,7 +38,7 @@ extension Data {
             let bytesRead = stream.read(buffer, maxLength: bufferSize)
             if bytesRead < 0 {
                 if let error = stream.streamError {
-                    print("Input stream error: \(error.localizedDescription)")
+                    EDLogError("Input stream error: \(error.localizedDescription)")
                 }
                 break
             }

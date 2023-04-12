@@ -40,32 +40,33 @@ extension EDJSONEncoder {
         do {
             let data = try encoder.encode(self)
             let dictionary = try JSONSerialization.jsonObject(with: data, options: [])
-//            print(dictionary)
             return dictionary as! [String : Any]
-        } catch {
-            print(error)
+        } catch let error {
+            EDLogError(error)
             return ["message":"conversion error"]
         }
     }
-    static func decode(object:Any) -> Self?{
+    
+    static func decode(object:Any) -> Self? {
         do {
             let json = try JSONSerialization.data(withJSONObject: object,options:JSONSerialization.WritingOptions.prettyPrinted)
             let jsonDecoder = JSONDecoder()
             let m = try jsonDecoder.decode(Self.self, from: json)
             return m
-        } catch {
-            debugPrint("解析失败\(error)")
+        } catch let error {
+            EDLogError("解析失败\(error)")
             return nil
         }
     }
-    static func decode(listObject:Any) -> [Self]?{
+    
+    static func decode(listObject:Any) -> [Self]? {
         do{
             let json = try JSONSerialization.data(withJSONObject: listObject,options:JSONSerialization.WritingOptions.prettyPrinted)
             let jsonDecoder = JSONDecoder()
             let m = try jsonDecoder.decode([Self].self, from: json)
             return m
-        }catch {
-            debugPrint("解析失败\(error)")
+        }catch let error {
+            EDLogError("解析失败\(error)")
             return nil
         }
     }
