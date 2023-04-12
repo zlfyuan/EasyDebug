@@ -45,6 +45,10 @@ class EDTableController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    func updateSearchResults(for searchText: String?) {}
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

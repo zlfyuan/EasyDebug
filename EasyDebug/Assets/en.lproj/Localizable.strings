@@ -25,6 +25,10 @@
 
 "title.done" = "Finish";
 
+"title.search" = "Search";
+
+"title.cancel" = "Cancel";
+
 "title.General" = "General";
 
 "title.Request Headers" = "Request Headers";

@@ -57,10 +57,9 @@ class EDViewController: EDBaseController {
 //            return
 //        }
 //        edWindow.isHidden = true
-        let _root = EDTabBarController()
-        _root.modalPresentationStyle = .overCurrentContext
-        rootController.present(_root, animated: true) {
-            self.root = _root
+        self.root = EDTabBarController()
+        self.root?.modalPresentationStyle = .overCurrentContext
+        rootController.present(self.root!, animated: true) {
             EasyDebug.shared.visibleabled = true
         }
     }

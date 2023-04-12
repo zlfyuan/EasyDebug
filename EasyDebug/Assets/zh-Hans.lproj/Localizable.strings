@@ -18,6 +18,8 @@
 "title.yes" = "ok";
 "title.share" = "分享";
 "title.done" = "退出";
+"title.search" = "搜索";
+"title.cancel" = "取消";
 
 
 "title.General" = "常规";

@@ -55,7 +55,7 @@ class EDTabBarController: UITabBarController {
     }
     
     func setSubController(_ controller: UIViewController) -> EDNavigationController {
-        controller.navigationItem.rightBarButtonItem = UIBarButtonItem(title: String.edLocalizedString(withKey: "title.done"), style: .plain, target: self, action: #selector(doneBarButtonItemAction))
+//        controller.navigationItem.rightBarButtonItem = UIBarButtonItem(title: String.edLocalizedString(withKey: "title.done"), style: .plain, target: self, action: #selector(doneBarButtonItemAction))
         controller.title = controller.tabBarItem.title
         return EDNavigationController(rootViewController:controller)
     }

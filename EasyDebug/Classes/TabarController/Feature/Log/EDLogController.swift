@@ -29,7 +29,9 @@ import Foundation
 class EDLogController: EDTableController {
     
     var dataSources = EDLog.shared.logInfo
-    
+    var searchController: UISearchController!
+    var filteredContacts = [EDLogData]()
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
@@ -37,7 +39,7 @@ class EDLogController: EDTableController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         self.tableView.tableFooterView = createFooterView()
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -99,30 +101,18 @@ class EDLogController: EDTableController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 1
     }
-
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
     
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    override func updateSearchResults(for searchText: String?) {
+        if let keyword = searchText,!keyword.isEmpty {
+            dataSources = EDLog.shared.logInfo.filter { (model: EDLogData) -> Bool in
+                return model.message.lowercased().contains(keyword.lowercased())
+            }
+        } else {
+            dataSources = EDLog.shared.logInfo
+        }
+        if let label = self.tableView.tableFooterView as? UILabel{
+            label.text = "共\(dataSources.count)项"
+        }
+        tableView.reloadData()
+    }
 }

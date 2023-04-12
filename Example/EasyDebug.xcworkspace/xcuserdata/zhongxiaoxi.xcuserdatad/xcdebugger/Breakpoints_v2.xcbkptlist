@@ -46,53 +46,6 @@
             endingLineNumber = "49"
             landmarkName = "description"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "40216581-80EC-42AA-B176-7E76C030745C - 6f953183c3e79cf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EasyDebug.EDNetWorkStructure.description.getter : Swift.String"
-                  moduleName = "EasyDebug"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhongxiaoxi/Vue3/EasyDebug/EasyDebug/Classes/Core/Network/EDNetWorkStructure.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "500">
-               </Location>
-               <Location
-                  uuid = "40216581-80EC-42AA-B176-7E76C030745C - 6f953183c3e79cf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EasyDebug.EDNetWorkStructure.description.getter : Swift.String"
-                  moduleName = "EasyDebug"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhongxiaoxi/Vue3/EasyDebug/EasyDebug/Classes/Core/Network/EDNetWorkStructure.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "556">
-               </Location>
-               <Location
-                  uuid = "40216581-80EC-42AA-B176-7E76C030745C - 299105e7781753da"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EasyDebug.EDNetWorkStructure.description.getter : Swift.String"
-                  moduleName = "EasyDebug"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhongxiaoxi/EasyDebug/EasyDebug/Classes/Core/Network/EDNetWorkStructure.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "500">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -189,38 +142,22 @@
             endingLineNumber = "56"
             landmarkName = "description"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "E52B004D-F6E5-4F7F-B384-1C6DBCA63F37 - 299105e77817503d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EasyDebug.EDNetWorkStructure.description.getter : Swift.String"
-                  moduleName = "EasyDebug"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhongxiaoxi/EasyDebug/EasyDebug/Classes/Core/Network/EDNetWorkStructure.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "56"
-                  endingLineNumber = "56"
-                  offsetFromSymbolStart = "1464">
-               </Location>
-               <Location
-                  uuid = "E52B004D-F6E5-4F7F-B384-1C6DBCA63F37 - 299105e77817503d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EasyDebug.EDNetWorkStructure.description.getter : Swift.String"
-                  moduleName = "EasyDebug"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhongxiaoxi/EasyDebug/EasyDebug/Classes/Core/Network/EDNetWorkStructure.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "56"
-                  endingLineNumber = "56"
-                  offsetFromSymbolStart = "1404">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E80BDC6A-9944-4F63-94D9-F9DCF19240B0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../EasyDebug/Classes/Base/EDTableController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "touchesBegan(_:with:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

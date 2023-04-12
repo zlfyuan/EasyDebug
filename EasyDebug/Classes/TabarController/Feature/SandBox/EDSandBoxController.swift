@@ -29,7 +29,7 @@ import Foundation
 class EDSandBoxController: EDTableController {
     
     var dataSources = SandBoxManger.shared.fileDataList
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = createFooterView()
@@ -59,15 +59,15 @@ class EDSandBoxController: EDTableController {
     }
     
     
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         var cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier") as? EDSandBoxCell
-         if cell == nil {
-             cell = EDSandBoxCell.init(reuseIdentifier: "reuseIdentifier")
-         }
-         let model = self.dataSources[indexPath.section]
-         cell?.model = model
-         return cell!
-     }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier") as? EDSandBoxCell
+        if cell == nil {
+            cell = EDSandBoxCell.init(reuseIdentifier: "reuseIdentifier")
+        }
+        let model = self.dataSources[indexPath.section]
+        cell?.model = model
+        return cell!
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = self.dataSources[indexPath.section]
@@ -93,30 +93,19 @@ class EDSandBoxController: EDTableController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 1
     }
-
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
     
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    override func updateSearchResults(for searchText: String?) {
+        if let keyword = searchText,!keyword.isEmpty {
+            dataSources = SandBoxManger.shared.fileDataList.filter { (model: FileDataModel) -> Bool in
+                return model.name.lowercased().contains(keyword.lowercased())
+            }
+        } else {
+            dataSources = SandBoxManger.shared.fileDataList
+        }
+        if let label = self.tableView.tableFooterView as? UILabel{
+            label.text = "共\(dataSources.count)项"
+        }
+        tableView.reloadData()
+    }
     
 }

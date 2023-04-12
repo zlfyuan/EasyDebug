@@ -60,6 +60,11 @@ public class EasyDebug {
         guard let optionsfunc = options else { return }
         EDLogInfo(optionsfunc().debug)
         
+        for i in 0...5 {
+            EDLogError(i)
+            EDLogDebug(i)
+        }
+        
     }
     
 }

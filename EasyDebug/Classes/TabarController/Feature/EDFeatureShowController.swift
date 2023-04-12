@@ -39,8 +39,15 @@ class EDFeatureShowController: EDBaseController {
     var currentButton: UIButton? = nil
     
     var pageController: UIPageViewController!
-    var controllers: [UIViewController] = []
+    var controllers: [Int:UIViewController] = [:]
     var currentControllerIndex: Int = 0
+    
+    let searchBar = UISearchBar()
+
+    let logVc = EDLogController(style: .grouped)
+    let netWorkVc = EDNetworkingController(style: .grouped)
+    let sandBoxVc = EDSandBoxController(style: .grouped)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +55,7 @@ class EDFeatureShowController: EDBaseController {
     }
     
     func setUI() {
-        let topView = UIView(frame: CGRect.init(x: 0, y: self.navigationController!.navigationBar.frame.maxY, width: self.view.frame.width, height: 45))
+        let topView = UIView(frame: CGRect.init(x: 0, y: self.navigationController!.navigationBar.frame.maxY + 10, width: self.view.frame.width, height: 45))
         view.addSubview(topView)
         
         let marginLeft = 10
@@ -82,29 +89,43 @@ class EDFeatureShowController: EDBaseController {
             
         })
         
-        let logVc = EDLogController(style: .grouped)
-        controllers.append(logVc)
+        searchBar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 44)
+        searchBar.placeholder = String.edLocalizedString(withKey: "title.search")
+        searchBar.delegate = self
+        navigationItem.titleView = searchBar
         
-        let netWorkVc = EDNetworkingController(style: .grouped)
-        controllers.append(netWorkVc)
-        
-        let sandBoxVc = EDSandBoxController(style: .grouped)
-        controllers.append(sandBoxVc)
+        controllers[0]=logVc
+        controllers[1]=netWorkVc
+        controllers[2]=sandBoxVc
         
         pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        pageController.dataSource = self
         addChild(pageController)
         pageController.view.frame = CGRect.init(x: 0, y: topView.frame.maxY, width: self.view.frame.width, height: self.view.frame.height - topView.frame.maxY - self.tabBarController!.tabBar.frame.height)
         view.addSubview(pageController.view)
         pageController.view.translatesAutoresizingMaskIntoConstraints = false
         pageController.didMove(toParent: self)
         featureAction(self.currentButton!)
-        pageController.setViewControllers([controllers[currentControllerIndex]], direction: .forward, animated: true, completion: nil)
+        let vc = controllers[currentControllerIndex]
+        pageController.setViewControllers([vc!], direction: .forward, animated: true, completion: nil)
         
         //禁用滚动
         for view in pageController.view.subviews {
             if let scrollView = view as? UIScrollView {
                 scrollView.isScrollEnabled = false
+            }
+        }
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: String.edLocalizedString(withKey: "title.search"), style: .plain, target: self, action: #selector(doneBarButtonItemAction))
+    }
+
+    @objc func doneBarButtonItemAction(_ item: UIBarButtonItem) {
+        if let searchTextField = searchBar.value(forKey: "_searchTextField") as? UITextField {
+            if item.title == String.edLocalizedString(withKey: "title.search") {
+                searchTextField.becomeFirstResponder()
+                item.title = String.edLocalizedString(withKey: "title.cancel")
+            }else{
+                searchTextField.resignFirstResponder()
+                item.title = String.edLocalizedString(withKey: "title.search")
             }
         }
     }
@@ -122,29 +143,21 @@ class EDFeatureShowController: EDBaseController {
     
     func changePageController(with index: Int) {
         currentControllerIndex = index
-        pageController.setViewControllers([controllers[currentControllerIndex]], direction: .forward, animated: false, completion: nil)
+        pageController.setViewControllers([controllers[currentControllerIndex]!], direction: .forward, animated: false, completion: nil)
     }
 }
 
-extension EDFeatureShowController: UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        if let index = controllers.firstIndex(of: viewController), index > 0 {
-            return controllers[index - 1]
-        } else {
-            return nil
+extension EDFeatureShowController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if let vc = controllers[currentControllerIndex] as? EDTableController {
+            vc.updateSearchResults(for: searchText)
         }
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if let index = controllers.firstIndex(of: viewController), index < controllers.count - 1 {
-            return controllers[index + 1]
-        } else {
-            return nil
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let vc = controllers[currentControllerIndex] as? EDTableController {
+            vc.updateSearchResults(for: searchBar.text)
         }
     }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, shouldInteractWith gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return false
-    }
-    
 }
