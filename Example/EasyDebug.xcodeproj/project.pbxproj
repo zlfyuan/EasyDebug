@@ -213,7 +213,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = DK3DNWK64E;
+						DevelopmentTeam = A9LKE94T63;
 						LastSwiftMigration = "";
 						ProvisioningStyle = Automatic;
 					};
@@ -274,14 +274,12 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EasyDebug_Example/Pods-EasyDebug_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/EasyDebug/EasyDebug.framework",
 				"${BUILT_PRODUCTS_DIR}/LookinServer/LookinServer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyDebug.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LookinServer.framework",
 			);
@@ -499,7 +497,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2000;
-				DEVELOPMENT_TEAM = DK3DNWK64E;
+				DEVELOPMENT_TEAM = A9LKE94T63;
 				INFOPLIST_FILE = EasyDebug/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = EasyDeubg;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -522,7 +520,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2000;
-				DEVELOPMENT_TEAM = DK3DNWK64E;
+				DEVELOPMENT_TEAM = A9LKE94T63;
 				INFOPLIST_FILE = EasyDebug/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = EasyDeubg;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

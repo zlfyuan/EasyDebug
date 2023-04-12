@@ -15,14 +15,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        self.view.backgroundColor = ≥.white
-        
-//        EasyDebug.shared.start({
-//                 let option = EDOptions()
-//                 option.debug = false
-//     
-//                 return option
-//             })
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +26,7 @@ class ViewController: UIViewController {
 //            print(data)
 //        }
         Alamofire.AF.request("https://shudong.dev.wanzhong.ink/api/secrets/",method: HTTPMethod.get).response { d in
-            print(d)
+            EDLogInfo(d)
         }
         
     }

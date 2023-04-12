@@ -15,7 +15,6 @@ target 'EasyDebug_Example' do
   pod 'EasyDebug', :path => '../'
   pod 'SwiftLint', :configurations => ['Debug']
   pod 'Alamofire'
-  pod 'CocoaLumberjack/Swift'
   
   pod 'LookinServer', :configurations => ['Debug']
   target 'EasyDebug_Tests' do
