@@ -1,5 +1,5 @@
 //
-//  EDPropertiesable.swift
+//  EDPropertiesListable.swift
 //  EasyDebug
 //
 //  Created by zluof on 2023/4/6.
@@ -26,13 +26,13 @@
 
 import Foundation
 
-protocol EDPropertiesable {
+protocol EDPropertiesListable {
     func getAllProperties<T>(from object: T) -> [String: Any]
     
     var values: [String: Any] { get }
 }
 
-extension EDPropertiesable {
+extension EDPropertiesListable {
     func getAllProperties<T>(from object: T) -> [String: Any] {
         var result = [String: Any]()
         let mirror = Mirror(reflecting: object)
