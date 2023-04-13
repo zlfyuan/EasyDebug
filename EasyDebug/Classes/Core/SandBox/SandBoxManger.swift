@@ -62,6 +62,33 @@ class SandBoxManger {
         
         fileDataList = rootFiles
         
+        // 把一个txt文件写在沙盒目录里
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileURL = doc.appendingPathComponent("filename.txt")
+
+            // 写入数据
+            let text = "Hello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello World"
+            do {
+                try text.write(to: fileURL, atomically: false, encoding: .utf8)
+            }
+            catch {
+                print("Error: \(error)")
+            }
+        }
+
+        // 把一个txt文件写在沙盒目录里
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileURL = doc.appendingPathComponent("filename.text")
+
+            // 写入数据
+            let text = "filename.textfilename.textfilename.textfilename.textfilename.textfilename.textfilename.textfilename.textfilename.textfilename.textfilename.textfilename.textHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello World"
+            do {
+                try text.write(to: fileURL, atomically: false, encoding: .utf8)
+            }
+            catch {
+                print("Error: \(error)")
+            }
+        }
     }
     
     func createFileDataModel(use path: URL) -> FileDataModel {
@@ -176,10 +203,28 @@ class SandBoxManger {
     }
     
     fileprivate static func readPlistFile(named filename: URL) -> Any? {
+        
+        func couvertFormater(object: [String: Any]) -> [String: Any] {
+            var dicContents = [String: Any]()
+            object.forEach { (key: String, value: Any) in
+                dicContents[key] = value
+                if let _date = value as? Date {
+                    dicContents[key] = _date.description
+                }
+                if let _dic = value as? [String: Any] {
+                    dicContents[key] = couvertFormater(object: _dic)
+                }
+            }
+            return dicContents
+        }
+        
         do {
             let contents = try Data(contentsOf: filename)
-            let plist = try PropertyListSerialization.propertyList(from: contents, options: [], format: nil)
-            return EDCommon.getJsonString(rawValue: plist)
+            guard var plist = try PropertyListSerialization.propertyList(from: contents, options: [], format: nil) as? [String: Any] else {
+                return nil
+            }
+            var dicContents = couvertFormater(object: plist)
+            return EDCommon.getJsonString(rawValue: dicContents)
         } catch {
             EDLogError("Error: \(error)")
             return nil
@@ -196,7 +241,7 @@ class SandBoxManger {
         case .json:
             return readJSONFile(named: fileModel.pathUrl!)
         case .none:
-            return nil
+            return readTextFile(named: fileModel.pathUrl!)
         }
     }
 }

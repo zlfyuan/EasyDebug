@@ -27,6 +27,11 @@
 
 import UIKit
 
+protocol EDFeatureActionable {
+    func updateSearchResults(for searchText: String?)
+    func clearResults()
+}
+
 class EDFeatureShowController: EDBaseController {
     
     enum Feature: String, CaseIterable {
@@ -43,7 +48,7 @@ class EDFeatureShowController: EDBaseController {
     var currentControllerIndex: Int = 0
     
     let searchBar = UISearchBar()
-
+    let bottomView = UIView()
     let logVc = EDLogController(style: .grouped)
     let netWorkVc = EDNetworkingController(style: .grouped)
     let sandBoxVc = EDSandBoxController(style: .grouped)
@@ -116,6 +121,22 @@ class EDFeatureShowController: EDBaseController {
         }
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: String.edLocalizedString(withKey: "title.search"), style: .plain, target: self, action: #selector(doneBarButtonItemAction))
+        
+        bottomView.frame = CGRect.init(x: 20, y: pageController.view.frame.maxY - 44 - 10, width: self.view.frame.width - 40, height: 44)
+        bottomView.backgroundColor = .red
+        bottomView.layer.cornerRadius = 15
+        view.addSubview(bottomView)
+        
+        let title = String.edLocalizedString(withKey: "title.clear")
+        let clearButton = UIButton.init(type: .system)
+        clearButton.setTitle(title, for: .normal)
+        clearButton.addTarget(self, action: #selector(clearAction), for: .touchUpInside)
+        clearButton.layer.cornerRadius = 4
+        clearButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        clearButton.frame = bottomView.bounds
+        clearButton.setTitleColor(.white, for: .normal)
+        clearButton.backgroundColor = .systemBlue
+        bottomView.addSubview(clearButton)
     }
 
     @objc func doneBarButtonItemAction(_ item: UIBarButtonItem) {
@@ -139,6 +160,14 @@ class EDFeatureShowController: EDBaseController {
         self.currentButton = button
         
         self.changePageController(with: button.tag - 1000)
+        
+        bottomView.isHidden = button.tag - 1000 == 2
+    }
+    
+    @objc func clearAction(_ button: UIButton) {
+        if let vc = controllers[currentControllerIndex] as? EDFeatureActionable {
+            vc.clearResults()
+        }
     }
     
     func changePageController(with index: Int) {
@@ -150,13 +179,13 @@ class EDFeatureShowController: EDBaseController {
 extension EDFeatureShowController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if let vc = controllers[currentControllerIndex] as? EDTableController {
+        if let vc = controllers[currentControllerIndex] as? EDFeatureActionable {
             vc.updateSearchResults(for: searchText)
         }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let vc = controllers[currentControllerIndex] as? EDTableController {
+        if let vc = controllers[currentControllerIndex] as? EDFeatureActionable {
             vc.updateSearchResults(for: searchBar.text)
         }
     }

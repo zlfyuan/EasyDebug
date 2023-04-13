@@ -217,6 +217,7 @@
 		C53956BAE75DD1F3D4DEF3A9223D61E3 /* EDNetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38BE29581BFE7790DCA0C0DB2D949A4 /* EDNetworkingController.swift */; };
 		C6AA72311329D42327B8519DDA2D6F0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E73EEF4EEAED11ABDCB1B17B55A75355 /* Foundation.framework */; };
 		C70671D5A3C8C0EEB2FDC8A62DE7820B /* LookinAppInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = C3885F98BDC17869E520C7B8F88EF5FC /* LookinAppInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C720882929E7DF4900FA0372 /* EDLogDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C720882829E7DF4900FA0372 /* EDLogDetailController.swift */; };
 		C7605211ED087DBD91D7CD34427AB637 /* EDFeatureShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D6727CCC49ED9D0413B1D516E73CE /* EDFeatureShowController.swift */; };
 		C79020BD29E6E792006A8904 /* EDFileContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79020BC29E6E791006A8904 /* EDFileContentController.swift */; };
 		C7AC1F6702EFE27010AFE3FB770796DD /* LookinStaticAsyncUpdateTask.h in Headers */ = {isa = PBXBuildFile; fileRef = A9101D3917A70878E13A82593343600A /* LookinStaticAsyncUpdateTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -550,6 +551,7 @@
 		C4F69DC1CADAAEBD33873CB34DB3454A /* EDNetworkingDetailController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDNetworkingDetailController.swift; sourceTree = "<group>"; };
 		C63C95B3A9BB173F4ACAD05330AC1B49 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C70221E4C7318FF7CB5010FDD0A24239 /* UILabel+LookinServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UILabel+LookinServer.m"; path = "Src/Main/Server/Category/UILabel+LookinServer.m"; sourceTree = "<group>"; };
+		C720882829E7DF4900FA0372 /* EDLogDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDLogDetailController.swift; sourceTree = "<group>"; };
 		C79020BC29E6E791006A8904 /* EDFileContentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDFileContentController.swift; sourceTree = "<group>"; };
 		C92E5360C1EA08FEF05B3771EF24173E /* Codable+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Codable+Extension.swift"; sourceTree = "<group>"; };
 		CCCF4BE8E0E6BDEB9C3C4299CED685CE /* EDLogCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDLogCell.swift; sourceTree = "<group>"; };
@@ -1220,6 +1222,7 @@
 			isa = PBXGroup;
 			children = (
 				2FFC25D7A8265CBD68D3A26F5F21C354 /* EDLogController.swift */,
+				C720882829E7DF4900FA0372 /* EDLogDetailController.swift */,
 				25A13C75C9732D485FA6CDEE0460729C /* View */,
 			);
 			path = Log;
@@ -1647,6 +1650,7 @@
 				118B7F490A9EFA59B4FCE7272AC1E226 /* EDSandBoxCell.swift in Sources */,
 				97C2A77B03656E5A6CEBB17E095964DD /* EDSandBoxController.swift in Sources */,
 				77D06559DB327EED0B5A0972849AA94A /* EDTabBarController.swift in Sources */,
+				C720882929E7DF4900FA0372 /* EDLogDetailController.swift in Sources */,
 				F44A8F2E3A49EDFB14D4C3F436312F8B /* EDTableController.swift in Sources */,
 				A75E5C5E5D24C95EBE3AE51E2DB71862 /* EDURLProtocol.swift in Sources */,
 				10EE7DA44F4D35C86A14B0EFDA0C81B9 /* EDViewController.swift in Sources */,

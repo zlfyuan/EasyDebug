@@ -99,8 +99,14 @@ class EDSandBoxController: EDTableController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 1
     }
-    
-    override func updateSearchResults(for searchText: String?) {
+}
+
+extension EDSandBoxController: EDFeatureActionable {
+    func clearResults() {
+        
+    }
+
+    func updateSearchResults(for searchText: String?) {
         if let keyword = searchText,!keyword.isEmpty {
             dataSources = SandBoxManger.shared.fileDataList.filter { (model: FileDataModel) -> Bool in
                 return model.name.lowercased().contains(keyword.lowercased())
@@ -113,5 +119,4 @@ class EDSandBoxController: EDTableController {
         }
         tableView.reloadData()
     }
-    
 }

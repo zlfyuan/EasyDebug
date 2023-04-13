@@ -29,8 +29,16 @@ import Foundation
 class EDNetworkingController: EDTableController {
     
     var dataSources = EDNetWorkManger.shared.netWorkDataSources
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dataSources = EDNetWorkManger.shared.netWorkDataSources
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.tableFooterView = createFooterView()
         // Uncomment the following line to preserve selection between presentations
         //self.clearsSelectionOnViewWillAppear = true
         
@@ -38,6 +46,20 @@ class EDNetworkingController: EDTableController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    func createFooterView() -> UIView {
+        let footView = UILabel(frame: CGRect.init(x: 0, y: 0, width: self.tableView.frame.size.width, height: 80))
+        footView.text = "共\(dataSources.count)项"
+        footView.font = UIFont.systemFont(ofSize: 14)
+        footView.textColor = .systemGray
+        footView.textAlignment = .center
+        return footView
+    }
+    
+    func updateCountLabel() {
+        if let label = self.tableView.tableFooterView as? UILabel{
+            label.text = "共\(dataSources.count)项"
+        }
+    }
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -107,24 +129,33 @@ class EDNetworkingController: EDTableController {
         return [deleteAction,copyAction]
     }
     
-    override func updateSearchResults(for searchText: String?) {
+}
+
+extension EDNetworkingController: EDFeatureActionable {
+    
+    func clearResults() {
+        dataSources = []
+        EDNetWorkManger.shared.netWorkDataSources = []
+        updateCountLabel()
+        self.tableView.reloadData()
+    }
+    
+    func updateSearchResults(for searchText: String?) {
         if let keyword = searchText,!keyword.isEmpty {
             dataSources = EDNetWorkManger.shared.netWorkDataSources.filter { (model: EDNetWorkStructure) -> Bool in
                 if let url = model.requestLine.url?.absoluteString {
                     return url.lowercased().contains(keyword.lowercased())
                 }
-                
                 if let method = model.responseStateLine.httpMethod {
                     return method.lowercased().contains(keyword.lowercased())
                 }
-                
                 let code = model.responseStateLine.statusCode
                 return "\(code)".lowercased().contains(keyword.lowercased())
-                
             }
         } else {
             dataSources = EDNetWorkManger.shared.netWorkDataSources
         }
+        updateCountLabel()
         tableView.reloadData()
     }
 }

@@ -31,6 +31,8 @@
 
 "title.delete" = "Delete";
 
+"title.clear" = "Clear";
+
 "title.General" = "General";
 
 "title.Request Headers" = "Request Headers";

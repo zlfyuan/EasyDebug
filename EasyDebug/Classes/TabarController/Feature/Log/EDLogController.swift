@@ -31,18 +31,16 @@ class EDLogController: EDTableController {
     var dataSources = EDLog.shared.logInfo
     var searchController: UISearchController!
     var filteredContacts = [EDLogData]()
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        dataSources = EDLog.shared.logInfo
         self.tableView.reloadData()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.tableView.tableFooterView = createFooterView()
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     func createFooterView() -> UIView {
@@ -52,6 +50,12 @@ class EDLogController: EDTableController {
         footView.textColor = .systemGray
         footView.textAlignment = .center
         return footView
+    }
+    
+    func updateCountLabel() {
+        if let label = self.tableView.tableFooterView as? UILabel{
+            label.text = "共\(dataSources.count)项"
+        }
     }
     
     // MARK: - Table view data source
@@ -67,23 +71,21 @@ class EDLogController: EDTableController {
     }
     
     
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         var cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier") as? EDLogCell
-         if cell == nil {
-             cell = EDLogCell.init(reuseIdentifier: "reuseIdentifier")
-         }
-         let model = self.dataSources[indexPath.section]
-         cell?.model = model
-         return cell!
-     }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier") as? EDLogCell
+        if cell == nil {
+            cell = EDLogCell.init(reuseIdentifier: "reuseIdentifier")
+        }
+        let model = self.dataSources[indexPath.section]
+        cell?.model = model
+        return cell!
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let model = self.dataSources[indexPath.section]
-//        if model.subFiles.count == 0 { return }
-//        let sandboxVc = EDSandBoxController(style: .grouped)
-//        sandboxVc.title = model.name
-//        sandboxVc.dataSources = model.subFiles
-//        self.navigationController?.pushViewController(sandboxVc, animated: true)
+        let model = self.dataSources[indexPath.section]
+        let logDetailVc = EDLogDetailController()
+        logDetailVc.logModel = model
+        self.navigationController?.pushViewController(logDetailVc, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -101,8 +103,10 @@ class EDLogController: EDTableController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 1
     }
-    
-    override func updateSearchResults(for searchText: String?) {
+}
+
+extension EDLogController: EDFeatureActionable {
+    func updateSearchResults(for searchText: String?) {
         if let keyword = searchText,!keyword.isEmpty {
             dataSources = EDLog.shared.logInfo.filter { (model: EDLogData) -> Bool in
                 return model.message.lowercased().contains(keyword.lowercased())
@@ -110,9 +114,14 @@ class EDLogController: EDTableController {
         } else {
             dataSources = EDLog.shared.logInfo
         }
-        if let label = self.tableView.tableFooterView as? UILabel{
-            label.text = "共\(dataSources.count)项"
-        }
+        updateCountLabel()
         tableView.reloadData()
+    }
+    
+    func clearResults() {
+        EDLog.shared.logInfo = []
+        dataSources = []
+        updateCountLabel()
+        self.tableView.reloadData()
     }
 }

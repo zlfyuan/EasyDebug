@@ -26,16 +26,16 @@
 
 class EDFileContentController: EDBaseController {
     
-    var textView: UILabel = UILabel()
+    var textView: UITextView = UITextView()
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        let textFrame = CGRect.init(x: 0,
+        let textFrame = CGRect.init(x: 16,
                                     y: self.navigationController!.navigationBar.frame.maxY + 10 ,
-                                    width: self.view.frame.width,
+                                    width: self.view.frame.width - 32,
                                     height: self.view.frame.height - self.navigationController!.navigationBar.frame.maxY + 10 - self.tabBarController!.tabBar.frame.height)
 
-        textView = UILabel(frame: textFrame)
+        textView.frame = textFrame
         textView.font = UIFont.systemFont(ofSize: 13)
         textView.textColor = .systemGray
         self.view.addSubview(textView)
@@ -52,7 +52,6 @@ class EDFileContentController: EDBaseController {
         didSet{
             guard let _model = fileModel,
              let _content = SandBoxManger.readFile(model: _model) as? String  else { return }
-            EDLogInfo(_content)
             textView.text = "\(_content)"
         }
     }
