@@ -57,8 +57,8 @@ class EDNetworkDetailCell: UITableViewCell {
         ])
         
         self.subviews.forEach { view in
-            if let cl = NSClassFromString("_UISystemBackgroundView") {
-                if view.isKind(of: cl.class()){
+            if let _class = NSClassFromString("_UISystemBackgroundView") {
+                if view.isKind(of: _class.class()){
                     view.layer.cornerRadius = 10
                     view.layer.masksToBounds = true
                 }
@@ -80,7 +80,6 @@ class EDNetworkDetailCell: UITableViewCell {
                         textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
                         textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
                         textView.heightAnchor.constraint(equalToConstant: 300),
-//                        textView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
                     ])
                 }else{
                     let keyLabel = UILabel()

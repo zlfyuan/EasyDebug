@@ -3,29 +3,28 @@
 //  EasyDebug
 //
 //  Created by zluof on 2023/4/7.
+//  Copyright © 2023 zluof <https://github.com/zlfyuan/>
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE
 //
 
 import Foundation
-import MobileCoreServices
-
-enum EDFileType: String {
-    case plist = "plist"
-    case text = "text"
-    case txt = "txt"
-    case json = "json"
-    case none = "none"
-}
-
-class FileDataModel {
-    var name: String = EDCommon.placeholder
-    var createDate: Date = Date()
-    var modificationDate:Date = Date()
-    var pathUrl: URL? = nil
-    var size: UInt64 = 0
-    var sizeStr: String = "-"
-    var subFiles: [FileDataModel] = [FileDataModel]()
-    var fileType = EDFileType.none
-}
 
 class SandBoxManger {
     
@@ -54,41 +53,13 @@ class SandBoxManger {
         let rootFiles = directoryList.map({ f in
             let model = createFileDataModel(use: f)
             model.subFiles = listFilesInDirectory(path: f.path)
-
+            
             let size = folderSize(atPath: f.path)
             model.sizeStr = EDCommon.formatFileSize(size)
             return model
         })
         
         fileDataList = rootFiles
-        
-        // 把一个txt文件写在沙盒目录里
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let fileURL = doc.appendingPathComponent("filename.txt")
-
-            // 写入数据
-            let text = "Hello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello World"
-            do {
-                try text.write(to: fileURL, atomically: false, encoding: .utf8)
-            }
-            catch {
-                print("Error: \(error)")
-            }
-        }
-
-        // 把一个txt文件写在沙盒目录里
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let fileURL = doc.appendingPathComponent("filename.text")
-
-            // 写入数据
-            let text = "filename.textfilename.textfilename.textfilename.textfilename.textfilename.textfilename.textfilename.textfilename.textfilename.textfilename.textfilename.textHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello World"
-            do {
-                try text.write(to: fileURL, atomically: false, encoding: .utf8)
-            }
-            catch {
-                print("Error: \(error)")
-            }
-        }
     }
     
     func createFileDataModel(use path: URL) -> FileDataModel {
@@ -204,15 +175,18 @@ class SandBoxManger {
     
     fileprivate static func readPlistFile(named filename: URL) -> Any? {
         
-        func couvertFormater(object: [String: Any]) -> [String: Any] {
+        func couvertFormat(object: [String: Any]) -> [String: Any] {
             var dicContents = [String: Any]()
             object.forEach { (key: String, value: Any) in
                 dicContents[key] = value
                 if let _date = value as? Date {
                     dicContents[key] = _date.description
                 }
+                if let _data = value as? Data {
+                    dicContents[key] = _data.description
+                }
                 if let _dic = value as? [String: Any] {
-                    dicContents[key] = couvertFormater(object: _dic)
+                    dicContents[key] = couvertFormat(object: _dic)
                 }
             }
             return dicContents
@@ -220,10 +194,10 @@ class SandBoxManger {
         
         do {
             let contents = try Data(contentsOf: filename)
-            guard var plist = try PropertyListSerialization.propertyList(from: contents, options: [], format: nil) as? [String: Any] else {
+            guard let plist = try PropertyListSerialization.propertyList(from: contents, options: [], format: nil) as? [String: Any] else {
                 return nil
             }
-            var dicContents = couvertFormater(object: plist)
+            let dicContents = couvertFormat(object: plist)
             return EDCommon.getJsonString(rawValue: dicContents)
         } catch {
             EDLogError("Error: \(error)")

@@ -27,29 +27,18 @@
 
 import Foundation
 
-fileprivate var bundleByLanguageCode: [String: Bundle] = [:]
-
-class EDLocalizationSetting: NSObject {
-
-    fileprivate static let currentLanguageKey = "currentLanguage"
-        
-    enum Language: String {
-        case Chinese = "zh-Hans"
-        case English = "en"
-        
-        var code: String {
-            return rawValue
-        }
-    }
+class EDLocalizationSetting {
     
-    static func setCurrentLanguage(_ language: Language) {
+    fileprivate static let currentLanguageKey = "currentLanguage"
+    
+    static func setCurrentLanguage(_ language: EDLanguage) {
         // 保存语言设置
         UserDefaults.standard.set(language.code, forKey: EDLocalizationSetting.currentLanguageKey)
         UserDefaults.standard.synchronize()
     }
     
     static func setSystemLanguage() {
-        let systemLanguage: Language = {
+        let systemLanguage: EDLanguage = {
             if let lang = Locale.preferredLanguages.first {
                 return useCodeCheck(lang)
             } else {
@@ -58,8 +47,8 @@ class EDLocalizationSetting: NSObject {
         }()
         setCurrentLanguage(systemLanguage)
     }
-
-    static func currentLanguage() -> Language {
+    
+    static func currentLanguage() -> EDLanguage {
         if let savedLanguageStr = UserDefaults.standard.object(forKey: EDLocalizationSetting.currentLanguageKey) as? String {
             return useCodeCheck(savedLanguageStr)
         } else {
@@ -71,7 +60,7 @@ class EDLocalizationSetting: NSObject {
         }
     }
     
-    fileprivate static func useCodeCheck(_ code: String) -> Language {
+    fileprivate static func useCodeCheck(_ code: String) -> EDLanguage {
         if code.hasPrefix("zh") {
             return .Chinese
         } else if code.contains("en") {
@@ -82,7 +71,7 @@ class EDLocalizationSetting: NSObject {
     }
 }
 
-extension EDLocalizationSetting.Language {
+extension EDLanguage {
     var bundle: Bundle? {
         if let bundle = bundleByLanguageCode[code] {
             return bundle

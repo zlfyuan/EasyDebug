@@ -1,5 +1,5 @@
 //
-//  UIimage+Extension.swift
+//  EDUIImage+Extension.swift
 //  EasyDebug
 //
 //  Created by zluof on 2023/3/31.

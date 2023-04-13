@@ -27,7 +27,7 @@
 
 import Foundation
 
-class EDDevice: EDPropertiesable {
+class EDDevice: EDPropertiesListable {
     
     var SystemName : String = "-"
     var SystemVersion : String = "-"

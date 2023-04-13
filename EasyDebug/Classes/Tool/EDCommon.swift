@@ -51,13 +51,13 @@ class EDCommon {
         return width
     }
     
-    static func share(_ content: Any, in conttroller: UIViewController) {
+    static func share(_ content: Any, in controller: UIViewController) {
         let activityViewController = UIActivityViewController(activityItems: [content], applicationActivities: nil)
         if let popoverPresentationController = activityViewController.popoverPresentationController {
-            popoverPresentationController.sourceView = conttroller.view
-            popoverPresentationController.sourceRect = conttroller.view.bounds
+            popoverPresentationController.sourceView = controller.view
+            popoverPresentationController.sourceRect = controller.view.bounds
         }
-        conttroller.present(activityViewController, animated: true, completion: nil)
+        controller.present(activityViewController, animated: true, completion: nil)
     }
     
     static func getJsonString(rawValue:Any) -> String? {
@@ -74,8 +74,8 @@ class EDCommon {
     static func getObject(jsonString: String) -> AnyObject? {
         do {
             guard let data = jsonString.data(using: .utf8) else { return nil }
-            let objcet = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.fragmentsAllowed)
-            return objcet as AnyObject
+            let object = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.fragmentsAllowed)
+            return object as AnyObject
         } catch let error{
             EDLogError(error)
             return nil
@@ -92,8 +92,8 @@ class EDCommon {
     
     static var easyDebugBundle: Bundle {
         let bundleNamePath = "EasyDebug.bundle"
-        let bundlepath = Bundle(for: type(of: EasyDebug())).resourcePath! + "/" + "\(bundleNamePath)"
-        guard let resource_bundle = Bundle(path: bundlepath) else {
+        let bundlePath = Bundle(for: type(of: EasyDebug())).resourcePath! + "/" + "\(bundleNamePath)"
+        guard let resource_bundle = Bundle(path: bundlePath) else {
             EDLogInfo("easyDebugBundle get empty")
             return Bundle.main
         }

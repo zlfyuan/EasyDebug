@@ -35,16 +35,18 @@ class EDViewController: EDBaseController {
         self.view.layer.borderWidth = 3
         self.view.layer.cornerRadius = view.frame.size.width / 2
         self.view.layer.masksToBounds = true
-        let btn = UIButton(type: .custom)
-        btn.frame = self.view.bounds
-        btn.backgroundColor = EDCommon.dynamicColor(.white)
-        btn.setBackgroundImage(UIImage.getBundleImage(withName: "easyDebugIcon"), for: .normal)
-        btn.addTarget(self, action: #selector(debugAction), for: .touchUpInside)
-        self.view.addSubview(btn)
+        let debugButton = UIButton(type: .custom)
+        debugButton.frame = self.view.bounds
+        debugButton.backgroundColor = EDCommon.dynamicColor(.white)
+        debugButton.setBackgroundImage(UIImage.getBundleImage(withName: "easyDebugIcon"), for: .normal)
+        debugButton.addTarget(self, action: #selector(debugAction), for: .touchUpInside)
+        self.view.addSubview(debugButton)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reset), name: NotificationNameKeyReset, object: nil)
     }
     
     @objc func debugAction() {
-        if EasyDebug.shared.visibleabled == true {
+        if EasyDebug.shared.visible == true {
             root?.doneBarButtonItemAction()
             return
         }
@@ -60,8 +62,15 @@ class EDViewController: EDBaseController {
         self.root = EDTabBarController()
         self.root?.modalPresentationStyle = .overCurrentContext
         rootController.present(self.root!, animated: true) {
-            EasyDebug.shared.visibleabled = true
+            EasyDebug.shared.visible = true
         }
+    }
+    
+    @objc func reset() {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3, execute: DispatchWorkItem.init(block: {
+            self.debugAction()
+        }))
+        debugAction()
     }
 
     /*

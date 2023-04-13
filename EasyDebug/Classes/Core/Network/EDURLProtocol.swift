@@ -27,6 +27,52 @@
 import Foundation
 import ObjectiveC.runtime
 
+class EDNetwork: NSObject {
+    
+    static let shared = EDNetwork()
+    
+    fileprivate var isSwizzle = false
+    
+    class func startIntercept(){
+        let sessionConfiguration = EDNetwork.shared
+        URLProtocol.registerClass(EDURLProtocol.self)
+        if !sessionConfiguration.isSwizzle{
+            sessionConfiguration.isSwizzle = true
+            guard let cls = NSClassFromString("__NSCFURLSessionConfiguration") ?? NSClassFromString("NSURLSessionConfiguration") else { return }
+            sessionConfiguration.swizzleInstanceSelector(selector: #selector(protocolClasses), fromClass: cls, toClass: EDNetwork.self)
+        }
+    }
+    
+    class func stopIntercept(){
+        let sessionConfiguration = EDNetwork.shared
+        URLProtocol.unregisterClass(EDURLProtocol.self)
+        if sessionConfiguration.isSwizzle{
+            sessionConfiguration.isSwizzle = false
+            guard let cls = NSClassFromString("__NSCFURLSessionConfiguration") ?? NSClassFromString("NSURLSessionConfiguration") else { return }
+            sessionConfiguration.swizzleInstanceSelector(selector: #selector(protocolClasses), fromClass: cls, toClass: EDNetwork.self)
+        }
+    }
+    
+    @objc func protocolClasses() -> NSArray {
+        return [EDURLProtocol.self]
+    }
+    
+    fileprivate func swizzleInstanceSelector(selector: Selector, fromClass: AnyClass, toClass: AnyClass) {
+        let originalMethod = class_getInstanceMethod(fromClass, selector)
+        let stubMethod = class_getInstanceMethod(toClass, selector)
+        guard originalMethod != nil && stubMethod != nil else { return }
+        method_exchangeImplementations(originalMethod!, stubMethod!)
+    }
+    
+    fileprivate func swizzleClassSelector(selector: Selector, fromClass: AnyClass, toClass: AnyClass) {
+        let originalMethod = class_getClassMethod(fromClass, selector)
+        let stubMethod = class_getClassMethod(toClass, selector)
+        guard originalMethod != nil && stubMethod != nil else { return }
+        method_exchangeImplementations(originalMethod!, stubMethod!)
+    }
+}
+
+
 class EDURLProtocol: URLProtocol, URLSessionDataDelegate, URLSessionTaskDelegate{
     
     fileprivate var dataTask:URLSessionDataTask?
@@ -35,22 +81,6 @@ class EDURLProtocol: URLProtocol, URLSessionDataDelegate, URLSessionTaskDelegate
     fileprivate var netWorkStructure = EDNetWorkStructure()
     fileprivate var receiveData = Data()
 
-    class func startMonitor(){
-        let sessionConfiguration = EDSwizzleNetwork.shared
-        URLProtocol.registerClass(EDURLProtocol.self)
-        if !sessionConfiguration.isSwizzle{
-            sessionConfiguration.load()
-        }
-    }
-    
-    class func stopMonitor(){
-        let sessionConfiguration = EDSwizzleNetwork.shared
-        URLProtocol.unregisterClass(EDURLProtocol.self)
-        if sessionConfiguration.isSwizzle{
-            sessionConfiguration.unload()
-        }
-    }
-    
     override class func canInit(with request: URLRequest) -> Bool {
         if URLProtocol.property(forKey: "EDURLProtocolHandledKey", in: request) != nil {
             return false
@@ -93,14 +123,15 @@ class EDURLProtocol: URLProtocol, URLSessionDataDelegate, URLSessionTaskDelegate
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didFinishCollecting metrics: URLSessionTaskMetrics) {
-        self.netWorkStructure.sessionTaskMetrics = metrics
-        self.netWorkStructure.urlSession(session, dataTask: task, didReceive: receiveData)
+        EDNetWorkManger.shared.current = self.netWorkStructure
+        EDNetWorkManger.shared.current.sessionTaskMetrics = metrics
+        EDNetWorkManger.shared.urlSession(session, dataTask: task, didReceive: receiveData)
     }
-    
 
     func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest, completionHandler: @escaping (URLRequest?) -> Void) {
         client?.urlProtocol(self, wasRedirectedTo: request, redirectResponse: response)
     }
+    
     //MARK:  URLSessionDataDelegate
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         receiveData = data
@@ -110,57 +141,5 @@ class EDURLProtocol: URLProtocol, URLSessionDataDelegate, URLSessionTaskDelegate
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
         client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .allowed)
         completionHandler(.allow)
-    }
-}
-
-protocol EDSwizzleable: NSObject {
-    var isSwizzle: Bool {get set}
-
-    func load()
-    
-    func unload()
-    
-    func swizzleInstanceSelector(selector: Selector, fromClass: AnyClass, toClass: AnyClass)
-    
-    func swizzleClassSelector(selector: Selector, fromClass: AnyClass, toClass: AnyClass)
-}
-
-extension EDSwizzleable {
-    
-    func swizzleInstanceSelector(selector: Selector, fromClass: AnyClass, toClass: AnyClass) {
-        let originalMethod = class_getInstanceMethod(fromClass, selector)
-        let stubMethod = class_getInstanceMethod(toClass, selector)
-        guard originalMethod != nil && stubMethod != nil else { return }
-        method_exchangeImplementations(originalMethod!, stubMethod!)
-    }
-    
-    func swizzleClassSelector(selector: Selector, fromClass: AnyClass, toClass: AnyClass) {
-        let originalMethod = class_getClassMethod(fromClass, selector)
-        let stubMethod = class_getClassMethod(toClass, selector)
-        guard originalMethod != nil && stubMethod != nil else { return }
-        method_exchangeImplementations(originalMethod!, stubMethod!)
-    }
-}
-
-class EDSwizzleNetwork: NSObject, EDSwizzleable {
-    
-    static let shared = EDSwizzleNetwork()
-    
-    var isSwizzle = false
-    
-    func load(){
-        isSwizzle = true
-        guard let cls = NSClassFromString("__NSCFURLSessionConfiguration") ?? NSClassFromString("NSURLSessionConfiguration") else { return }
-        swizzleInstanceSelector(selector: #selector(protocolClasses), fromClass: cls, toClass: EDSwizzleNetwork.self)
-    }
-    
-    func unload(){
-        isSwizzle = false
-        guard let cls = NSClassFromString("__NSCFURLSessionConfiguration") ?? NSClassFromString("NSURLSessionConfiguration") else { return }
-        swizzleInstanceSelector(selector: #selector(protocolClasses), fromClass: cls, toClass: EDSwizzleNetwork.self)
-    }
-    
-    @objc func protocolClasses() -> NSArray{
-        return [EDURLProtocol.self]
     }
 }

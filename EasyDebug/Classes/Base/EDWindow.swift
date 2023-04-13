@@ -54,19 +54,19 @@ class EDWindow: UIWindow {
     
     @objc func panGestureRecognizerAction(pan: UIPanGestureRecognizer) {
         let panView = self
-        let tranp = pan.translation(in: panView)
+        let tran = pan.translation(in: panView)
 
         // Reset the starting point of dragging to the last point,
         // similar to resetting the position after each change of dragging,
         // zooming, and rotating
         pan.setTranslation(CGPoint.zero, in: panView)
 
-        let newX = panView.center.x + tranp.x
-        let newY = panView.center.y + tranp.y
+        let newX = panView.center.x + tran.x
+        let newY = panView.center.y + tran.y
         let safeBottom: CGFloat = self.safeAreaInsets.bottom
 
-        var afterX = panView.center.x + tranp.x
-        var afterY = panView.center.y + tranp.y
+        var afterX = panView.center.x + tran.x
+        var afterY = panView.center.y + tran.y
 
         // When the x value is less than half the screen,
         // move to the left, otherwise move to the right

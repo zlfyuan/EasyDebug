@@ -26,7 +26,7 @@
 
 import Foundation
 
-class EDApplication: EDPropertiesable {
+class EDApplication: EDPropertiesListable {
     
     var DevelopmentRegion: String = "-"
     var ApplicationName: String = "-"

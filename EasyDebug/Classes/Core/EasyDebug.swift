@@ -24,21 +24,68 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE
 //
+import Foundation
+
+public enum EDLanguage: String {
+    case Chinese = "zh-Hans"
+    case English = "en"
+    
+    var code: String {
+        return rawValue
+    }
+}
+
+public enum EDLogLevel: String, CustomStringConvertible {
+    case debug = "🐛"
+    case warning = "⚠️"
+    case verbose = "🔍"
+    case info = "ℹ️"
+    case error = "❌"
+    case `default` = "🆕"
+
+   public var description: String{
+        switch self {
+        case .debug:
+            return "debug"
+        case .warning:
+            return "warning"
+        case .verbose:
+            return "verbose"
+        case .info:
+            return "info"
+        case .error:
+            return "error"
+        case .default:
+            return "default"
+        }
+    }
+}
+
+public enum EDFileType: String {
+    case plist = "plist"
+    case text = "text"
+    case txt = "txt"
+    case json = "json"
+    case none = "none"
+}
+
+var bundleByLanguageCode: [String: Bundle] = [:]
+
+let NotificationNameKeyReset = Notification.Name.init("com.easyDebug.reset")
 
 public class EasyDebug {
     
     static public let shared = EasyDebug()
     
-    var visibleabled: Bool = false
+    var visible: Bool = false
     
-    var currentController: UIViewController? = nil
+    var options: EDOptions = EDOptions()
     
-    public func start(_ options: (()->(EDOptions))? = nil) {
+    public func start(with options: ((EDOptions)->())? = nil) {
         
-        EDURLProtocol.startMonitor()
+        EDNetwork.startIntercept()
         
-        EDLocalizationSetting.setCurrentLanguage(.Chinese)
-        
+        EDLocalizationSetting.setCurrentLanguage(self.options.language)
         
         guard let appDelegate = UIApplication.shared.delegate else {
             EDLogVerbose("appDelegate can't empty")
@@ -46,20 +93,17 @@ public class EasyDebug {
         }
         if !Thread.isMainThread {
             DispatchQueue.main.async {
-                self.start(options)
+                self.start(with: options)
             }
             return
         }
+        
         let edWindow = EDWindow(frame: CGRect.init(x: 0, y: 100, width: 48, height: 48))
         edWindow.isHidden = false
         edWindow.windowLevel = UIWindow.Level.alert + 1
         edWindow.rootViewController = EDViewController()
         edWindow.makeKeyAndVisible()
         appDelegate.edWindow = edWindow
-        
-        guard let optionsfunc = options else { return }
-        EDLogInfo(optionsfunc().debug)
-
         
     }
     

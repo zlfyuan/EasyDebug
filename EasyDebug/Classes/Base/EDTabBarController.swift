@@ -38,10 +38,10 @@ class EDTabBarController: UITabBarController {
                                                   image: UIImage.getBundleImage(withName: "lasso.and.sparkles"),
                                                   selectedImage: UIImage.getBundleImage(withName: "s_lasso.and.sparkles"))
 
-        let viewController2 = EDConfigController()
-        viewController2.tabBarItem = UITabBarItem(title: String.edLocalizedString(withKey: "title.config"),
-                                                  image: UIImage.getBundleImage(withName: "gear"),
-                                                  selectedImage: UIImage.getBundleImage(withName: "s_gear"))
+//        let viewController2 = EDConfigController(style: .grouped)
+//        viewController2.tabBarItem = UITabBarItem(title: String.edLocalizedString(withKey: "title.config"),
+//                                                  image: UIImage.getBundleImage(withName: "gear"),
+//                                                  selectedImage: UIImage.getBundleImage(withName: "s_gear"))
 
         let viewController3 = EDAppInfoController(style: .grouped)
         viewController3.tabBarItem = UITabBarItem(title: String.edLocalizedString(withKey: "title.info"),
@@ -49,7 +49,7 @@ class EDTabBarController: UITabBarController {
                                                   selectedImage: UIImage.getBundleImage(withName: "s_info.circle"))
         self.viewControllers = [
             self.setSubController(viewController1),
-            self.setSubController(viewController2),
+//            self.setSubController(viewController2),
             self.setSubController(viewController3)
         ]
     }
@@ -62,7 +62,7 @@ class EDTabBarController: UITabBarController {
     
     @objc func doneBarButtonItemAction() {
         self.dismiss(animated: true) {
-            EasyDebug.shared.visibleabled = false
+            EasyDebug.shared.visible = false
         }
     }
 

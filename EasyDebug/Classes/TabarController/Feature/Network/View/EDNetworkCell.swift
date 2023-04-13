@@ -56,7 +56,6 @@ class EDNetworkCell: UITableViewCell {
             pathLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             pathLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             pathLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            //            pathLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
         
         
@@ -73,20 +72,12 @@ class EDNetworkCell: UITableViewCell {
             timeLabel.trailingAnchor.constraint(equalTo: stateLabel.trailingAnchor, constant: 0),
             timeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
-        
-//        self.subviews.forEach { view in
-//            if let cl = NSClassFromString("_UISystemBackgroundView") {
-//                if view.isKind(of: cl.class()){
-//                    view.layer.cornerRadius = 10
-//                    view.layer.masksToBounds = true
-//                }
-//            }
-//        }
     }
     
     override func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize {
         return contentView.systemLayoutSizeFitting(CGSize(width: targetSize.width, height: 1))
     }
+    
     var model: EDNetWorkStructure? = nil {
         didSet{
             guard let _model = model else {
@@ -101,16 +92,7 @@ class EDNetworkCell: UITableViewCell {
             timeLabel.text = "\(date)" + "\t\(round(_model.timeElapsed * 1000))"
         }
     }
-    
-//    override var frame: CGRect {
-//        didSet{
-//            var newFrame = frame
-//            newFrame.origin.x += 16
-//            newFrame.size.width -= 32
-//            super.frame = newFrame
-//        }
-//    }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

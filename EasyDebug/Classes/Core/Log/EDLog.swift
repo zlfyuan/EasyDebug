@@ -27,33 +27,6 @@
 
 import Foundation
 
-enum EDLogLevel: String, CustomStringConvertible {
-    case debug = "🐛"
-    case warning = "⚠️"
-    case verbose = "🔍"
-    case info = "ℹ️"
-    case error = "❌"
-    case `default` = "🆕"
-
-    var description: String{
-        switch self {
-        case .debug:
-            return "debug"
-        case .warning:
-            return "warning"
-        case .verbose:
-            return "verbose"
-        case .info:
-            return "info"
-        case .error:
-            return "error"
-        case .default:
-            return "defalut"
-        }
-    }
-    
-}
-
 class EDLogData {
     
     var date: Date

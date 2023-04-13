@@ -29,13 +29,90 @@ import UIKit
 class EDConfigController: EDTableController{
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Register the custom cell
+        tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "cell")
+    }
+    
+    // MARK: - Table view data source
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
        
+        if indexPath.section == 0 {
+            let titleLabel = UILabel()
+            cell.contentView.addSubview(titleLabel)
+            titleLabel.translatesAutoresizingMaskIntoConstraints = false
+            let contentLabel = UILabel()
+            titleLabel.text = "debug"
+            contentLabel.text = "\(EasyDebug.shared.options.debug)"
+            contentLabel.translatesAutoresizingMaskIntoConstraints = false
+            cell.contentView.addSubview(contentLabel)
+            
+            NSLayoutConstraint.activate([
+                titleLabel.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 20),
+                titleLabel.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
+                
+                contentLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20),
+                contentLabel.trailingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: -20),
+                contentLabel.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor)
+            ])
+        }else{
+            let titleLabel = UILabel()
+            cell.contentView.addSubview(titleLabel)
+            titleLabel.translatesAutoresizingMaskIntoConstraints = false
+            let switchControl = UISwitch()
+            titleLabel.text = "中文/英文"
+            switchControl.translatesAutoresizingMaskIntoConstraints = false
+            cell.contentView.addSubview(switchControl)
+            
+            let contentLabel = UILabel()
+            contentLabel.text = "\(EasyDebug.shared.options.language.rawValue)"
+            contentLabel.translatesAutoresizingMaskIntoConstraints = false
+            cell.contentView.addSubview(contentLabel)
+            
+            NSLayoutConstraint.activate([
+                titleLabel.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 20),
+                titleLabel.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
+                switchControl.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: -20),
+                switchControl.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
+                
+                
+                contentLabel.trailingAnchor.constraint(equalTo: switchControl.leadingAnchor, constant: -20),
+                contentLabel.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor)
+                
+            ])
+        }
+        
+        cell.contentView.layer.cornerRadius = 6.0
+        cell.contentView.layer.masksToBounds = true
+        return cell
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        EDLocalizationSetting.setCurrentLanguage(.English)
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.001
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 1
+    }
+    
 }
-

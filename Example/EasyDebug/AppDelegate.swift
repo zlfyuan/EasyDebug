@@ -16,12 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        EasyDebug.shared.start({
-            let option = EDOptions()
-            option.debug = false
-
-            return option
-        })
+        EasyDebug.shared.start { option in
+            option.debug = true
+        }
         return true
     }
 

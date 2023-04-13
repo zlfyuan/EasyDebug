@@ -53,3 +53,42 @@ class EDResponseInfo {
     var reponseInfoHeader: EDInfoHeader? = nil
     var reponseBodyInfo: EDBodyInfo? = nil
 }
+
+class EDNetWorkStructure {
+    
+    var startDate: Date = Date()
+    var endDate: Date = Date()
+    var timeElapsed: TimeInterval = 0
+    var sessionTaskMetrics = URLSessionTaskMetrics()
+    let requestLine = EDStateLine()
+    let edRequestHeader = EDInfoHeader()
+    let edRequestBodyInfo = EDBodyInfo()
+   
+    let responseStateLine = EDStateLine()
+    let edReponseHeader = EDInfoHeader()
+    let edResponseBodyInfo = EDBodyInfo()
+}
+
+extension EDNetWorkStructure: CustomStringConvertible {
+    var description: String {
+        
+        var json = self.responseStateLine.value
+        json["Request headers"] = self.edRequestHeader.value["values"]
+        if let _body = self.edRequestBodyInfo.value["values"] as? String {
+            json["Request body"] = EDCommon.getObject(jsonString: _body)
+        }else{
+            json["Request body"] = nil
+        }
+        
+        json["Response headers"] = self.edReponseHeader.value["values"]
+        if let _body = self.edResponseBodyInfo.value["values"] as? String {
+            json["Response body"] = EDCommon.getObject(jsonString: _body)
+        }else{
+            json["Response body"] = nil
+        }
+        if let str = EDCommon.getJsonString(rawValue: json) {
+            return str.replacingOccurrences(of: "\\", with: "")
+        }
+        return "null"
+    }
+}
