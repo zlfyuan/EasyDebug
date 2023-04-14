@@ -95,7 +95,7 @@ class EDFeatureShowController: EDBaseController {
         })
         
         searchBar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 44)
-        searchBar.placeholder = String.edLocalizedString(withKey: "title.search")
+        searchBar.placeholder = String.edLocalizedString(withKey: "title.searchDes")
         searchBar.delegate = self
         navigationItem.titleView = searchBar
         
@@ -147,6 +147,7 @@ class EDFeatureShowController: EDBaseController {
             }else{
                 searchTextField.resignFirstResponder()
                 item.title = String.edLocalizedString(withKey: "title.search")
+                searchTextField.text = nil
             }
         }
     }
@@ -189,4 +190,12 @@ extension EDFeatureShowController: UISearchBarDelegate {
             vc.updateSearchResults(for: searchBar.text)
         }
     }
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        if let item = self.navigationItem.rightBarButtonItem {
+            item.title = String.edLocalizedString(withKey: "title.cancel")
+        }
+        return true
+    }
 }
+

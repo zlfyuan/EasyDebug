@@ -75,7 +75,7 @@ let NotificationNameKeyReset = Notification.Name.init("com.easyDebug.reset")
 
 public class EasyDebug {
     
-    static public let shared = EasyDebug()
+    public static let shared = EasyDebug()
     
     var visible: Bool = false
     
@@ -104,6 +104,10 @@ public class EasyDebug {
         edWindow.rootViewController = EDViewController()
         edWindow.makeKeyAndVisible()
         appDelegate.edWindow = edWindow
+        
+        for i in 0...30 {
+            EDLogError("\(i) error")
+        }
         
     }
     
