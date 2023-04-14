@@ -27,7 +27,15 @@
 
 "title.search" = "Search";
 
-"title.searchDes" = "input keyword";
+"title.searchDes" = "search keyword";
+
+"title.blacklist" = "Blacklist";
+
+"title.add" = "add";
+
+"title.edit" = "Edit";
+
+"title.complete" = "complete";
 
 "title.cancel" = "Cancel";
 

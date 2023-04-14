@@ -85,6 +85,11 @@ class EDURLProtocol: URLProtocol, URLSessionDataDelegate, URLSessionTaskDelegate
         if URLProtocol.property(forKey: "EDURLProtocolHandledKey", in: request) != nil {
             return false
         }
+        if let host = request.url?.host {
+            if EDNetWorkManger.shared.blacklist.contains(where: { $0 == host }) {
+                return false
+            }
+        }
         return true
     }
 

@@ -24,6 +24,10 @@
 "title.delete" = "删除";
 "title.clear" = "清空";
 "title.language" = "语言";
+"title.blacklist" = "黑名单";
+"title.complete" = "完成";
+"title.add" = "添加";
+"title.edit" = "编辑";
 
 "title.General" = "常规";
 "title.Request Headers" = "请求头";

@@ -27,9 +27,18 @@
 import Foundation
 
 class EDNetWorkManger {
+    
     static let shared = EDNetWorkManger()
     var current: EDNetWorkStructure = EDNetWorkStructure()
     var netWorkDataSources = [EDNetWorkStructure]()
+    var blacklist = [String]()
+    let blacklistKey = "blacklistKey"
+    
+    init(){
+        if let list = UserDefaults.standard.object(forKey: self.blacklistKey) as? [String] {
+            self.blacklist = list
+        }
+    }
 }
 
 extension EDNetWorkManger {

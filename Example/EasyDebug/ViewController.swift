@@ -22,9 +22,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        Alamofire.AF.request("https://testapis.lanrenyun.cn/training/home/product/userHelperMoreList", method: HTTPMethod.post,parameters: ["cityId":440300000000], encoder:JSONParameterEncoder.default,  headers: nil, interceptor: nil, requestModifier: nil).response { data in
-//            print(data)
-//        }
+        Alamofire.AF.request("https://testapis.lanrenyun.cn/training/home/product/userHelperMoreList", method: HTTPMethod.post,parameters: ["cityId":440300000000], encoder:JSONParameterEncoder.default,  headers: nil, interceptor: nil, requestModifier: nil).response { data in
+            print(data)
+        }
         Alamofire.AF.request("https://shudong.dev.wanzhong.ink/api/secrets/",method: HTTPMethod.get).response { d in
             EDLogInfo(d)
         }

@@ -27,76 +27,6 @@
 
 import UIKit
 
-class EDConfigCell: UITableViewCell {
-
-    
-    fileprivate let titleLabel = UILabel()
-    fileprivate let valueLabel = UILabel()
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
-    
-    convenience init(reuseIdentifier: String?) {
-        self.init(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: reuseIdentifier)
-        self.selectionStyle = .none
-        
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        valueLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        titleLabel.font = UIFont.systemFont(ofSize: 17)
-        contentView.addSubview(titleLabel)
-        
-        valueLabel.font = UIFont.systemFont(ofSize: 14)
-        valueLabel.textColor = .systemGray
-        valueLabel.numberOfLines = 0
-        contentView.addSubview(valueLabel)
-        
-        
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
-        ])
-        
-        NSLayoutConstraint.activate([
-            valueLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            valueLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: contentView.frame.width / 2),
-            valueLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            valueLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -8)
-        ])
-        
-    }
-    
-    override func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize {
-        return contentView.systemLayoutSizeFitting(CGSize(width: targetSize.width, height: 1))
-    }
-    
-    var model: ConfigRow? = nil {
-        didSet{
-            guard let _model = model else {
-                return
-            }
-            titleLabel.text = _model.key
-            valueLabel.text = "\(_model.value)"
-        }
-    }
-    
-    override var frame: CGRect {
-        didSet{
-            var newFrame = frame
-            newFrame.origin.x += 16
-            newFrame.size.width -= 32
-            super.frame = newFrame
-        }
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-
 class ConfigRow{
     let key: String
     let value: Any
@@ -125,7 +55,7 @@ class EDConfigController: EDTableController{
         let log = [ConfigRow(key: "level", value: "dataSourcesdataSourcesdataSourcesdataSourcesdataSourcesdataSourcesdataSourcesdataSourcesdataSourcesdataSources")]
         dataSources.append(ConfigSection(title:String.edLocalizedString(withKey: "title.log"), list: log))
         
-        let netWork = [ConfigRow(key: "黑名单", value: 10)]
+        let netWork = [ConfigRow(key: String.edLocalizedString(withKey: "title.blacklist"), value: EDNetWorkManger.shared.blacklist.count)]
         dataSources.append(ConfigSection(title:String.edLocalizedString(withKey: "title.network"), list: netWork))
         
         let language = EDLanguage.allCases.map({ ConfigRow(key: $0.rawValue, value: false) })
@@ -146,24 +76,22 @@ class EDConfigController: EDTableController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         let section = self.dataSources[indexPath.section]
         let model = section.list[indexPath.row]
+        let cell = EDConfigCell(style: .default, reuseIdentifier: "cell")
+        
         if section.title == String.edLocalizedString(withKey: "title.language") {
-            let cell = EDConfigCell(style: .default, reuseIdentifier: "cell")
             if "\(model.key)" == EasyDebug.shared.options.language.rawValue {
-                cell.accessoryType = .checkmark
+                cell.checkmarkModel = model
             }else{
+                cell.checkmarkModel = model
                 cell.accessoryType = .none
             }
-            cell.textLabel?.text = model.key
-            return cell
         }else{
-            let cell = EDConfigCell(style: .value1, reuseIdentifier: "cell")
-            cell.textLabel?.text = model.key
-            cell.detailTextLabel?.text = "\(model.value)"
-            return cell
+            cell.model = model
         }
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -210,6 +138,10 @@ class EDConfigController: EDTableController{
             EDLocalizationSetting.setCurrentLanguage(language)
             NotificationCenter.default.post(name: NotificationNameKeyReset, object: nil)
         }
+        if section.title == String.edLocalizedString(withKey: "title.network") {
+            let vc = EDBlackListController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     private func setCornerRadiusForSectionCell(cell: UITableViewCell, indexPath: IndexPath) {
@@ -247,5 +179,5 @@ class EDConfigController: EDTableController{
             cell.layer.mask = shapeLayer
         }
     }
-
+    
 }
