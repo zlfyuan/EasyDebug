@@ -35,6 +35,8 @@
 
 "title.clear" = "Clear";
 
+"title.language" = "Language";
+
 "title.General" = "General";
 
 "title.Request Headers" = "Request Headers";

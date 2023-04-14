@@ -19,10 +19,11 @@
 "title.share" = "分享";
 "title.done" = "退出";
 "title.search" = "搜索";
+"title.searchDes" = "输入关键字";
 "title.cancel" = "取消";
 "title.delete" = "删除";
 "title.clear" = "清空";
-
+"title.language" = "语言";
 
 "title.General" = "常规";
 "title.Request Headers" = "请求头";

@@ -26,7 +26,7 @@
 //
 import Foundation
 
-public enum EDLanguage: String {
+public enum EDLanguage: String, CaseIterable {
     case Chinese = "zh-Hans"
     case English = "en"
     
