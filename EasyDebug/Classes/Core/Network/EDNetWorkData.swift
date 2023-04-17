@@ -39,6 +39,7 @@ class EDInfoHeader: EDJSONEncoder {
 
 class EDBodyInfo: EDJSONEncoder {
     var values: String? = nil
+    var data: Data? = nil
     var size:Int = 0
 }
 

@@ -63,8 +63,8 @@ class EDNetworkingDetailController: EDTableController {
         EDCommon.share(text, in: self)
     }
     
-    @objc func copyButtonItemAction() {
-        guard self.navigationItem.rightBarButtonItem?.title == String.edLocalizedString(withKey: "title.copy") else{ return }
+    @objc func copyButtonItemAction(_ item: UIBarButtonItem) {
+        guard item.title == String.edLocalizedString(withKey: "title.copy") else{ return }
         let pasteboard = UIPasteboard.general
         pasteboard.string = self.model.description
         if let rightBarButtonItem = self.navigationItem.rightBarButtonItems?.first {
@@ -119,9 +119,18 @@ class EDNetworkingDetailController: EDTableController {
         })
         let responseHeaders:SectionData = (title: String.edLocalizedString(withKey: "title.Response Headers"),
                                            info: _reph)
-        
-        let responseBody:SectionData = (title: String.edLocalizedString(withKey: "title.Response Body"),
-                                        info:[["body":showJson(value: self.model.edResponseBodyInfo.values as Any)]])
+        var responseBody:SectionData = SectionData(title:"",info:[])
+        if let data = self.model.edResponseBodyInfo.data {
+            let imgType = data.detectImageType()
+            if imgType != .unknown {
+                
+            }
+            responseBody = (title: String.edLocalizedString(withKey: "title.Response Body"),
+                                            info:[["body":data]])
+        }else{
+            responseBody = (title: String.edLocalizedString(withKey: "title.Response Body"),
+                                            info:[["body":showJson(value: self.model.edResponseBodyInfo.values as Any)]])
+        }
         dataSources = [
             general,
             requestHeaders,

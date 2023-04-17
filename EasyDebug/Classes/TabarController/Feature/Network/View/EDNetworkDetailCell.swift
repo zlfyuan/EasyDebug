@@ -35,11 +35,18 @@ class EDNetworkDetailCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
+    
     fileprivate let textView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 13)
         textView.textColor = .systemGray
         return textView
+    }()
+    
+    fileprivate let imageContentView: UIImageView = {
+        let img = UIImageView()
+        img.contentMode = .scaleAspectFit
+        return img
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -73,14 +80,24 @@ class EDNetworkDetailCell: UITableViewCell {
                 if key == "body" {
                     if let prettyText = value as? String {
                         textView.text = prettyText
+                        stackView.addArrangedSubview(textView)
+                        NSLayoutConstraint.activate([
+                            textView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+                            textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+                            textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+                            textView.heightAnchor.constraint(equalToConstant: 300),
+                        ])
                     }
-                    stackView.addArrangedSubview(textView)
-                    NSLayoutConstraint.activate([
-                        textView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-                        textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-                        textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-                        textView.heightAnchor.constraint(equalToConstant: 300),
-                    ])
+                    if let imageData = value as? Data {
+                        imageContentView.image = UIImage.init(data: imageData)
+                        stackView.addArrangedSubview(imageContentView)
+                        NSLayoutConstraint.activate([
+                            imageContentView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+                            imageContentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+                            imageContentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+                            imageContentView.heightAnchor.constraint(equalToConstant: 300),
+                        ])
+                    }
                 }else{
                     let keyLabel = UILabel()
                     keyLabel.text = key

@@ -86,7 +86,11 @@ extension EDNetWorkManger {
         /// 响应头
         self.current.edReponseHeader.values = response.allHeaderFields as? [String: String]
         /// 响应体
-        self.current.edResponseBodyInfo.values = String(data: data, encoding: .utf8)
+        self.current.edResponseBodyInfo.data = data
+        if let strJson = String(data: data, encoding: .utf8) {
+            self.current.edResponseBodyInfo.values = strJson
+        }
+        
         self.current.edResponseBodyInfo.size = data.count
         /// 耗时
         self.current.startDate = self.current.sessionTaskMetrics.taskInterval.start
@@ -96,7 +100,6 @@ extension EDNetWorkManger {
         EDNetWorkManger.shared.netWorkDataSources.insert(self.current, at: 0)
     }
 }
-
 public extension URL {
     var urlParameters: [String: String]? {
         guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true),

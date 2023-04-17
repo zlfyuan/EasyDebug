@@ -84,6 +84,8 @@ public class EasyDebug {
         
         EDNetwork.startIntercept()
         
+        SandBoxManger.shared.refreshFiles()
+        
         EDLocalizationSetting.setCurrentLanguage(self.options.language)
         
         guard let appDelegate = UIApplication.shared.delegate else {
