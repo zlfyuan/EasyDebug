@@ -3,7 +3,6 @@
 //  EasyDebug
 //
 //  Created by zluof on 2023/3/30.
-//  Copyright © 2023 zlfyuan. All rights reserved.
 //  Copyright © 2023 zluof <https://github.com/zlfyuan/>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
