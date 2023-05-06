@@ -34,7 +34,7 @@ public enum EDLanguage: String, CaseIterable {
     }
 }
 
-public enum EDLogLevel: String, CustomStringConvertible {
+public enum EDLogLevel: String, CaseIterable, CustomStringConvertible {
     case debug = "🐛"
     case warning = "⚠️"
     case verbose = "🔍"
@@ -71,6 +71,8 @@ public enum EDFileType: String {
 var bundleByLanguageCode: [String: Bundle] = [:]
 
 let NotificationNameKeyReset = Notification.Name.init("com.easyDebug.reset")
+
+let EasyDebugVersion = "0.0.1"
 
 public class EasyDebug {
     

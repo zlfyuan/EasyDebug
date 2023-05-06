@@ -31,7 +31,10 @@
 
 "title.blacklist" = "Blacklist";
 
-"title.add" = "add";
+"title.add" = "add domain name Ex：www.baidu.com";
+
+"title.log.alert" = "setting log level";
+"title.log.alert.des" = "this level can filter the log list";
 
 "title.edit" = "Edit";
 

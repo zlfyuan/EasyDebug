@@ -51,8 +51,25 @@ class EDConfigController: EDTableController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorStyle = .singleLine
+        self.tableView.tableFooterView = createFooterView()
+        self.parseData()
         
-        let log = [ConfigRow(key: "level", value: "dataSourcesdataSourcesdataSourcesdataSourcesdataSourcesdataSourcesdataSourcesdataSourcesdataSourcesdataSources")]
+        // Register the custom cell
+        tableView.register(EDConfigCell.classForCoder(), forCellReuseIdentifier: "cell")
+    }
+    
+    func createFooterView() -> UIView {
+        let footView = UILabel(frame: CGRect.init(x: 0, y: 0, width: self.tableView.frame.size.width, height: 80))
+        footView.text = "version: \(EasyDebugVersion)"
+        footView.font = UIFont.systemFont(ofSize: 14)
+        footView.textColor = .systemGray
+        footView.textAlignment = .center
+        return footView
+    }
+    
+    func parseData() {
+        dataSources.removeAll()
+        let log = [ConfigRow(key: "level", value: EasyDebug.shared.options.filterLevel.description)]
         dataSources.append(ConfigSection(title:String.edLocalizedString(withKey: "title.log"), list: log))
         
         let netWork = [ConfigRow(key: String.edLocalizedString(withKey: "title.blacklist"), value: EDNetWorkManger.shared.blacklist.count)]
@@ -60,9 +77,6 @@ class EDConfigController: EDTableController{
         
         let language = EDLanguage.allCases.map({ ConfigRow(key: $0.rawValue, value: false) })
         dataSources.append(ConfigSection(title:String.edLocalizedString(withKey: "title.language"), list: language))
-        
-        // Register the custom cell
-        tableView.register(EDConfigCell.classForCoder(), forCellReuseIdentifier: "cell")
     }
     
     // MARK: - Table view data source
@@ -141,6 +155,22 @@ class EDConfigController: EDTableController{
         if section.title == String.edLocalizedString(withKey: "title.network") {
             let vc = EDBlackListController()
             self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        if section.title == String.edLocalizedString(withKey: "title.log") {
+            let alertVC = UIAlertController(title: String.edLocalizedString(withKey: "title.log.alert"),
+                                            message: String.edLocalizedString(withKey: "title.log.alert.des"),
+                                            preferredStyle: .actionSheet)
+            EDLogLevel.allCases.forEach { level in
+                let action = UIAlertAction(title: level.rawValue + level.description , style: .default) { action in
+                    EasyDebug.shared.options.filterLevel = EDLogLevel.init(rawValue: level.rawValue) ?? .default
+                    self.parseData()
+                    self.tableView.reloadData()
+                }
+                alertVC.addAction(action)
+               
+            }
+            self.present(alertVC, animated: true)
         }
     }
     

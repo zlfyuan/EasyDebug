@@ -85,9 +85,9 @@ class EDLogCell: UITableViewCell {
             guard let _model = model else {
                 return
             }
-            dateLabel.text = "\(_model.date.toString(format: "yyyy-MM-dd-HH:mm.ss.SSSS"))"
+            dateLabel.text = "\(_model.level.rawValue)  \(_model.date.toString(format: "yyyy-MM-dd-HH:mm.ss.SSSS"))"
             var state = "\(_model.fileName)"
-            state += "  line: \(_model.line)    \(_model.level.rawValue)"
+            state += "  line: \(_model.line)"
             stateLabel.text = state
             messageLabel.text = "\(_model.message)"
         }

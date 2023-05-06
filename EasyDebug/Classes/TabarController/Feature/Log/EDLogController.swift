@@ -35,6 +35,9 @@ class EDLogController: EDTableController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         dataSources = EDLog.shared.logInfo
+        if EasyDebug.shared.options.filterLevel != .default {
+            dataSources = dataSources.filter({$0.level == EasyDebug.shared.options.filterLevel})
+        }
         self.tableView.reloadData()
     }
     

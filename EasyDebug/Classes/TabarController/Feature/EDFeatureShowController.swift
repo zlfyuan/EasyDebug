@@ -122,7 +122,7 @@ class EDFeatureShowController: EDBaseController {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: String.edLocalizedString(withKey: "title.search"), style: .plain, target: self, action: #selector(doneBarButtonItemAction))
         
-        bottomView.frame = CGRect.init(x: 105, y: pageController.view.frame.maxY - 44 - 10, width: self.view.frame.width - 210, height: 44)
+        bottomView.frame = CGRect.init(x: 20, y: pageController.view.frame.maxY - 44 - 10, width: self.view.frame.width - 40, height: 44)
         bottomView.backgroundColor = .red
         bottomView.layer.cornerRadius = 15
         view.addSubview(bottomView)

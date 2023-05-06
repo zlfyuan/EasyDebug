@@ -26,7 +26,9 @@
 "title.language" = "语言";
 "title.blacklist" = "黑名单";
 "title.complete" = "完成";
-"title.add" = "添加";
+"title.add" = "添加 域名 例如：www.baidu.com";
+"title.log.alert" = "设置日志等级";
+"title.log.alert.des" = "该等级可以过滤日志列表";
 "title.edit" = "编辑";
 
 "title.General" = "常规";

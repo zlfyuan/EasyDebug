@@ -32,7 +32,7 @@ public class EDOptions {
     
     public var language = EDLanguage.English
     
-    
+    public var filterLevel = EDLogLevel.default
     
     public init() {}
 

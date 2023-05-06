@@ -172,6 +172,51 @@
                   endingLineNumber = "54"
                   offsetFromSymbolStart = "752">
                </Location>
+               <Location
+                  uuid = "CA9E5A3B-B331-404C-A187-E28CC636B9C6 - 52848e0eb843e2ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EasyDebug.EDFileContentController.fileModel.didset : Swift.Optional&lt;EasyDebug.FileDataModel&gt;"
+                  moduleName = "EasyDebug"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhongxiaoxi/EasyDebug/EasyDebug/Classes/TabarController/Feature/SandBox/EDFileContentController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "CA9E5A3B-B331-404C-A187-E28CC636B9C6 - 52848e0eb843e2ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EasyDebug.EDFileContentController.fileModel.didset : Swift.Optional&lt;EasyDebug.FileDataModel&gt;"
+                  moduleName = "EasyDebug"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhongxiaoxi/EasyDebug/EasyDebug/Classes/TabarController/Feature/SandBox/EDFileContentController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "372">
+               </Location>
+               <Location
+                  uuid = "CA9E5A3B-B331-404C-A187-E28CC636B9C6 - 52848e0eb843e2ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EasyDebug.EDFileContentController.fileModel.didset : Swift.Optional&lt;EasyDebug.FileDataModel&gt;"
+                  moduleName = "EasyDebug"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhongxiaoxi/EasyDebug/EasyDebug/Classes/TabarController/Feature/SandBox/EDFileContentController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "776">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
