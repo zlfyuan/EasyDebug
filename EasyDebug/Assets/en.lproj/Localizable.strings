@@ -37,6 +37,7 @@
 "title.log.alert.des" = "this level can filter the log list";
 
 "title.edit" = "Edit";
+"title.count" = "count";
 
 "title.complete" = "complete";
 

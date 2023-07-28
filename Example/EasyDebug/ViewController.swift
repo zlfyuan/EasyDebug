@@ -23,11 +23,15 @@ class ViewController: UIViewController {
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
        
-        Alamofire.AF.request("https://portal.lanrenyun.cn/1681358805762",method: HTTPMethod.get).response { d in
-            EDLogInfo(d)
+        for i in 0...1 {
+            Alamofire.AF.request("https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=85841439&appsecret=EKCDLT4I",method: HTTPMethod.get).response { d in
+                EDLogInfo(d)
+            }
         }
         
-        
+//        Alamofire.AF.request("http://www.tianqiapi.com/api?version=v9&appid=23035354&appsecret=8YvlPNrz",method: HTTPMethod.get).response { d in
+//            EDLogInfo(d)
+//        }
         
     }
 }

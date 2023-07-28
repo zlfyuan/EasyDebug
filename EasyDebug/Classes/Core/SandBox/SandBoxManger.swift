@@ -41,6 +41,7 @@ class SandBoxManger {
     }
     
     func refreshFiles() {
+        directoryList.removeAll()
         let fileManger = self.fileManger
         let library = fileManger.urls(for: .libraryDirectory, in: .userDomainMask)[0]
         let doc = fileManger.urls(for: .documentDirectory, in: .userDomainMask)[0]

@@ -33,24 +33,33 @@ class EDNetWorkManger {
     var netWorkDataSources = [EDNetWorkStructure]()
     var blacklist = [String]()
     let blacklistKey = "blacklistKey"
-    
+    fileprivate var semaphore = DispatchSemaphore(value: 1)
     init(){
         if let list = UserDefaults.standard.object(forKey: self.blacklistKey) as? [String] {
             self.blacklist = list
         }
     }
+    
+    func addNetWorkDataSources(_ source:EDNetWorkStructure) {
+        semaphore.wait()
+        netWorkDataSources.insert(source, at: 0)
+        semaphore.signal()
+    }
+    
+    func clearAllNetWorkDataSources(){
+        semaphore.wait()
+        netWorkDataSources.removeAll()
+        semaphore.signal()
+    }
 }
 
 extension EDNetWorkManger {
     
-    func urlSession(_ session: URLSession, dataTask: URLSessionTask, didReceive data: Data) {
-        guard let request = dataTask.originalRequest,
-              let response = dataTask.response as? HTTPURLResponse else {
+    func parseData(_ data: Data?, _ response: URLResponse?, _ request: URLRequest, _ error: Error?, _ metrics: URLSessionTaskMetrics) {
+        guard let response = response as? HTTPURLResponse else {
             return
         }
-        
-        let metric = self.current.sessionTaskMetrics.transactionMetrics.last
-        
+        let metric = metrics.transactionMetrics.last
         /// 请求行
         self.current.requestLine.httpMethod = request.httpMethod
         self.current.requestLine.url = request.url
@@ -79,25 +88,83 @@ extension EDNetWorkManger {
         
         /// 响应行
         self.current.responseStateLine.httpMethod = self.current.requestLine.httpMethod
-        self.current.responseStateLine.url = response.url
+        self.current.responseStateLine.url = request.url
         self.current.responseStateLine.protocolVersion = self.current.requestLine.protocolVersion
         self.current.responseStateLine.statusCode = response.statusCode
         
         /// 响应头
         self.current.edReponseHeader.values = response.allHeaderFields as? [String: String]
         /// 响应体
-        self.current.edResponseBodyInfo.data = data
-        if let strJson = String(data: data, encoding: .utf8) {
-            self.current.edResponseBodyInfo.values = strJson
+        if let _data = data {
+            self.current.edResponseBodyInfo.values = String(data: _data, encoding: .utf8)
+            self.current.edResponseBodyInfo.size = _data.count
         }
-        
-        self.current.edResponseBodyInfo.size = data.count
+       
         /// 耗时
-        self.current.startDate = self.current.sessionTaskMetrics.taskInterval.start
-        self.current.endDate = self.current.sessionTaskMetrics.taskInterval.end
-        self.current.timeElapsed = self.current.sessionTaskMetrics.taskInterval.duration
+//        self.current.startDate = metrics.taskInterval.start
+//        self.current.endDate = metrics.taskInterval.end
+//        self.current.timeElapsed = metrics.taskInterval.duration
+        
+            for sessionMetric in metrics.transactionMetrics {
+                let dom = {
+                    if let domainLookupStartDate = sessionMetric.domainLookupStartDate?.timeIntervalSince1970,
+                       let domainLookupEndDate = sessionMetric.domainLookupEndDate?.timeIntervalSince1970 {
+                        return (domainLookupEndDate - domainLookupStartDate) * 1000
+                    }
+                    return 0
+                }()
+                
+                let sec = {
+                    if let secureConnectionStartDate = sessionMetric.secureConnectionStartDate?.timeIntervalSince1970,
+                       let secureConnectionEndDate = sessionMetric.secureConnectionEndDate?.timeIntervalSince1970 {
+                        return (secureConnectionEndDate - secureConnectionEndDate) * 1000
+                    }
+                    return 0
+                }()
+                
+                let con = {
+                    if let connectStartDate = sessionMetric.connectStartDate?.timeIntervalSince1970,
+                       let connectEndDate = sessionMetric.connectEndDate?.timeIntervalSince1970 {
+                        return (connectEndDate - connectStartDate) * 1000
+                    }
+                    return 0
+                }()
+                
+                let req = {
+                    if let requestStartDate = sessionMetric.requestStartDate?.timeIntervalSince1970,
+                       let requestEndDate = sessionMetric.requestEndDate?.timeIntervalSince1970 {
+                        return (requestEndDate - requestStartDate) * 1000
+                    }
+                    return 0
+                }()
+                
+                let res = {
+                    if let responseStartDate = sessionMetric.responseStartDate?.timeIntervalSince1970,
+                       let responseEndDate = sessionMetric.responseEndDate?.timeIntervalSince1970 {
+                        return (responseEndDate - responseStartDate) * 1000
+                    }
+                    return 0
+                }()
+                
+                let tot = {
+                    if let fetchStartDate = sessionMetric.fetchStartDate?.timeIntervalSince1970,
+                       let responseEndDate = sessionMetric.responseEndDate?.timeIntervalSince1970 {
+                        return (responseEndDate - fetchStartDate) * 1000
+                    }
+                    return 0
+                }()
+                var locip = ""
+                var remip = ""
+                if #available(iOS 13.0, *) {
+                    locip = "\(sessionMetric.localAddress ?? "")"
+                    remip = "\(sessionMetric.remoteAddress ?? "")"
+                }
+                print("metric path:\(sessionMetric.request.url?.lastPathComponent) 总耗时:\(tot)ms, 域名解析:\(dom)ms, 连接耗时:\(con)ms(包括TLS:\(sec)ms), 请求:\(req)ms, 回调:\(res)ms l:\(locip) r:\(remip)")
+            
+        
+        }
         /// 记录请求
-        EDNetWorkManger.shared.netWorkDataSources.insert(self.current, at: 0)
+        EDNetWorkManger.shared.addNetWorkDataSources(self.current)
     }
 }
 public extension URL {

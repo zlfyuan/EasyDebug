@@ -30,6 +30,7 @@
 "title.log.alert" = "设置日志等级";
 "title.log.alert.des" = "该等级可以过滤日志列表";
 "title.edit" = "编辑";
+"title.count" = "项";
 
 "title.General" = "常规";
 "title.Request Headers" = "请求头";

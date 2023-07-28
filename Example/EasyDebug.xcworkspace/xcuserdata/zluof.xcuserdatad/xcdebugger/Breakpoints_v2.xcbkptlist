@@ -7,17 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6060C417-E498-4627-A750-01B603EA8047"
-            shouldBeEnabled = "Yes"
+            uuid = "F6DC854B-4517-42F7-B7FB-D6492C8BB96D"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../EasyDebug/Classes/Core/Network/EDNetWorkDataManger.swift"
+            filePath = "../EasyDebug/Classes/Core/SandBox/SandBoxManger.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "urlSession(_:dataTask:didReceive:)"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "refreshFiles()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F6DC854B-4517-42F7-B7FB-D6492C8BB96D - 9dbaca31cf458486"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EasyDebug.SandBoxManger.refreshFiles() -&gt; ()"
+                  moduleName = "EasyDebug"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zluof/EasyDebug/EasyDebug/Classes/Core/SandBox/SandBoxManger.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "1105">
+               </Location>
+               <Location
+                  uuid = "F6DC854B-4517-42F7-B7FB-D6492C8BB96D - 9dbaca31cf458486"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EasyDebug.SandBoxManger.refreshFiles() -&gt; ()"
+                  moduleName = "EasyDebug"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zluof/EasyDebug/EasyDebug/Classes/Core/SandBox/SandBoxManger.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "1181">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

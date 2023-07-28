@@ -77,49 +77,65 @@ class EDURLProtocol: URLProtocol, URLSessionDataDelegate, URLSessionTaskDelegate
     
     fileprivate var dataTask:URLSessionDataTask?
     fileprivate let sessionDelegateQueue = OperationQueue()
+    fileprivate var urlSession: URLSession?
+    fileprivate var metrics = URLSessionTaskMetrics()
+    fileprivate var response: URLResponse?
+    fileprivate var data: Data?
+    fileprivate var error: Error?
     
-    fileprivate var netWorkStructure = EDNetWorkStructure()
-    fileprivate var receiveData = Data()
-
+    
     override class func canInit(with request: URLRequest) -> Bool {
         if URLProtocol.property(forKey: "EDURLProtocolHandledKey", in: request) != nil {
             return false
         }
-        if let host = request.url?.host {
-            if EDNetWorkManger.shared.blacklist.contains(where: { $0 == host }) {
-                return false
-            }
+        if let fileTyep = request.value(forHTTPHeaderField: "Content-Type"),
+            fileTyep.contains("multipart/form-data") {
+            return false
+        }
+        guard let scheme = request.url?.scheme,
+              let host = request.url?.host else{
+            return false
+        }
+        if scheme != "http" && scheme != "https" {
+            return false
+        }
+        if EDNetWorkManger.shared.blacklist.contains(where: { $0 == host }) {
+            return false
         }
         return true
     }
-
+    
     override class func canonicalRequest(for request: URLRequest) -> URLRequest {
-        let mutableReqeust = (request as NSURLRequest).mutableCopy() as! NSMutableURLRequest
-        
-        URLProtocol.setProperty(true, forKey: "EDURLProtocolHandledKey",
-                                in: mutableReqeust)
-        return mutableReqeust as URLRequest
+        let mutableRequest = (request as NSURLRequest).mutableCopy() as! NSMutableURLRequest
+        URLProtocol.setProperty(true, forKey: "EDURLProtocolHandledKey", in: mutableRequest)
+        return mutableRequest as URLRequest
     }
     
     override func startLoading() {
-        self.netWorkStructure = EDNetWorkStructure()
         let defaultConfigObj = URLSessionConfiguration.default
-        sessionDelegateQueue.maxConcurrentOperationCount = 1
-        sessionDelegateQueue.name = "com.ed.session.queue"
+        self.sessionDelegateQueue.maxConcurrentOperationCount = 1
+        self.sessionDelegateQueue.name = "com.ed.session.queue"
+        self.data = Data()
+        
         let defaultSession = Foundation.URLSession(configuration: defaultConfigObj,
                                                    delegate: self, delegateQueue: sessionDelegateQueue)
-        dataTask = defaultSession.dataTask(with: self.request)
-        dataTask!.resume()
+        self.urlSession = defaultSession
+        self.dataTask = defaultSession.dataTask(with: self.request)
+        self.dataTask!.resume()
     }
     
     override func stopLoading() {
-        dataTask?.cancel()
-        dataTask = nil
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
+            EDNetWorkManger.shared.parseData(self.data, self.response, self.request, self.error, self.metrics)
+        }
+        self.dataTask?.cancel()
+        self.dataTask = nil
     }
     
     //MARK:  URLSessionTaskDelegate
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if let error = error {
+            self.error = error
             client?.urlProtocol(self, didFailWithError: error)
         } else {
             client?.urlProtocolDidFinishLoading(self)
@@ -128,22 +144,21 @@ class EDURLProtocol: URLProtocol, URLSessionDataDelegate, URLSessionTaskDelegate
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didFinishCollecting metrics: URLSessionTaskMetrics) {
-        EDNetWorkManger.shared.current = self.netWorkStructure
-        EDNetWorkManger.shared.current.sessionTaskMetrics = metrics
-        EDNetWorkManger.shared.urlSession(session, dataTask: task, didReceive: receiveData)
+        self.metrics = metrics
     }
-
+    
     func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest, completionHandler: @escaping (URLRequest?) -> Void) {
         client?.urlProtocol(self, wasRedirectedTo: request, redirectResponse: response)
     }
     
     //MARK:  URLSessionDataDelegate
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        receiveData = data
+        self.data?.append(data)
         client?.urlProtocol(self, didLoad: data)
     }
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
+        self.response = response
         client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .allowed)
         completionHandler(.allow)
     }

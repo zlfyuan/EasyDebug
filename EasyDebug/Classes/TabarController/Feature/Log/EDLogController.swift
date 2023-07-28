@@ -48,7 +48,7 @@ class EDLogController: EDTableController {
     
     func createFooterView() -> UIView {
         let footView = UILabel(frame: CGRect.init(x: 0, y: 0, width: self.tableView.frame.size.width, height: 80))
-        footView.text = "共\(dataSources.count)项"
+        footView.text = "\(dataSources.count) \(String.edLocalizedString(withKey: "title.count"))"
         footView.font = UIFont.systemFont(ofSize: 14)
         footView.textColor = .systemGray
         footView.textAlignment = .center
@@ -57,7 +57,7 @@ class EDLogController: EDTableController {
     
     func updateCountLabel() {
         if let label = self.tableView.tableFooterView as? UILabel{
-            label.text = "共\(dataSources.count)项"
+            label.text = "\(dataSources.count) \(String.edLocalizedString(withKey: "title.count"))"
         }
     }
     
