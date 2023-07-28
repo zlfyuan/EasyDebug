@@ -1537,8 +1537,8 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1859,6 +1859,24 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1255BAB3A0CC6B58388E7D3485F8942E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F91F80F0F31FB993088865247804939 /* EasyDebug.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/EasyDebug";
+				DEVELOPMENT_TEAM = A9LKE94T63;
+				IBSC_MODULE = EasyDebug;
+				INFOPLIST_FILE = "Target Support Files/EasyDebug/ResourceBundle-EasyDebug-EasyDebug-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = EasyDebug;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
 		191C9BBB359DFFE9A62E84FAC3EA3B0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FC059871708FDBC0D12AABE4202151EA /* Pods-EasyDebug_Example.debug.xcconfig */;
@@ -1962,6 +1980,24 @@
 			};
 			name = Release;
 		};
+		686C80C44DDF27B19BCB92BC1A4856BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B331D6815E1AD15D4A743BC44CF45F22 /* EasyDebug.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/EasyDebug";
+				DEVELOPMENT_TEAM = A9LKE94T63;
+				IBSC_MODULE = EasyDebug;
+				INFOPLIST_FILE = "Target Support Files/EasyDebug/ResourceBundle-EasyDebug-EasyDebug-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = EasyDebug;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		6B8BBD82009E027916C6816F4962AB9C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 258D660DC662642BBEBF09F9373D6C3E /* Pods-EasyDebug_Tests.release.xcconfig */;
@@ -2031,23 +2067,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		8211E0AF58B206418CB5A2BA25B95663 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F91F80F0F31FB993088865247804939 /* EasyDebug.debug.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/EasyDebug";
-				DEVELOPMENT_TEAM = A9LKE94T63;
-				IBSC_MODULE = EasyDebug;
-				INFOPLIST_FILE = "Target Support Files/EasyDebug/ResourceBundle-EasyDebug-EasyDebug-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_NAME = EasyDebug;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
 		};
 		903A0004D3E6651EFD5D2E16214D101B /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -2260,23 +2279,6 @@
 			};
 			name = Debug;
 		};
-		BA38FAF7413C4F9605462F7B1AAFE191 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B331D6815E1AD15D4A743BC44CF45F22 /* EasyDebug.release.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/EasyDebug";
-				DEVELOPMENT_TEAM = A9LKE94T63;
-				IBSC_MODULE = EasyDebug;
-				INFOPLIST_FILE = "Target Support Files/EasyDebug/ResourceBundle-EasyDebug-EasyDebug-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_NAME = EasyDebug;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 		CF88BE793AEE9D30BD7DB7C61FE73D63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5069FE42A416DE134DEB1B85B94FB8F4 /* SwiftLint.debug.xcconfig */;
@@ -2460,8 +2462,8 @@
 		DE135F747A0A7AE93DF94D21EA0ABE4D /* Build configuration list for PBXNativeTarget "EasyDebug-EasyDebug" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8211E0AF58B206418CB5A2BA25B95663 /* Debug */,
-				BA38FAF7413C4F9605462F7B1AAFE191 /* Release */,
+				1255BAB3A0CC6B58388E7D3485F8942E /* Debug */,
+				686C80C44DDF27B19BCB92BC1A4856BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

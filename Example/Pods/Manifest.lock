@@ -5,7 +5,7 @@ PODS:
   - LookinServer (1.1.5):
     - LookinServer/Core (= 1.1.5)
   - LookinServer/Core (1.1.5)
-  - SwiftLint (0.51.0)
+  - SwiftLint (0.50.3)
 
 DEPENDENCIES:
   - Alamofire
@@ -27,8 +27,8 @@ SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   EasyDebug: e203b84698c15ca835aeeab76fc511e783c2554f
   LookinServer: 2893f2bae53cbf3fd49bbe1a8ea1745582ef1317
-  SwiftLint: 1b7561918a19e23bfed960e40759086e70f4dba5
+  SwiftLint: 77f7cb2b9bb81ab4a12fcc86448ba3f11afa50c6
 
 PODFILE CHECKSUM: 547df1815b5e4022abe5ee63a735cefc8c83a954
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.12.1
