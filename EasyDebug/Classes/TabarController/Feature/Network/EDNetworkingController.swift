@@ -85,7 +85,7 @@ class EDNetworkingController: EDTableController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = self.dataSources[indexPath.section]
-        self.navigationController?.pushViewController(EDNetworkingDetailController(with: model), animated: true)
+        self.present(EDNavigationController(rootViewController: EDNetworkingDetailController(with: model)), animated: true)
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

@@ -60,50 +60,48 @@ extension EDNetWorkManger {
             return
         }
         let metric = metrics.transactionMetrics.last
+        let structure = EDNetWorkStructure()
         /// 请求行
-        self.current.requestLine.httpMethod = request.httpMethod
-        self.current.requestLine.url = request.url
-        self.current.requestLine.protocolVersion = metric?.networkProtocolName
+        structure.requestLine.httpMethod = request.httpMethod
+        structure.requestLine.url = request.url
+        structure.requestLine.protocolVersion = metric?.networkProtocolName
         
         /// 请求头
-        self.current.edRequestHeader.values = request.allHTTPHeaderFields
+        structure.edRequestHeader.values = request.allHTTPHeaderFields
         
         /// 请求体
         if let data = request.httpBody {
-            self.current.edRequestBodyInfo.values = String(data: data, encoding: .utf8)
-            self.current.edRequestBodyInfo.size = data.count
+            structure.edRequestBodyInfo.values = String(data: data, encoding: .utf8)
+            structure.edRequestBodyInfo.size = data.count
         }
         if request.httpBodyStream != nil {
             let _data = Data.reading(stream: request.httpBodyStream!)
-            self.current.edRequestBodyInfo.values = String(data: _data, encoding: .utf8)
-            self.current.edRequestBodyInfo.size = _data.count
+            structure.edRequestBodyInfo.values = String(data: _data, encoding: .utf8)
+            structure.edRequestBodyInfo.size = _data.count
         }
         /// 解析URL 参数
         if let _p = request.url?.urlParameters,
            let str = EDCommon.getJsonString(rawValue: _p),
            let _data = str.data(using: .utf8){
-            self.current.edRequestBodyInfo.values = String(data: _data, encoding: .utf8)
-            self.current.edRequestBodyInfo.size = _data.count
+            structure.edRequestBodyInfo.values = String(data: _data, encoding: .utf8)
+            structure.edRequestBodyInfo.size = _data.count
         }
         
         /// 响应行
-        self.current.responseStateLine.httpMethod = self.current.requestLine.httpMethod
-        self.current.responseStateLine.url = request.url
-        self.current.responseStateLine.protocolVersion = self.current.requestLine.protocolVersion
-        self.current.responseStateLine.statusCode = response.statusCode
+        structure.responseStateLine.httpMethod = structure.requestLine.httpMethod
+        structure.responseStateLine.url = request.url
+        structure.responseStateLine.protocolVersion = structure.requestLine.protocolVersion
+        structure.responseStateLine.statusCode = response.statusCode
         
         /// 响应头
-        self.current.edReponseHeader.values = response.allHeaderFields as? [String: String]
+        structure.edReponseHeader.values = response.allHeaderFields as? [String: String]
         /// 响应体
         if let _data = data {
-            self.current.edResponseBodyInfo.values = String(data: _data, encoding: .utf8)
-            self.current.edResponseBodyInfo.size = _data.count
+            structure.edResponseBodyInfo.values = String(data: _data, encoding: .utf8)
+            structure.edResponseBodyInfo.size = _data.count
         }
        
         /// 耗时
-//        self.current.startDate = metrics.taskInterval.start
-//        self.current.endDate = metrics.taskInterval.end
-//        self.current.timeElapsed = metrics.taskInterval.duration
         
             for sessionMetric in metrics.transactionMetrics {
                 let dom = {
@@ -149,7 +147,10 @@ extension EDNetWorkManger {
                 let tot = {
                     if let fetchStartDate = sessionMetric.fetchStartDate?.timeIntervalSince1970,
                        let responseEndDate = sessionMetric.responseEndDate?.timeIntervalSince1970 {
-                        return (responseEndDate - fetchStartDate) * 1000
+                        structure.startDate = sessionMetric.fetchStartDate!
+                        structure.endDate = sessionMetric.responseEndDate!
+                        structure.timeElapsed =  (responseEndDate - fetchStartDate) * 1000
+                        return structure.timeElapsed
                     }
                     return 0
                 }()
@@ -160,11 +161,9 @@ extension EDNetWorkManger {
                     remip = "\(sessionMetric.remoteAddress ?? "")"
                 }
                 print("metric path:\(sessionMetric.request.url?.lastPathComponent) 总耗时:\(tot)ms, 域名解析:\(dom)ms, 连接耗时:\(con)ms(包括TLS:\(sec)ms), 请求:\(req)ms, 回调:\(res)ms l:\(locip) r:\(remip)")
-            
-        
         }
         /// 记录请求
-        EDNetWorkManger.shared.addNetWorkDataSources(self.current)
+        EDNetWorkManger.shared.addNetWorkDataSources(structure)
     }
 }
 public extension URL {

@@ -89,7 +89,7 @@ class EDNetworkCell: UITableViewCell {
             state += "  \(_model.responseStateLine.protocolVersion?.uppercased() ?? "")"
             stateLabel.text = state
             let date = Date.dateToString(date: _model.startDate, formatter: "yyyy-MM-dd HH:mm:ss")
-            timeLabel.text = "\(date)" + "\t\(round(_model.timeElapsed * 1000))"
+            timeLabel.text = "\(date)" + "\t\(round(_model.timeElapsed))ms"
         }
     }
 
