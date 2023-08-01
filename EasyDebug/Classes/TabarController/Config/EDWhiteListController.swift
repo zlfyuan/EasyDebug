@@ -1,5 +1,5 @@
 //
-//  EDBlackListController.swift
+//  EDWhiteListController.swift
 //  EasyDebug
 //
 //  Created by zluof on 2023/4/14.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class EDBlackListController: EDBaseController, UITableViewDataSource,UITableViewDelegate {
+class EDWhiteListController: EDBaseController, UITableViewDataSource,UITableViewDelegate {
     
     var tableView = UITableView()
     var textField = UITextField()
@@ -15,13 +15,13 @@ class EDBlackListController: EDBaseController, UITableViewDataSource,UITableView
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        UserDefaults.standard.set(EDNetWorkManger.shared.blacklist, forKey: EDNetWorkManger.shared.blacklistKey)
+        UserDefaults.standard.set(EDNetWorkManger.shared.whitelist, forKey: EDNetWorkManger.shared.whitelistKey)
         UserDefaults.standard.synchronize()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = String.edLocalizedString(withKey: "title.blacklist")
+        self.title = String.edLocalizedString(withKey: "title.whitelist")
         
         let topView = UIView(frame: CGRect.init(x: 20, y: self.navigationController!.navigationBar.frame.maxY + 10, width: self.view.frame.width - 40, height: 40))
         topView.layer.cornerRadius = 6.0
@@ -53,16 +53,26 @@ class EDBlackListController: EDBaseController, UITableViewDataSource,UITableView
         
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(addAction))
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    // 监听键盘即将隐藏事件
+    @objc func keyboardHide(_ noti: Notification) {
+        textField.text = nil
+        self.navigationItem.rightBarButtonItem?.title = nil
     }
     
     @objc func addAction(_ item: UIBarButtonItem) {
+        guard let _ = item.title else {return}
         if let _text = textField.text,
            !_text.isEmpty {
             textField.resignFirstResponder()
             if self.changeIndex >= 0 {
-                EDNetWorkManger.shared.blacklist[self.changeIndex] = _text
+                EDNetWorkManger.shared.whitelist[self.changeIndex] = _text
             }else{
-                EDNetWorkManger.shared.blacklist.insert(_text, at: 0)
+                EDNetWorkManger.shared.whitelist.insert(_text, at: 0)
             }
             tableView.reloadData()
             textField.text = nil
@@ -76,12 +86,12 @@ class EDBlackListController: EDBaseController, UITableViewDataSource,UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return EDNetWorkManger.shared.blacklist.count
+        return EDNetWorkManger.shared.whitelist.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = EDNetWorkManger.shared.blacklist[indexPath.row]
+        cell.textLabel?.text = EDNetWorkManger.shared.whitelist[indexPath.row]
         return cell
     }
     
@@ -93,7 +103,7 @@ class EDBlackListController: EDBaseController, UITableViewDataSource,UITableView
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .normal, title: String.edLocalizedString(withKey: "title.edit")) { (action, indexPath) in
-            let model = EDNetWorkManger.shared.blacklist[indexPath.row]
+            let model = EDNetWorkManger.shared.whitelist[indexPath.row]
             self.textField.text = model
             self.changeIndex = indexPath.row
             self.textField.becomeFirstResponder()
@@ -102,14 +112,14 @@ class EDBlackListController: EDBaseController, UITableViewDataSource,UITableView
         let deleteAction = UITableViewRowAction(style: .destructive, title: String.edLocalizedString(withKey: "title.delete")) { (action, indexPath) in
             self.tableView.beginUpdates()
             self.tableView.deleteRows(at: [indexPath], with: .fade)
-            EDNetWorkManger.shared.blacklist.remove(at: indexPath.row)
+            EDNetWorkManger.shared.whitelist.remove(at: indexPath.row)
             self.tableView.endUpdates()
         }
         return [deleteAction,editAction]
     }
 }
 
-extension EDBlackListController: UITextFieldDelegate {
+extension EDWhiteListController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if let item = self.navigationItem.rightBarButtonItem {

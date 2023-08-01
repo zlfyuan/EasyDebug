@@ -69,10 +69,10 @@ class EDConfigController: EDTableController{
     
     func parseData() {
         dataSources.removeAll()
-        let log = [ConfigRow(key: "level", value: EasyDebug.shared.options.filterLevel.description)]
+        let log = [ConfigRow(key: String.edLocalizedString(withKey: "title.level"), value: EasyDebug.shared.options.filterLevel.description)]
         dataSources.append(ConfigSection(title:String.edLocalizedString(withKey: "title.log"), list: log))
         
-        let netWork = [ConfigRow(key: String.edLocalizedString(withKey: "title.blacklist"), value: EDNetWorkManger.shared.blacklist.count)]
+        let netWork = [ConfigRow(key: String.edLocalizedString(withKey: "title.whitelist"), value: EDNetWorkManger.shared.whitelist.count)]
         dataSources.append(ConfigSection(title:String.edLocalizedString(withKey: "title.network"), list: netWork))
         
         let language = EDLanguage.allCases.map({ ConfigRow(key: $0.rawValue, value: false) })
@@ -117,22 +117,8 @@ class EDConfigController: EDTableController{
         return 0.001
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 40))
-        headerView.backgroundColor = .groupTableViewBackground
-        let titleLabel = UILabel()
-        titleLabel.text = self.dataSources[section].title
-        titleLabel.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-        titleLabel.textColor = .systemGray
-        headerView.addSubview(titleLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16),
-            titleLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 15),
-            titleLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 0),
-        ])
-        return headerView
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.dataSources[section].title
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -153,7 +139,7 @@ class EDConfigController: EDTableController{
             NotificationCenter.default.post(name: NotificationNameKeyReset, object: nil)
         }
         if section.title == String.edLocalizedString(withKey: "title.network") {
-            let vc = EDBlackListController()
+            let vc = EDWhiteListController()
             self.navigationController?.pushViewController(vc, animated: true)
         }
         

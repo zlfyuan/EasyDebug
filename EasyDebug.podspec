@@ -33,7 +33,6 @@ TODO: Add long description of the pod here.
   s.source_files = 'EasyDebug/Classes/**/*'
   
    s.resource_bundles = {
-     'EasyDebug' => ['EasyDebug/Assets/*.xcassets'],
      'EasyDebug' => ['EasyDebug/Assets/*'],
    }
 

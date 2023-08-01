@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = SwiftLint;
+			productName = SwiftLint;
 		};
 /* End PBXAggregateTarget section */
 
@@ -72,7 +73,7 @@
 		2CBE3651CA006E19F5D64A2DE9B9A028 /* CachedResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0822755AA7BFEB327DA8F1C19325EE /* CachedResponseHandler.swift */; };
 		2CCD13099063CD560E3067BD132914FA /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EE7CED0414B0868BCD1E13B8430F79 /* Notifications.swift */; };
 		2D76BDCBD3181FD71FDDCFD10A33175A /* NSArray+Lookin.m in Sources */ = {isa = PBXBuildFile; fileRef = 7446ABEE87802CB0C6972ADE6AB56303 /* NSArray+Lookin.m */; };
-		2E46B015EE83982958FBCE14FB3C9971 /* EDBlackListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1371369BD8FE804A4ED8B55E6010CFB6 /* EDBlackListController.swift */; };
+		2E46B015EE83982958FBCE14FB3C9971 /* EDWhiteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1371369BD8FE804A4ED8B55E6010CFB6 /* EDWhiteListController.swift */; };
 		2F0AD096EE1BE9C22A15F8761829198E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E73EEF4EEAED11ABDCB1B17B55A75355 /* Foundation.framework */; };
 		3023024E3A78AE3A1ABF393513D0199F /* LookinMethodTraceRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 997932B10ADDDD382DC0D448084E62F3 /* LookinMethodTraceRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		30965ACA89D8262121711927F0AEB1C4 /* UIVisualEffectView+LookinServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F05D052942F73F444E9DCA0F5B7882C /* UIVisualEffectView+LookinServer.m */; };
@@ -339,7 +340,7 @@
 		10D7A5AABDB41D4AC159EFA571D2EB65 /* UITextView+LookinServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextView+LookinServer.m"; path = "Src/Main/Server/Category/UITextView+LookinServer.m"; sourceTree = "<group>"; };
 		110F223EC63EF1F632531F5B4CD2C319 /* LKS_PerspectiveToolbarButtons.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKS_PerspectiveToolbarButtons.h; path = Src/Main/Server/Perspective/LKS_PerspectiveToolbarButtons.h; sourceTree = "<group>"; };
 		1249CD84A0E5DAF9BFF8D850F5D60C33 /* EDOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDOptions.swift; sourceTree = "<group>"; };
-		1371369BD8FE804A4ED8B55E6010CFB6 /* EDBlackListController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDBlackListController.swift; sourceTree = "<group>"; };
+		1371369BD8FE804A4ED8B55E6010CFB6 /* EDWhiteListController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDWhiteListController.swift; sourceTree = "<group>"; };
 		14EABD36049BE9D07F798AE9543EF734 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		154D1D99E6B880E739508BF98B64547F /* LookinDisplayItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LookinDisplayItem.m; path = Src/Main/Shared/LookinDisplayItem.m; sourceTree = "<group>"; };
 		160820D2EFF40DE3F7A318DEBA3708E0 /* Image+Lookin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Image+Lookin.m"; path = "Src/Main/Shared/Category/Image+Lookin.m"; sourceTree = "<group>"; };
@@ -415,7 +416,7 @@
 		5A51ECD6F8FDCD71A792178B656F6BF3 /* NSString+Lookin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+Lookin.m"; path = "Src/Main/Shared/Category/NSString+Lookin.m"; sourceTree = "<group>"; };
 		5D524D98367537CCDD72EC85E1091708 /* LKS_PerspectiveManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKS_PerspectiveManager.m; path = Src/Main/Server/Perspective/LKS_PerspectiveManager.m; sourceTree = "<group>"; };
 		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E77C93480F2F68ACB1D218BB4FA3556 /* EasyDebug.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = EasyDebug.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5E77C93480F2F68ACB1D218BB4FA3556 /* EasyDebug.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = EasyDebug.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5F393488EBF3930CDA1AB5E7D3A89D34 /* LookinHierarchyFile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LookinHierarchyFile.m; path = Src/Main/Shared/LookinHierarchyFile.m; sourceTree = "<group>"; };
 		60B0D195F24FEE63197543E3F65B6BAD /* LookinConnectionAttachment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LookinConnectionAttachment.m; path = Src/Main/Shared/LookinConnectionAttachment.m; sourceTree = "<group>"; };
 		620E66302D253FFAF47A2F3329A3D014 /* LookinAttributesGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinAttributesGroup.h; path = Src/Main/Shared/LookinAttributesGroup.h; sourceTree = "<group>"; };
@@ -462,7 +463,7 @@
 		84A5D917AB1A9FAC0C374A4254B81EF5 /* LookinAttributesSection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinAttributesSection.h; path = Src/Main/Shared/LookinAttributesSection.h; sourceTree = "<group>"; };
 		84F50B33D02820FE3FBFCB49836443B2 /* LookinAutoLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LookinAutoLayoutConstraint.m; path = Src/Main/Shared/LookinAutoLayoutConstraint.m; sourceTree = "<group>"; };
 		85022DE8A8B6C3CA187971E1E4DBBA87 /* Pods-EasyDebug_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDebug_Example-umbrella.h"; sourceTree = "<group>"; };
-		8652E8B3204BC7A52AD88CA1AF8DECFA /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = EasyDebug/Assets/en.lproj; sourceTree = "<group>"; };
+		8652E8B3204BC7A52AD88CA1AF8DECFA /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = EasyDebug/Assets/en.lproj; sourceTree = "<group>"; };
 		8710A586AE240B3BFE281CCF428AF8C0 /* LookinServer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LookinServer-prefix.pch"; sourceTree = "<group>"; };
 		8799EF986C35801CDDD2D44CA23EF590 /* UIBlurEffect+LookinServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBlurEffect+LookinServer.h"; path = "Src/Main/Server/Category/UIBlurEffect+LookinServer.h"; sourceTree = "<group>"; };
 		88244600E7BEF11D61F2D69F7F938DE6 /* UIViewController+LookinServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+LookinServer.h"; path = "Src/Main/Server/Category/UIViewController+LookinServer.h"; sourceTree = "<group>"; };
@@ -497,7 +498,7 @@
 		9B78A664E2E127CFF65FCC6422C835EE /* LookinDisplayItemDetail.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LookinDisplayItemDetail.m; path = Src/Main/Shared/LookinDisplayItemDetail.m; sourceTree = "<group>"; };
 		9D305946726C983A0F20622CC1C36A2E /* LKS_HierarchyDetailsHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKS_HierarchyDetailsHandler.h; path = Src/Main/Server/Connection/RequestHandler/LKS_HierarchyDetailsHandler.h; sourceTree = "<group>"; };
 		9D7DBB875A3F7EE7164D59EB3A2CEEF0 /* EDFileContentController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDFileContentController.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9D989799455D760418EA705698B31ECA /* LookinServer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LookinServer.modulemap; sourceTree = "<group>"; };
 		9DB052AA6874572A25D0EBDAED1557D4 /* EDBaseTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDBaseTableViewCell.swift; sourceTree = "<group>"; };
 		9F03FAA0F1DAC823C0CCA4393420CD64 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
@@ -537,7 +538,7 @@
 		B8E47D438A4A79431DA2D0C44545141E /* LookinIvarTrace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinIvarTrace.h; path = Src/Base/LookinIvarTrace.h; sourceTree = "<group>"; };
 		B991EEDC3C2A1E869F12EABBCAEAD431 /* LKS_MethodTraceManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKS_MethodTraceManager.m; path = Src/Main/Server/Others/LKS_MethodTraceManager.m; sourceTree = "<group>"; };
 		BBED8ADB2DF10C22713C18B7AA65BD42 /* HTTPHeaders.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTPHeaders.swift; path = Source/HTTPHeaders.swift; sourceTree = "<group>"; };
-		BC50AA19B40087FEC6535183E3334ED8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		BC50AA19B40087FEC6535183E3334ED8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BC8BB7E076C7C2BB6D9A5E5F0A59154E /* EDURLProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDURLProtocol.swift; sourceTree = "<group>"; };
 		BCAAAB794142B75010FEADF63E924FA3 /* EDTableController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDTableController.swift; sourceTree = "<group>"; };
 		BD61F07CC1E879B9AC3DE434CF529D88 /* LookinMsgAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinMsgAttribute.h; path = Src/Main/Shared/Message/LookinMsgAttribute.h; sourceTree = "<group>"; };
@@ -550,7 +551,7 @@
 		C03D27594374F73B45516A792321888C /* Peertalk.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Peertalk.h; path = Src/Main/Shared/Peertalk/Peertalk.h; sourceTree = "<group>"; };
 		C2C3FC3614019ACCBADD9BFCE5822509 /* Lookin_PTChannel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Lookin_PTChannel.h; path = Src/Main/Shared/Peertalk/Lookin_PTChannel.h; sourceTree = "<group>"; };
 		C3885F98BDC17869E520C7B8F88EF5FC /* LookinAppInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinAppInfo.h; path = Src/Main/Shared/LookinAppInfo.h; sourceTree = "<group>"; };
-		C63C95B3A9BB173F4ACAD05330AC1B49 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		C63C95B3A9BB173F4ACAD05330AC1B49 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C70221E4C7318FF7CB5010FDD0A24239 /* UILabel+LookinServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UILabel+LookinServer.m"; path = "Src/Main/Server/Category/UILabel+LookinServer.m"; sourceTree = "<group>"; };
 		CBEE89A9C5CFA75A7E381B85E42AA4F4 /* EDConfigController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDConfigController.swift; sourceTree = "<group>"; };
 		CF35155A803B469E55A571E98803C1BF /* RetryPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RetryPolicy.swift; path = Source/RetryPolicy.swift; sourceTree = "<group>"; };
@@ -579,7 +580,7 @@
 		E128B81348A017A60DF9807CF2A9154A /* LKS_LocalInspectViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKS_LocalInspectViewController.h; path = Src/Main/Server/Inspect/LKS_LocalInspectViewController.h; sourceTree = "<group>"; };
 		E2BA12AF98CECF10C9E2259FAAF65C09 /* EDSandBoxCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EDSandBoxCell.swift; sourceTree = "<group>"; };
 		E4B0BE780EDA19C329E15216D92B02B8 /* CALayer+LookinServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer+LookinServer.h"; path = "Src/Main/Server/Category/CALayer+LookinServer.h"; sourceTree = "<group>"; };
-		E525258BE4A2053B7CF363C9781C9FD5 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hans.lproj"; path = "EasyDebug/Assets/zh-Hans.lproj"; sourceTree = "<group>"; };
+		E525258BE4A2053B7CF363C9781C9FD5 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hans.lproj"; path = "EasyDebug/Assets/zh-Hans.lproj"; sourceTree = "<group>"; };
 		E5DB421DA46A7DDC102A5E66635A191E /* LookinDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinDefines.h; path = Src/Main/Shared/LookinDefines.h; sourceTree = "<group>"; };
 		E6117FA27955334762D724EA5F4C2FD6 /* UIGestureRecognizer+LookinServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIGestureRecognizer+LookinServer.m"; path = "Src/Main/Server/Category/UIGestureRecognizer+LookinServer.m"; sourceTree = "<group>"; };
 		E6347B0FEEB28A76F77D0B4378E6AFED /* MultipartUpload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartUpload.swift; path = Source/MultipartUpload.swift; sourceTree = "<group>"; };
@@ -672,7 +673,6 @@
 				978748149A897DCA3B260CE3625D0322 /* EDLogDetailController.swift */,
 				F96BDCC79AA4DFD45CE6536A5E2B2B12 /* View */,
 			);
-			name = Log;
 			path = Log;
 			sourceTree = "<group>";
 		};
@@ -689,7 +689,6 @@
 			children = (
 				1957CA9C2FDF12A4E05577F3E98AEE14 /* EDLog.swift */,
 			);
-			name = Log;
 			path = Log;
 			sourceTree = "<group>";
 		};
@@ -699,7 +698,6 @@
 				938FDA081F8DC013C67DFB798EC68BFE /* Core */,
 				4251E967CDBED8D37FCFD749C1676A89 /* Support Files */,
 			);
-			name = LookinServer;
 			path = LookinServer;
 			sourceTree = "<group>";
 		};
@@ -709,7 +707,6 @@
 				F06ED14455A54493697D6F65F635D6E5 /* EDNetworkCell.swift */,
 				817ACF84F2A14528FCC993DA05B13BA0 /* EDNetworkDetailCell.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -731,7 +728,6 @@
 				1CD02FB49E3FD5B1BD26ED0749FDD6D9 /* EDSandBoxController.swift */,
 				E194B08473083BAD9FA926630238AB2C /* View */,
 			);
-			name = SandBox;
 			path = SandBox;
 			sourceTree = "<group>";
 		};
@@ -776,7 +772,6 @@
 				16BF5C487123ADA44010D97A8792508C /* Validation.swift */,
 				8D50B0E233F671E2FB5DBAEDDF90C072 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -823,7 +818,6 @@
 				7294905F86AAAA84568EB8E7A0E6B88C /* EDNetworkingDetailController.swift */,
 				2AD91D25EF9A8BC32EFAFBC1FF667619 /* View */,
 			);
-			name = Network;
 			path = Network;
 			sourceTree = "<group>";
 		};
@@ -882,7 +876,6 @@
 				F0E27DAAAB932C188696F8A7DC0EE76F /* EDAppInfoController.swift */,
 				B897E10E14222E916250C8BAEBC7FE3A /* View */,
 			);
-			name = AppInfo;
 			path = AppInfo;
 			sourceTree = "<group>";
 		};
@@ -922,7 +915,6 @@
 				450DCABEDC1D5B40D3F970F0FF920319 /* EDNetWorkDataManger.swift */,
 				BC8BB7E076C7C2BB6D9A5E5F0A59154E /* EDURLProtocol.swift */,
 			);
-			name = Network;
 			path = Network;
 			sourceTree = "<group>";
 		};
@@ -931,7 +923,6 @@
 			children = (
 				19240C07CC6B5E1D303DB9EFBA9C6363 /* EDConfigCell.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -1135,7 +1126,6 @@
 				4CE55DD08B3AA5C292C5AD99CB515A68 /* Network */,
 				3686F0095E912D68568671900873D7A7 /* SandBox */,
 			);
-			name = Feature;
 			path = Feature;
 			sourceTree = "<group>";
 		};
@@ -1144,7 +1134,6 @@
 			children = (
 				3A5509CF3DAF9315B59BC10AE638D148 /* EDAppInfoCell.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -1188,7 +1177,6 @@
 			children = (
 				DA14DCC76632EE30D2D8F8D6BAFF5465 /* Support Files */,
 			);
-			name = SwiftLint;
 			path = SwiftLint;
 			sourceTree = "<group>";
 		};
@@ -1205,11 +1193,10 @@
 		DADDC81130C8A954740B505F94DD4296 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				1371369BD8FE804A4ED8B55E6010CFB6 /* EDBlackListController.swift */,
+				1371369BD8FE804A4ED8B55E6010CFB6 /* EDWhiteListController.swift */,
 				CBEE89A9C5CFA75A7E381B85E42AA4F4 /* EDConfigController.swift */,
 				85D876037F0809F438D2BCFF8EC0EFE5 /* View */,
 			);
-			name = Config;
 			path = Config;
 			sourceTree = "<group>";
 		};
@@ -1219,7 +1206,6 @@
 				830964D5981F5F890DC0943D1849302A /* EDApplication.swift */,
 				2EEB148A477B181123C79368A3620AD0 /* EDDevice.swift */,
 			);
-			name = Info;
 			path = Info;
 			sourceTree = "<group>";
 		};
@@ -1229,7 +1215,6 @@
 				405CAD7CB680A3F859FE0C3C24D3CE1A /* EDFileDataModel.swift */,
 				E729D64C487A00F6529049D65DD4BA26 /* SandBoxManger.swift */,
 			);
-			name = SandBox;
 			path = SandBox;
 			sourceTree = "<group>";
 		};
@@ -1238,7 +1223,6 @@
 			children = (
 				E2BA12AF98CECF10C9E2259FAAF65C09 /* EDSandBoxCell.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -1271,7 +1255,6 @@
 			children = (
 				72B5C6C6858538F068B81609B7C58CBF /* EDLogCell.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -1539,6 +1522,29 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					38DDD5168AE052C28240F9DF7C9D3C68 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					52B60EC2A583F24ACBB69C113F5488B9 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					638FEAAFC575BB76BC6AC055CDDA3506 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					65E8703FD639FAC7BDA49E6D3192AF25 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					93E233E5551705D2BC9CE3778F61CD76 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					B64F376F543950AD70C1D27DF2C90668 = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+					EAAA1AD3A8A1B59AB91319EE40752C6D = {
+						DevelopmentTeam = A9LKE94T63;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1641,7 +1647,7 @@
 				633701D45290F4F6067FB35520E004C3 /* EDApplication.swift in Sources */,
 				3F2F4EC5F26FC749A983F9D68F84468C /* EDBaseController.swift in Sources */,
 				A162E26F337EB33F557A7A32B1DAF548 /* EDBaseTableViewCell.swift in Sources */,
-				2E46B015EE83982958FBCE14FB3C9971 /* EDBlackListController.swift in Sources */,
+				2E46B015EE83982958FBCE14FB3C9971 /* EDWhiteListController.swift in Sources */,
 				EE67C1C9722E18A78F667D76B6A46CCF /* EDCodable+Extension.swift in Sources */,
 				DE0197A02FC9BD74FE324C90AFFBDAA3 /* EDCommon.swift in Sources */,
 				58A16947F0552F3AD6B39928AAA20816 /* EDConfigCell.swift in Sources */,
@@ -2123,8 +2129,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

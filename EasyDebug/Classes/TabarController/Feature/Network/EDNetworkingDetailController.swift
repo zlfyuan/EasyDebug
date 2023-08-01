@@ -196,7 +196,7 @@ class EDNetworkingDetailController: EDTableController {
         headerView.backgroundColor = .groupTableViewBackground
         let titleLabel = UILabel()
         titleLabel.text = self.dataSources[section].title
-        titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        titleLabel.font = UIFont.systemFont(ofSize: 13, weight: .bold)
         titleLabel.textColor = .systemGray
         headerView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false

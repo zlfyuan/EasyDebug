@@ -29,7 +29,13 @@
 
 "title.searchDes" = "search keyword";
 
-"title.blacklist" = "Blacklist";
+"title.level" = "Level";
+
+"title.whitelist" = "Whitelist";
+
+"title.zh-Hans" = "Chinese";
+
+"title.en" = "English";
 
 "title.add" = "add domain name Ex：www.baidu.com";
 

@@ -88,7 +88,7 @@ public class EasyDebug {
         
         SandBoxManger.shared.refreshFiles()
         
-        EDLocalizationSetting.setCurrentLanguage(self.options.language)
+//        EDLocalizationSetting.setCurrentLanguage(self.options.language)
         
         guard let appDelegate = UIApplication.shared.delegate else {
             EDLogVerbose("appDelegate can't empty")

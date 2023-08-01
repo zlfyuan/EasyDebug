@@ -85,7 +85,7 @@ class EDConfigCell: UITableViewCell {
                 return
             }
             accessoryType = .checkmark
-            titleLabel.text = _model.key
+            titleLabel.text = String.edLocalizedString(withKey: "title.\(_model.key)")
         }
     }
     

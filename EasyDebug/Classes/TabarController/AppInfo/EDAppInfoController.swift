@@ -100,21 +100,7 @@ class EDAppInfoController: EDTableController {
         return 50
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = .groupTableViewBackground
-        let titleLabel = UILabel()
-        titleLabel.text = self.dataSources[section].title
-        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-        titleLabel.textColor = .systemGray
-        headerView.addSubview(titleLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16),
-            titleLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 15),
-            titleLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 0),
-        ])
-        return headerView
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.dataSources[section].title
     }
 }

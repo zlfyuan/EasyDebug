@@ -31,12 +31,12 @@ class EDNetWorkManger {
     static let shared = EDNetWorkManger()
     var current: EDNetWorkStructure = EDNetWorkStructure()
     var netWorkDataSources = [EDNetWorkStructure]()
-    var blacklist = [String]()
-    let blacklistKey = "blacklistKey"
+    var whitelist = [String]()
+    let whitelistKey = "whitelistKey"
     fileprivate var semaphore = DispatchSemaphore(value: 1)
     init(){
-        if let list = UserDefaults.standard.object(forKey: self.blacklistKey) as? [String] {
-            self.blacklist = list
+        if let list = UserDefaults.standard.object(forKey: self.whitelistKey) as? [String] {
+            self.whitelist = list
         }
     }
     

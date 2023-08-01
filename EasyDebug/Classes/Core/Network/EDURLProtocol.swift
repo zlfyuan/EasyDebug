@@ -99,9 +99,11 @@ class EDURLProtocol: URLProtocol, URLSessionDataDelegate, URLSessionTaskDelegate
         if scheme != "http" && scheme != "https" {
             return false
         }
-        if EDNetWorkManger.shared.blacklist.contains(where: { $0 == host }) {
-            return false
+        
+        if EDNetWorkManger.shared.whitelist.count > 0 {
+            return EDNetWorkManger.shared.whitelist.contains(where: { $0 == host })
         }
+        
         return true
     }
     
