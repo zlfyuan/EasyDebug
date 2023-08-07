@@ -25,6 +25,20 @@
 			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
 			remoteInfo = EasyDebug;
 		};
+		C732E4922A79F08A00EF230F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C732E47D2A79F08900EF230F;
+			remoteInfo = EasyDebug_Mac;
+		};
+		C732E49C2A79F08A00EF230F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C732E47D2A79F08900EF230F;
+			remoteInfo = EasyDebug_Mac;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +60,9 @@
 		B01F5195A839B6953B2696D3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C0D5B7D8A3FDEE0C1AC50C28 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C39CDE5409286BE19D42D304 /* Pods-EasyDebug_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDebug_Example.release.xcconfig"; path = "Target Support Files/Pods-EasyDebug_Example/Pods-EasyDebug_Example.release.xcconfig"; sourceTree = "<group>"; };
+		C732E47E2A79F08900EF230F /* EasyDebug_Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyDebug_Mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C732E4912A79F08A00EF230F /* EasyDebug_MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyDebug_MacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C732E49B2A79F08A00EF230F /* EasyDebug_MacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyDebug_MacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D148713FB9D5020DED2AB1D3 /* Pods-EasyDebug_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDebug_Tests.debug.xcconfig"; path = "Target Support Files/Pods-EasyDebug_Tests/Pods-EasyDebug_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +80,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				70EDBB62A3B2531132CD8A5A /* Pods_EasyDebug_Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C732E47B2A79F08900EF230F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C732E48E2A79F08A00EF230F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C732E4982A79F08A00EF230F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +144,9 @@
 			children = (
 				607FACD01AFB9204008FA782 /* EasyDebug_Example.app */,
 				607FACE51AFB9204008FA782 /* EasyDebug_Tests.xctest */,
+				C732E47E2A79F08900EF230F /* EasyDebug_Mac.app */,
+				C732E4912A79F08A00EF230F /* EasyDebug_MacTests.xctest */,
+				C732E49B2A79F08A00EF230F /* EasyDebug_MacUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -200,6 +241,59 @@
 			productReference = 607FACE51AFB9204008FA782 /* EasyDebug_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C732E47D2A79F08900EF230F /* EasyDebug_Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C732E4A92A79F08A00EF230F /* Build configuration list for PBXNativeTarget "EasyDebug_Mac" */;
+			buildPhases = (
+				C732E47A2A79F08900EF230F /* Sources */,
+				C732E47B2A79F08900EF230F /* Frameworks */,
+				C732E47C2A79F08900EF230F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasyDebug_Mac;
+			productName = EasyDebug_Mac;
+			productReference = C732E47E2A79F08900EF230F /* EasyDebug_Mac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C732E4902A79F08A00EF230F /* EasyDebug_MacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C732E4AA2A79F08A00EF230F /* Build configuration list for PBXNativeTarget "EasyDebug_MacTests" */;
+			buildPhases = (
+				C732E48D2A79F08A00EF230F /* Sources */,
+				C732E48E2A79F08A00EF230F /* Frameworks */,
+				C732E48F2A79F08A00EF230F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C732E4932A79F08A00EF230F /* PBXTargetDependency */,
+			);
+			name = EasyDebug_MacTests;
+			productName = EasyDebug_MacTests;
+			productReference = C732E4912A79F08A00EF230F /* EasyDebug_MacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C732E49A2A79F08A00EF230F /* EasyDebug_MacUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C732E4AB2A79F08A00EF230F /* Build configuration list for PBXNativeTarget "EasyDebug_MacUITests" */;
+			buildPhases = (
+				C732E4972A79F08A00EF230F /* Sources */,
+				C732E4982A79F08A00EF230F /* Frameworks */,
+				C732E4992A79F08A00EF230F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C732E49D2A79F08A00EF230F /* PBXTargetDependency */,
+			);
+			name = EasyDebug_MacUITests;
+			productName = EasyDebug_MacUITests;
+			productReference = C732E49B2A79F08A00EF230F /* EasyDebug_MacUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -207,7 +301,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = ED;
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = " zluof on 2023/4/3.\n//  Copyright © 2023 zlfyuan <https://github.com/zlfyuan/>\n//\n//  Permission is hereby granted, free of charge, to any person obtaining a copy\n//  of this software and associated documentation files (the \"Software\"), to deal\n//  in the Software without restriction, including without limitation the rights\n//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n//  copies of the Software, and to permit persons to whom the Software is\n//  furnished to do so, subject to the following conditions:\n//\n//  The above copyright notice and this permission notice shall be included in\n//  all copies or substantial portions of the Software.\n//\n//  THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\n//  THE SOFTWARE\n//";
 				TargetAttributes = {
@@ -222,6 +316,23 @@
 						DevelopmentTeam = A9LKE94T63;
 						LastSwiftMigration = "";
 						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
+					C732E47D2A79F08900EF230F = {
+						CreatedOnToolsVersion = 14.2;
+						DevelopmentTeam = DK3DNWK64E;
+						ProvisioningStyle = Automatic;
+					};
+					C732E4902A79F08A00EF230F = {
+						CreatedOnToolsVersion = 14.2;
+						DevelopmentTeam = DK3DNWK64E;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C732E47D2A79F08900EF230F;
+					};
+					C732E49A2A79F08A00EF230F = {
+						CreatedOnToolsVersion = 14.2;
+						DevelopmentTeam = DK3DNWK64E;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C732E47D2A79F08900EF230F;
 					};
 				};
 			};
@@ -241,6 +352,9 @@
 			targets = (
 				607FACCF1AFB9204008FA782 /* EasyDebug_Example */,
 				607FACE41AFB9204008FA782 /* EasyDebug_Tests */,
+				C732E47D2A79F08900EF230F /* EasyDebug_Mac */,
+				C732E4902A79F08A00EF230F /* EasyDebug_MacTests */,
+				C732E49A2A79F08A00EF230F /* EasyDebug_MacUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -257,6 +371,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		607FACE31AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C732E47C2A79F08900EF230F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C732E48F2A79F08A00EF230F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C732E4992A79F08A00EF230F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -352,6 +487,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C732E47A2A79F08900EF230F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C732E48D2A79F08A00EF230F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C732E4972A79F08A00EF230F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -359,6 +515,16 @@
 			isa = PBXTargetDependency;
 			target = 607FACCF1AFB9204008FA782 /* EasyDebug_Example */;
 			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
+		};
+		C732E4932A79F08A00EF230F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C732E47D2A79F08900EF230F /* EasyDebug_Mac */;
+			targetProxy = C732E4922A79F08A00EF230F /* PBXContainerItemProxy */;
+		};
+		C732E49D2A79F08A00EF230F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C732E47D2A79F08900EF230F /* EasyDebug_Mac */;
+			targetProxy = C732E49C2A79F08A00EF230F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -577,6 +743,189 @@
 			};
 			name = Release;
 		};
+		C732E4A32A79F08A00EF230F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = EasyDebug_Mac/EasyDebug_Mac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = DK3DNWK64E;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023  zluof on 2023/4/3.\n//  Copyright © 2023 zlfyuan <https://github.com/zlfyuan/>\n//\n//  Permission is hereby granted, free of charge, to any person obtaining a copy\n//  of this software and associated documentation files (the \"Software\"), to deal\n//  in the Software without restriction, including without limitation the rights\n//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n//  copies of the Software, and to permit persons to whom the Software is\n//  furnished to do so, subject to the following conditions:\n//\n//  The above copyright notice and this permission notice shall be included in\n//  all copies or substantial portions of the Software.\n//\n//  THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\n//  THE SOFTWARE\n//. All rights reserved.";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zluof.EasyDebug-Mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C732E4A42A79F08A00EF230F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = EasyDebug_Mac/EasyDebug_Mac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DK3DNWK64E;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023  zluof on 2023/4/3.\n//  Copyright © 2023 zlfyuan <https://github.com/zlfyuan/>\n//\n//  Permission is hereby granted, free of charge, to any person obtaining a copy\n//  of this software and associated documentation files (the \"Software\"), to deal\n//  in the Software without restriction, including without limitation the rights\n//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n//  copies of the Software, and to permit persons to whom the Software is\n//  furnished to do so, subject to the following conditions:\n//\n//  The above copyright notice and this permission notice shall be included in\n//  all copies or substantial portions of the Software.\n//\n//  THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\n//  THE SOFTWARE\n//. All rights reserved.";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zluof.EasyDebug-Mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		C732E4A52A79F08A00EF230F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = DK3DNWK64E;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zluof.EasyDebug-MacTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyDebug_Mac.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EasyDebug_Mac";
+			};
+			name = Debug;
+		};
+		C732E4A62A79F08A00EF230F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DK3DNWK64E;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zluof.EasyDebug-MacTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyDebug_Mac.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EasyDebug_Mac";
+			};
+			name = Release;
+		};
+		C732E4A72A79F08A00EF230F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = DK3DNWK64E;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zluof.EasyDebug-MacUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = EasyDebug_Mac;
+			};
+			name = Debug;
+		};
+		C732E4A82A79F08A00EF230F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DK3DNWK64E;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zluof.EasyDebug-MacUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = EasyDebug_Mac;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -603,6 +952,33 @@
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,
 				607FACF41AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C732E4A92A79F08A00EF230F /* Build configuration list for PBXNativeTarget "EasyDebug_Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C732E4A32A79F08A00EF230F /* Debug */,
+				C732E4A42A79F08A00EF230F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C732E4AA2A79F08A00EF230F /* Build configuration list for PBXNativeTarget "EasyDebug_MacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C732E4A52A79F08A00EF230F /* Debug */,
+				C732E4A62A79F08A00EF230F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C732E4AB2A79F08A00EF230F /* Build configuration list for PBXNativeTarget "EasyDebug_MacUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C732E4A72A79F08A00EF230F /* Debug */,
+				C732E4A82A79F08A00EF230F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

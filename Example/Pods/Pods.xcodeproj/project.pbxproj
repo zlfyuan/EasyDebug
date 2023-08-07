@@ -126,7 +126,7 @@
 		5CEAB4706E4C012A11F94A593A0259F0 /* LookinDisplayItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 154D1D99E6B880E739508BF98B64547F /* LookinDisplayItem.m */; };
 		5D0C89F3CDB9ECB7B0909CDB9C0327A2 /* LookinDashboardBlueprint.h in Headers */ = {isa = PBXBuildFile; fileRef = D882D6EDBEB0FE9ECC92E796D10081D6 /* LookinDashboardBlueprint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DB20C7E3D67AA567F1CA384243383AF /* LookinDashboardBlueprint.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF2104A1BE659FABAF3E603694C3046 /* LookinDashboardBlueprint.m */; };
-		6159880060B61BA7AC9BEC30E88309D5 /* EasyDebug-EasyDebug in Resources */ = {isa = PBXBuildFile; fileRef = B8D2C861BC18AF0BE8C4D00927FABC01 /* EasyDebug-EasyDebug */; };
+		6159880060B61BA7AC9BEC30E88309D5 /* EasyDebug.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8D2C861BC18AF0BE8C4D00927FABC01 /* EasyDebug.bundle */; };
 		61B911BED2976065E88D1C0C0953CB2A /* Peertalk.h in Headers */ = {isa = PBXBuildFile; fileRef = C03D27594374F73B45516A792321888C /* Peertalk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62689445D046BBC168B2D87FDA42C9A0 /* LookinConnectionAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 22078B314703304B5FBA0DDD250DEB4D /* LookinConnectionAttachment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		633701D45290F4F6067FB35520E004C3 /* EDApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830964D5981F5F890DC0943D1849302A /* EDApplication.swift */; };
@@ -534,7 +534,7 @@
 		B4F6A31B254F4893BB3FC455078B87D4 /* LookinAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinAttribute.h; path = Src/Main/Shared/LookinAttribute.h; sourceTree = "<group>"; };
 		B699BF8BC49A5E29F3884A815F854C5B /* LKS_ExportManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKS_ExportManager.m; path = Src/Main/Server/Others/LKS_ExportManager.m; sourceTree = "<group>"; };
 		B7FC8962F64333BB95D05EBD70149A5C /* LookinAttrIdentifiers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LookinAttrIdentifiers.m; path = Src/Main/Shared/LookinAttrIdentifiers.m; sourceTree = "<group>"; };
-		B8D2C861BC18AF0BE8C4D00927FABC01 /* EasyDebug-EasyDebug */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "EasyDebug-EasyDebug"; path = EasyDebug.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8D2C861BC18AF0BE8C4D00927FABC01 /* EasyDebug.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyDebug.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E47D438A4A79431DA2D0C44545141E /* LookinIvarTrace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinIvarTrace.h; path = Src/Base/LookinIvarTrace.h; sourceTree = "<group>"; };
 		B991EEDC3C2A1E869F12EABBCAEAD431 /* LKS_MethodTraceManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKS_MethodTraceManager.m; path = Src/Main/Server/Others/LKS_MethodTraceManager.m; sourceTree = "<group>"; };
 		BBED8ADB2DF10C22713C18B7AA65BD42 /* HTTPHeaders.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTPHeaders.swift; path = Source/HTTPHeaders.swift; sourceTree = "<group>"; };
@@ -1142,7 +1142,7 @@
 			children = (
 				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */,
 				73C81E07229F6B91F6F9433E7DDDFA3D /* EasyDebug */,
-				B8D2C861BC18AF0BE8C4D00927FABC01 /* EasyDebug-EasyDebug */,
+				B8D2C861BC18AF0BE8C4D00927FABC01 /* EasyDebug.bundle */,
 				25664483ABF4DC8EC03E7472AA04333B /* LookinServer */,
 				DAC5AADA4ECDBCC8C679B755FD54C0B7 /* Pods-EasyDebug_Example */,
 				3EC9696AB435C670C682532DB7F774B2 /* Pods-EasyDebug_Tests */,
@@ -1474,7 +1474,7 @@
 			);
 			name = "EasyDebug-EasyDebug";
 			productName = EasyDebug;
-			productReference = B8D2C861BC18AF0BE8C4D00927FABC01 /* EasyDebug-EasyDebug */;
+			productReference = B8D2C861BC18AF0BE8C4D00927FABC01 /* EasyDebug.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		B64F376F543950AD70C1D27DF2C90668 /* Pods-EasyDebug_Tests */ = {
@@ -1590,7 +1590,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6159880060B61BA7AC9BEC30E88309D5 /* EasyDebug-EasyDebug in Resources */,
+				6159880060B61BA7AC9BEC30E88309D5 /* EasyDebug.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
