@@ -24,8 +24,9 @@
 //  THE SOFTWARE
 //
 
-
+#if canImport(UIKit)
 import UIKit
+#endif
 
 class EDBaseController: UIViewController {
 

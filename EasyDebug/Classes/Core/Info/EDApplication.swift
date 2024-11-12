@@ -42,7 +42,7 @@ class EDApplication: EDPropertiesListable {
     
     init() {
         self.DevelopmentRegion = value(for: "CFBundleDevelopmentRegion")
-        self.ApplicationName = value(for: "CFBundleDisplayName")
+        self.ApplicationName = value(for: "CFBundleDisplayName") == "-" ? value(for: "CFBundleIdentifier") : value(for: "CFBundleDisplayName")
         self.Identifier = value(for: "CFBundleIdentifier")
         self.BundleName = value(for: "CFBundleName")
         self.Version = value(for: "CFBundleShortVersionString") + " (\(value(for: "CFBundleVersion")))"

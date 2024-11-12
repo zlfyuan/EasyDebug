@@ -24,8 +24,9 @@
 //  THE SOFTWARE
 //
 
-
+#if canImport(UIKit)
 import UIKit
+#endif
 
 protocol EDFeatureActionable {
     func updateSearchResults(for searchText: String?)

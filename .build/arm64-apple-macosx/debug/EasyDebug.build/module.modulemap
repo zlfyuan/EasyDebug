@@ -1,0 +1,4 @@
+module EasyDebug {
+    header "/Users/zhongxiaoxi/zm/iOS/EasyDebug/.build/arm64-apple-macosx/debug/EasyDebug.build/EasyDebug-Swift.h"
+    requires objc
+}

@@ -113,7 +113,7 @@ extension EDNetWorkManger {
                 }()
                 
                 let sec = {
-                    if let secureConnectionStartDate = sessionMetric.secureConnectionStartDate?.timeIntervalSince1970,
+                    if let _ = sessionMetric.secureConnectionStartDate?.timeIntervalSince1970,
                        let secureConnectionEndDate = sessionMetric.secureConnectionEndDate?.timeIntervalSince1970 {
                         return (secureConnectionEndDate - secureConnectionEndDate) * 1000
                     }
@@ -160,7 +160,7 @@ extension EDNetWorkManger {
                     locip = "\(sessionMetric.localAddress ?? "")"
                     remip = "\(sessionMetric.remoteAddress ?? "")"
                 }
-                print("metric path:\(sessionMetric.request.url?.lastPathComponent) 总耗时:\(tot)ms, 域名解析:\(dom)ms, 连接耗时:\(con)ms(包括TLS:\(sec)ms), 请求:\(req)ms, 回调:\(res)ms l:\(locip) r:\(remip)")
+                EDLogInfo("metric path:\(String(describing: sessionMetric.request.url?.lastPathComponent)) 总耗时:\(tot)ms, 域名解析:\(dom)ms, 连接耗时:\(con)ms(包括TLS:\(sec)ms), 请求:\(req)ms, 回调:\(res)ms l:\(locip) r:\(remip)")
         }
         /// 记录请求
         EDNetWorkManger.shared.addNetWorkDataSources(structure)

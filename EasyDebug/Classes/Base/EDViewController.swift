@@ -25,7 +25,9 @@
 //
 
 
+#if canImport(UIKit)
 import UIKit
+#endif
 
 class EDViewController: EDBaseController {
     var root: EDTabBarController? = nil

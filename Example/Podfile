@@ -16,7 +16,7 @@ target 'EasyDebug_Example' do
   pod 'SwiftLint', :configurations => ['Debug']
   pod 'Alamofire'
   
-  pod 'LookinServer', :configurations => ['Debug']
+#  pod 'LookinServer', :configurations => ['Debug']
   target 'EasyDebug_Tests' do
     inherit! :search_paths
 

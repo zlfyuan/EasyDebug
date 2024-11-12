@@ -9,10 +9,18 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>EasyDebug_Mac.xcscheme_^#shared#^_</key>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>C732E4902A79F08A00EF230F</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C732E49A2A79F08A00EF230F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
